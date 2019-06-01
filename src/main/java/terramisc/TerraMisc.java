@@ -73,7 +73,7 @@ public class TerraMisc
 		proxy.registerTileEntities(true);
 		// Register Sound Handler (Client only)
 		proxy.registerSoundHandler();
-		
+
 		TFCMItemsSetup.ItemSetup();
 		
 		// Register Gui Handler

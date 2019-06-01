@@ -1,0 +1,400 @@
+﻿#ru_RU
+#This is the Russian language configuration file
+#translated by Morgana
+
+#==========
+#= Blocks =
+#==========
+//Tallow Candles
+tile.blockTallowCandle.name=Сальная свеча
+tile.blockTallowCandleOff.name=Погасшая сальная свеча
+//Road
+tile.blockRoadIgEx.Andesite.name=Дорожка из андезита
+tile.blockRoadIgEx.Basalt.name=Дорожка из базальта
+tile.blockRoadSed.Chalk.name=Дорожка из мела
+tile.blockRoadSed.Chert.name=Дорожка из кремнистого сланца
+tile.blockRoadSed.Claystone.name=Дорожка из уплотненной глины
+tile.blockRoadSed.Conglomerate.name=Дорожка из конгломерата
+tile.blockRoadIgEx.Dacite.name=Дорожка из дацита
+tile.blockRoadIgIn.Diorite.name=Дорожка из диорита
+tile.blockRoadSed.Dolomite.name=Дорожка из доломита
+tile.blockRoadIgIn.Gabbro.name=Дорожка из габбро
+tile.blockRoadMM.Gneiss.name=Дорожка из гнейса
+tile.blockRoadIgIn.Granite.name=Дорожка из гранита
+tile.blockRoadSed.Limestone.name=Дорожка из известняка
+tile.blockRoadMM.Marble.name=Дорожка из мрамора
+tile.blockRoadMM.Phyllite.name=Дорожка из филлита
+tile.blockRoadMM.Quartzite.name=Дорожка из кварцита
+tile.blockRoadIgEx.Rhyolite.name=Дорожка из риолита
+tile.blockRoadSed.Rock Salt.name=Дорожка из каменной соли
+tile.blockRoadMM.Schist.name=Дорожка из кристаллического сланца
+tile.blockRoadSed.Shale.name=Дорожка из кремнистого сланца
+tile.blockRoadMM.Slate.name=Дорожка из глиннистого сланца
+//Other Things
+tile.blockFruitPress.name=Фруктовый пресс
+
+#=========
+#= Items = 
+#=========
+//Basic Items
+item.CasingBrass.name=Латунный корпус
+item.CasingIron.name=Корпус из кованого железа
+item.CasingRoseGold.name=Корпус из розового золота
+item.Gear.name=Шестерня из кованого железа
+item.CaseinGlue.name=Казеиновый клей
+item.PistonBase.name=Основание поршня
+item.Circuit.name=Примитивная схема
+item.DeerTendon.name=Сухожилие
+item.SinewFiber.name=Сухожильные волокна
+item.SinewString.name=Сухожильные верёвки
+item.SinewBowString.name=Сухожильная тетива
+item.BowLimb.name=Плечи лука
+item.Suet.name=Сало
+item.BowlSuet.name=Миска с расплавлавленным жиром
+item.BowlTallow.0.name=Миска жира
+item.BowlTallow.1.name=Миска жира
+item.BowlTallow.2.name=Миска жира
+item.BrownDye.name=Коричневый краситель
+item.IronDust.name=Железная пыль
+item.BottleFruitJuice.name=Фруктовый сок
+item.BottleFruitWine.name=Фруктовое вино
+item.BottleSugar.name=Сахар в бутылке
+item.BottleJuiceApple.name=Яблочный сок
+item.BottleJuiceOrange.name=Апельсиновый сок
+item.BottleJuiceLemon.name=Лимонный сок
+item.BottleLemonade.name=Лимонад
+item.BottleJuiceOnion.name=Луковый сок
+item.BottleSoyMilk.name=Соевое молоко
+item.SoyPaste.name=Соевая паста
+item.BucketHotWater.name=Деревянное ведро (с горячей водой)
+//Bows and Such
+item.LongBow.name=Длинный лук
+item.CrossBow.name=Арбалет
+//Tallow Candle Dyes
+item.TallowDye.Black.name=Окрашенный жир (Черный)
+item.TallowDye.Red.name=Окрашенный жир (Красный)
+item.TallowDye.Green.name=Окрашенный жир (Зеленый)
+item.TallowDye.Brown.name=Окрашенный жир (Коричневый)
+item.TallowDye.Blue.name=Окрашенный жир (Синий)
+item.TallowDye.Purple.name=Окрашенный жир (Фиолетовый)
+item.TallowDye.Cyan.name=Окрашенный жир (Бирюзовый)
+item.TallowDye.LightGray.name=Окрашенный жир (Светло-серый)
+item.TallowDye.Gray.name=Окрашенный жир (Серый)
+item.TallowDye.Pink.name=Окрашенный жир (Розовый)
+item.TallowDye.Lime.name=Окрашенный жир (Лаймовый)
+item.TallowDye.Yellow.name=Окрашенный жир (Желтый)
+item.TallowDye.LightBlue.name=Окрашенный жир (Светло-голубой)
+item.TallowDye.Magenta.name=Окрашенный жир (Пурпурный)
+item.TallowDye.Orange.name=Окрашенный жир (Оранжевый)
+
+//Bolts
+item.Bolt_BismuthBronze.name=Болт из висмутовой бронзы
+item.Bolt_BlackBronze.name=Болт из черной бронзы
+item.Bolt_BlackSteel.name=Болт из чёрной стали
+item.Bolt_BlueSteel.name=Болт из голубой стали
+item.Bolt_Bronze.name=Болт из бронзы
+item.Bolt_Copper.name=Болт из меди
+item.Bolt_RedSteel.name=Болт из красной стали
+item.Bolt_Steel.name=Болт из стали
+item.Bolt_WroughtIron.name=Болт из кованого железа
+
+//Bolt Heads
+item.Bolt_BismuthBronze_Head.name=Наконечник болта из висмутовой бронзы
+item.Bolt_BlackBronze_Head.name=Наконечник болта из чёрной бронзы
+item.Bolt_BlackSteel_Head.name=Наконечник болта из чёрной стали
+item.Bolt_BlueSteel_Head.name=Наконечник болта из синей стали
+item.Bolt_Bronze_Head.name=Наконечник болта из бронзы
+item.Bolt_Copper_Head.name=Наконечник болта из меди
+item.Bolt_RedSteel_Head.name=Наконечник болта из красной стали
+item.Bolt_Steel_Head.name=Наконечник болта из стали
+item.Bolt_WroughtIron_Head.name=Наконечник болта из кованого железа
+
+//Arrows
+item.Arrow_BismuthBronze.name=Стрела из висмутовой бронзы
+item.Arrow_BlackBronze.name=Стрела из чёрной бронзы
+item.Arrow_BlackSteel.name=Стрела из чёрной стали
+item.Arrow_BlueSteel.name=Стрела из синей стали
+item.Arrow_Bronze.name=Стрела из бронзы
+item.Arrow_Copper.name=Стрела из меди
+item.Arrow_RedSteel.name=Стрела из красной стали
+item.Arrow_Steel.name=Стрела из стали
+item.Arrow_WroughtIron.name=Стрела из кованого железа
+
+//Arrow Heads
+item.Arrow_BismuthBronze_Head.name=Наконечник стрелы из висмутовой бронзы
+item.Arrow_BlackBronze_Head.name=Наконечник стрелы из чёрной бронзы
+item.Arrow_BlackSteel_Head.name=Наконечник стрелы из чёрной стали
+item.Arrow_BlueSteel_Head.name=Наконечник стрелы из синей стали
+item.Arrow_Bronze_Head.name=Наконечник стрелы из бронзы
+item.Arrow_Copper_Head.name=Наконечник стрелы из меди
+item.Arrow_RedSteel_Head.name=Наконечник стрелы из красной стали
+item.Arrow_Steel_Head.name=Наконечник стрелы из стали
+item.Arrow_WroughtIron_Head.name=Наконечник стрелы из кованого железа
+
+//Halberds
+item.Halberd_BismuthBronze.name=Алебарда из висмутовой бронзы
+item.Halberd_BlackBronze.name=Алебарда из чёрной бронзы
+item.Halberd_BlackSteel.name=Алебарда из чёрной стали
+item.Halberd_BlueSteel.name=Алебарда из синей стали
+item.Halberd_Bronze.name=Алебарда из бронзы
+item.Halberd_Copper.name=Алебарда из меди
+item.Halberd_RedSteel.name=Алебарда из красной стали
+item.Halberd_Steel.name=Алебарда из стали
+item.Halberd_WroughtIron.name=Алебарда из кованого железа
+
+//Halberd Tool Heads
+item.Halberd_BismuthBronze_Head.name=Наголовье алебарды из висмутовой бронзы
+item.Halberd_BlackBronze_Head.name=Наголовье алебарды из чёрной бронзы
+item.Halberd_BlackSteel_Head.name=Наголовье алебарды из чёрной стали
+item.Halberd_BlueSteel_Head.name=Наголовье алебарды из синей стали
+item.Halberd_Bronze_Head.name=Наголовье алебарды из бронзы
+item.Halberd_Copper_Head.name=Наголовье алебарды из меди
+item.Halberd_RedSteel_Head.name=Наголовье алебарды из красной стали
+item.Halberd_Steel_Head.name=Наголовье алебарды из стали
+item.Halberd_WroughtIron_Head.name=Наголовье алебарды из кованого железа
+
+//War Hammers
+item.WarHammer_BismuthBronze.name=Боевой молот из висмутовой бронзы
+item.WarHammer_BlackBronze.name=Боевой молот из чёрной бронзы
+item.WarHammer_BlackSteel.name=Боевой молот из чёрной стали
+item.WarHammer_BlueSteel.name=Боевой молот из синей стали
+item.WarHammer_Bronze.name=Боевой молот из бронзы
+item.WarHammer_Copper.name=Боевой молот из меди
+item.WarHammer_RedSteel.name=Боевой молот из красной стали
+item.WarHammer_Steel.name=Боевой молот из стали
+item.WarHammer_WroughtIron.name=Боевой молот из кованого железа
+
+//War Hammer Heads
+item.WarHammer_BismuthBronze_Head.name=Наголовье боевого молота из висмутовой бронзы
+item.WarHammer_BlackBronze_Head.name=Наголовье боевого молота из чёрной бронзы
+item.WarHammer_BlackSteel_Head.name=Наголовье боевого молота из чёрной стали
+item.WarHammer_BlueSteel_Head.name=Наголовье боевого молота из синей стали
+item.WarHammer_Bronze_Head.name=Наголовье боевого молота из бронзы
+item.WarHammer_Copper_Head.name=Наголовье боевого молота из меди
+item.WarHammer_RedSteel_Head.name=Наголовье боевого молота из красной стали
+item.WarHammer_Steel_Head.name=Наголовье боевого молота из стали
+item.WarHammer_WroughtIron_Head.name=Наголовье боевого молота из кованого железа
+
+//Poniards
+item.Poniard_BismuthBronze.name=Кинжал из висмутовой бронзы
+item.Poniard_BlackBronze.name=Кинжал из чёрной бронзы
+item.Poniard_BlackSteel.name=Кинжал из чёрной стали
+item.Poniard_BlueSteel.name=Кинжал из синей стали
+item.Poniard_Bronze.name=Кинжал из бронзы
+item.Poniard_Copper.name=Кинжал из меди
+item.Poniard_RedSteel.name=Кинжал из красной стали
+item.Poniard_Steel.name=Кинжал из стали
+item.Poniard_WroughtIron.name=Кинжал из кованого железа
+
+//Poniard Blades
+item.Poniard_BismuthBronze_Head.name=Лезвие кинжала из висмутовой бронзы
+item.Poniard_BlackBronze_Head.name=Лезвие кинжала из чёрной бронзы
+item.Poniard_BlackSteel_Head.name=Лезвие кинжала из чёрной стали
+item.Poniard_BlueSteel_Head.name=Лезвие кинжала из синей стали
+item.Poniard_Bronze_Head.name=Лезвие кинжала из бронзы
+item.Poniard_Copper_Head.name=Лезвие кинжала из меди
+item.Poniard_RedSteel_Head.name=Лезвие кинжала из красной стали
+item.Poniard_Steel_Head.name=Лезвие кинжала из стали
+item.Poniard_WroughtIron_Head.name=Лезвие кинжала из кованого железа
+
+//Pottery Molds
+item.itemHalberd_Mold.Clay_Mold_Halberd.name=Глинянная форма алебарды
+item.itemHalberd_Mold.Ceramic_Mold_Halberd.name=Керамическая форма алебарды
+item.itemHalberd_Mold.Ceramic_Mold_Halberd_Copper.name=Керамическая форма алебарды (медь)
+item.itemHalberd_Mold.Ceramic_Mold_Halberd_Bronze.name=Керамическая форма алебарды (бронза)
+item.itemHalberd_Mold.Ceramic_Mold_Halberd_BlackBronze.name=Керамическая форма алебарды (чёрная бронза)
+item.itemHalberd_Mold.Ceramic_Mold_Halberd_BismuthBronze.name=Керамическая форма алебарды (висмутовая бронза)
+
+item.itemWarHammer_Mold.Clay_Mold_WarHammer.name=Глинянная форма боевого молота
+item.itemWarHammer_Mold.Ceramic_Mold_WarHammer.name=Керамическая форма боевого молота
+item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_Copper.name=Керамическая форма боевого молота (медь)
+item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_Bronze.name=Керамическая форма боевого молота (бронза)
+item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_BlackBronze.name=Керамическая форма боевого молота (чёрная бронза)
+item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_BismuthBronze.name=Керамическая форма боевого молота (висмутовая бронза)
+
+item.itemPoniard_Mold.Clay_Mold_Poniard.name=Глинянная форма кинжала
+item.itemPoniard_Mold.Ceramic_Mold_Poniard.name=Керамическая форма кинжала
+item.itemPoniard_Mold.Ceramic_Mold_Poniard_Copper.name=Керамическая форма кинжала (медь)
+item.itemPoniard_Mold.Ceramic_Mold_Poniard_Bronze.name=Керамическая форма кинжала (бронза)
+item.itemPoniard_Mold.Ceramic_Mold_Poniard_BlackBronze.name=Керамическая форма кинжала (чёрная бронза)
+item.itemPoniard_Mold.Ceramic_Mold_Poniard_BismuthBronze.name=Керамическая форма кинжала (висмутовая бронза)
+
+item.itemBolt_Mold.Clay_Mold_Bolt.name=Глинянная форма болта
+item.itemBolt_Mold.Ceramic_Mold_Bolt.name=Керамическая форма болта
+item.itemBolt_Mold.Ceramic_Mold_Bolt_Copper.name=Керамическая форма болта (медь)
+item.itemBolt_Mold.Ceramic_Mold_Bolt_Bronze.name=Керамическая форма болта (бронза)
+item.itemBolt_Mold.Ceramic_Mold_Bolt_BlackBronze.name=Керамическая форма болта (чёрная бронза)
+item.itemBolt_Mold.Ceramic_Mold_Bolt_BismuthBronze.name=Керамическая форма болта (висмутовая бронза)
+
+item.itemArrow_Mold.Clay_Mold_Arrow.name=Глинянная форма стрелы
+item.itemArrow_Mold.Ceramic_Mold_Arrow.name=Керамическая форма стрелы
+item.itemArrow_Mold.Ceramic_Mold_Arrow_Copper.name=Керамическая форма стрелы (медь)
+item.itemArrow_Mold.Ceramic_Mold_Arrow_Bronze.name=Керамическая форма стрелы (бронза)
+item.itemArrow_Mold.Ceramic_Mold_Arrow_BlackBronze.name=Керамическая форма стрелы (чёрная бронза)
+item.itemArrow_Mold.Ceramic_Mold_Arrow_BismuthBronze.name=Керамическая форма стрелы (висмутовая бронза)
+
+//Armor
+item.Coil_BismuthBronze.name=Катушка из висмутовой бронзы
+item.Coil_BlackBronze.name=Катушка из чёрной бронзы
+item.Coil_BlackSteel.name=Катушка из чёрной стали
+item.Coil_BlueSteel.name=Катушка из синей стали
+item.Coil_Bronze.name=Катушка из бронзы
+item.Coil_Copper.name=Катушка из меди
+item.Coil_WroughtIron.name=Катушка из кованого железа
+item.Coil_RedSteel.name=Катушка из красной стали
+item.Coil_Steel.name=Катушка из стали
+
+item.Link_BismuthBronze.name=Звено из висмутовой бронзы
+item.Link_BlackBronze.name=Звено из чёрной бронзы
+item.Link_BlackSteel.name=Звено из чёрной стали
+item.Link_BlueSteel.name=Звено из синей стали
+item.Link_Bronze.name=Звено из бронзы
+item.Link_Copper.name=Звено из меди
+item.Link_WroughtIron.name=Звено из кованого железа
+item.Link_RedSteel.name=Звено из красной стали
+item.Link_Steel.name=Звено из стали
+
+item.Chain_Square_BismuthBronze.name=Квадрат цепи из висмутовой бронзы
+item.Chain_Square_BlackBronze.name=Квадрат цепи из чёрной бронзы
+item.Chain_Square_BlackSteel.name=Квадрат цепи из чёрной стали
+item.Chain_Square_BlueSteel.name=Квадрат цепи из синей стали
+item.Chain_Square_Bronze.name=Квадрат цепи из бронзы
+item.Chain_Square_Copper.name=Квадрат цепи из меди
+item.Chain_Square_WroughtIron.name=Квадрат цепи из кованого железа
+item.Chain_Square_RedSteel.name=Квадрат цепи из красной стали
+item.Chain_Square_Steel.name=Квадрат цепи из стали
+
+item.Chain_Sheet_BismuthBronze.name=Цепь из висмутовой бронзы
+item.Chain_Sheet_BlackBronze.name=Цепь из чёрной бронзы
+item.Chain_Sheet_BlackSteel.name=Цепь из чёрной стали
+item.Chain_Sheet_BlueSteel.name=Цепь из синей стали
+item.Chain_Sheet_Bronze.name=Цепь из бронзы
+item.Chain_Sheet_Copper.name=Цепь из меди
+item.Chain_Sheet_WroughtIron.name=Цепь из кованого железа
+item.Chain_Sheet_RedSteel.name=Цепь из красной стали
+item.Chain_Sheet_Steel.name=Цепь из стали
+
+item.BismuthBronze_Chain_Greaves.name=Кольчужные поножи из висмутовой бронзы
+item.BlackBronze_Chain_Greaves.name=Кольчужные поножи из чёрной бронзы
+item.BlackSteel_Chain_Greaves.name=Кольчужные поножи из чёрной стали
+item.BlueSteel_Chain_Greaves.name=Кольчужные поножи из синей стали
+item.Bronze_Chain_Greaves.name=Кольчужные поножи из бронзы
+item.Copper_Chain_Greaves.name=Кольчужные поножи из меди
+item.WroughtIron_Chain_Greaves.name=Кольчужные поножи из кованого железа
+item.RedSteel_Chain_Greaves.name=Кольчужные поножи из красной стали
+item.Steel_Chain_Greaves.name=Кольчужные поножи из стали
+
+item.BismuthBronze_Chain_Chestplate.name=Кольчужный нагрудник из висмутовой бронзы
+item.BlackBronze_Chain_Chestplate.name=Кольчужный нагрудник из чёрной бронзы
+item.BlackSteel_Chain_Chestplate.name=Кольчужный нагрудник из чёрной стали
+item.BlueSteel_Chain_Chestplate.name=Кольчужный нагрудник из синей стали
+item.Bronze_Chain_Chestplate.name=Кольчужный нагрудник из бронзы
+item.Copper_Chain_Chestplate.name=Кольчужный нагрудник из меди
+item.WroughtIron_Chain_Chestplate.name=Кольчужный нагрудник из кованого железа
+item.RedSteel_Chain_Chestplate.name=Кольчужный нагрудник из красной стали
+item.Steel_Chain_Chestplate.name=Кольчужный нагрудник из стали
+
+item.BismuthBronze_Chain_Helmet.name=Кольчужный шлем из висмутовой бронзы 
+item.BlackBronze_Chain_Helmet.name=Кольчужный шлем из черной бронзы
+item.BlackSteel_Chain_Helmet.name=Кольчужный шлем из чёрной стали
+item.BlueSteel_Chain_Helmet.name=Кольчужный шлем из синей стали
+item.Bronze_Chain_Helmet.name=Кольчужный шлем из бронзы
+item.Copper_Chain_Helmet.name=Кольчужный шлем из меди
+item.WroughtIron_Chain_Helmet.name=Кольчужный шлем из кованного железа
+item.RedSteel_Chain_Helmet.name=Кольчужный шлем из красной стали
+item.Steel_Chain_Helmet.name=Кольчужный шлем из стали
+
+#=======
+#= GUI =
+#=======
+//Anvil Plans
+gui.plans.casing=Корпус
+gui.plans.clockgear=Шестерня
+gui.plans.coil=Катушка
+gui.plans.link=Звено
+gui.plans.pistonhead=Наголовье поршня
+gui.plans.pistonshaft=Стержень поршня
+gui.plans.circuit=Цепь
+gui.plans.halberd=Наголовье алебарды
+gui.plans.warhammer=Наголовье боевого молота
+gui.plans.poniard=Лезвие кинжала
+gui.plans.bolt=Наконечник болта
+gui.plans.arrow=Наконечник стрелы
+
+#===========
+#= Fluids =
+#===========
+
+fluid.fruitjuice=Фруктовый сок
+fluid.fruitwine=Фруктовое вино
+fluid.juiceapple=Яблочный сок
+fluid.juiceorange=Апельсиновый сок
+fluid.juicelemon=Лимонный сок
+fluid.lemonade=Лимонад
+fluid.soymilk=Соевое молоко
+fluid.waterhot=Горячая вода
+fluid.juiceonion=Луковый сок
+
+#=================
+#= Achievements =
+#=================
+
+achievement.HalberdAchievement=Ты сделал алебарду! Йу-ху!
+achievement.HalberdAchievement.desc=Создать алебарду.
+achievement.WarHammerAchievement=Крушитель черепов!
+achievement.WarHammerAchievement.desc=Создать боевой молот.
+achievement.PoniardAchievement=Ты убийца, Эцио!
+achievement.PoniardAchievement.desc=Создать кинжал.
+
+achievement.SinewAchievement=Фууу, склизкое!
+achievement.SinewAchievement.desc=Собрать сухожилия с оленя, лошади или другого парнокопытного.
+achievement.LongbowAchievement=Я не убегу, я буду стрелять.
+achievement.LongbowAchievement.desc=Создать длинный лук.
+achievement.CrossbowAchievement=Следи за языком, солнышко.
+achievement.CrossbowAchievement.desc=Создать арбалет.
+
+achievement.ChainArmorAchievement=Сковано!
+achievement.ChainArmorAchievement.desc=Создайте кусок кольчуги.
+achievement.SuetAchievement=Оно колышется!
+achievement.SuetAchievement.desc=Собрать жир с овцы, медведя и коровы.
+achievement.CandleAchievement=Воск!
+achievement.CandleAchievement.desc=Создайте сальную свечу.
+
+achievement.RedstoneTileAchievement=Подключено!
+achievement.RedstoneTileAchievement.desc=Создайте повторитель или компаратор используя примитивную схему.
+achievement.PistonAchievement=Подвинься!
+achievement.PistonAchievement.desc=Создайте поршень.
+
+achievement.FruitPressAchievement=Топчите его ногами!
+achievement.FruitPressAchievement.desc=Создать фруктовый пресс.
+achievement.WineAchievement=Счастливый котёнок, сонный котёнок, пьяный котёнок!
+achievement.WineAchievement.desc=Выпейте фруктовое вино.
+achievement.SugarAchievement=Сахар-Сахарок!
+achievement.SugarAchievement.desc=Создать сахар в бутылке.
+achievement.JuiceOrangeAchievement=С утра пораньше!
+achievement.JuiceOrangeAchievement.desc=Выпить апельсиновый сок.
+achievement.JuiceLemonAchievement=Лимонная голова!
+achievement.JuiceLemonAchievement.desc=Выпить лимонный сок.
+achievement.LemonadeAchievement=Летний денек!
+achievement.LemonadeAchievement.desc=Выпить лимонад.
+
+#===========
+#= Strings =
+#===========
+
+
+#========
+#= Misc =
+#========
+
+#== Creative Tabs ==
+
+
+#=========
+#= WAILA =
+#=========
+
+#== Tooltips ==
+
+
+#== Options ==
