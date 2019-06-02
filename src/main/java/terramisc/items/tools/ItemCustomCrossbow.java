@@ -56,7 +56,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 	public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player)
 	{	
 		//Sets up data for crossbow on use, should prevent crashing.
-		if(is.stackTagCompound == null)
+		if (is.stackTagCompound == null)
 		{
 			is.stackTagCompound = new NBTTagCompound();
 			is.stackTagCompound.setBoolean("load", false);
@@ -65,21 +65,21 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 		}
 		
 		//To try to prevent crashing, from cheated in crossbows.
-		if(is.stackTagCompound != null)
+		if (is.stackTagCompound != null)
 		{
 			//Check to see if player is in creative mode or has enchantments.
 			boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
 			//First we check the if there is ammo in the player's quiver
-			boolean hasQuiverAmmo = flag || this.hasAmmoQuiver(is, player);
+			boolean hasQuiverAmmo = flag || this.playerHasAmmoQuiver(player) != 0;
 			boolean hasAmmo = false;
 			//If there was no quiver or ammo, we check the inventory.
-			if(!hasQuiverAmmo)
+			if (!hasQuiverAmmo)
 			{
-				hasAmmo = this.hasAmmo(is, player);
+				hasAmmo = this.playerHasAmmo(player) != 0;
 			}
-			
+
 			//Load the crossbow if its unloaded, and has ammo.
-			if((hasQuiverAmmo || hasAmmo) && is.getTagCompound().getBoolean("load") == false)
+			if ((hasQuiverAmmo || hasAmmo) && is.getTagCompound().getBoolean("load") == false)
 			{
 				ArrowNockEvent event = new ArrowNockEvent(player, is);
 				MinecraftForge.EVENT_BUS.post(event);
@@ -92,7 +92,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 			}
 			
 			//If Crossbow is already loaded
-			if(is.getTagCompound().getBoolean("load") == true)
+			if (is.getTagCompound().getBoolean("load") == true)
 			{					
 				this.fireCrossbow(is, world, player, is.getTagCompound().getFloat("forceMult"));
 			}
@@ -105,7 +105,6 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 	public void onPlayerStoppedUsing(ItemStack is, World world, EntityPlayer player, int inUseCount)
 	{
 		boolean load = is.getTagCompound().getBoolean("load");
-		int ammo = is.getTagCompound().getInteger("ammo");
 		
 		int j = this.getMaxItemUseDuration(is) - inUseCount;
 		float forceMult = j / getUseSpeed(player);
@@ -113,15 +112,15 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 		//Check to see if player is in creative mode or has enchantments.
 		boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
 		//First we check the if there is ammo in the player's quiver
-		boolean hasQuiverAmmo = flag || this.hasAmmoQuiver(is, player);
+		boolean hasQuiverAmmo = flag || this.playerHasAmmoQuiver(player) != 0;
 		boolean hasAmmo = false;
 		//If there was no quiver or ammo, we check the inventory.
-		if(!hasQuiverAmmo)
+		if (!hasQuiverAmmo)
 		{
-			hasAmmo = this.hasAmmo(is, player);
+			hasAmmo = this.playerHasAmmo(player) != 0;
 		}
 		
-		if(load == false)
+		if (load == false)
 		{
 			if (forceMult < 1.80F)
 			{
@@ -133,6 +132,9 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 				
 				if(hasAmmo)
 				{
+					int ammo = playerHasAmmo(player);
+					writeAmmoToCrossbow(is, ammo);
+
 					switch(ammo)
 					{
 					case 1: player.inventory.consumeInventoryItem(TFCMItems.bolt_Copper);
@@ -159,6 +161,8 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 				}
 				else if(hasQuiverAmmo)
 				{
+					int ammo = playerHasAmmoQuiver(player);
+					writeAmmoToCrossbow(is, ammo);
 					this.consumeBoltInQuiver(player, ammo);
 				}
 				
@@ -167,62 +171,61 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 			}
 		}
 	}
+
+	public boolean crossbowHasAmmoLoaded(ItemStack is) {
+		return is.stackTagCompound.getInteger("ammo") != 0;
+	}
+
+	public void writeAmmoToCrossbow(ItemStack is, Integer ammo) {
+		is.stackTagCompound.setInteger("ammo", ammo);
+	}
 	
 	//Checks to see if player has ammo, and what type of ammo he/she has.
-		//Selects the lowest tier of ammo first.
-	public boolean hasAmmo(ItemStack is, EntityPlayer player) 
-	{	
+	//Selects the lowest tier of ammo first.
+	public int playerHasAmmo(EntityPlayer player)
+	{
 		if(player.inventory.hasItem(TFCMItems.bolt_Copper))
 		{
-			is.stackTagCompound.setInteger("ammo", 1);
-			return true;
+			return 1;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_BismuthBronze))
 		{
-			is.stackTagCompound.setInteger("ammo", 2);
-			return true;
+			return 2;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_Bronze))
 		{
-			is.stackTagCompound.setInteger("ammo", 3);
-			return true;
+			return 3;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_BlackBronze))
 		{
-			is.stackTagCompound.setInteger("ammo", 4);
-			return true;
+			return 4;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_WroughtIron))
 		{
-			is.stackTagCompound.setInteger("ammo", 5);
-			return true;
+			return 5;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_Steel))
 		{
-			is.stackTagCompound.setInteger("ammo", 6);
-			return true;
+			return 6;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_BlackSteel))
 		{
-			is.stackTagCompound.setInteger("ammo", 7);
-			return true;
+			return 7;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_BlueSteel))
 		{
-			is.stackTagCompound.setInteger("ammo", 8);
-			return true;
+			return 8;
 		}
 		if(player.inventory.hasItem(TFCMItems.bolt_RedSteel))
 		{
-			is.stackTagCompound.setInteger("ammo", 9);
-			return true;
+			return 9;
 		}
 
-		return false;
+		return 0;
 	}
 	
 	//Checks the custom quiver for crossbow ammo.
-	public boolean hasAmmoQuiver(ItemStack is, EntityPlayer player)
+	public int playerHasAmmoQuiver(EntityPlayer player)
 	{
 		ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 		
@@ -231,12 +234,10 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 			if(((ItemCustomQuiver)quiver.getItem()).hasBoltAmmo(quiver) != null)
 			{
 				int t = ((ItemCustomQuiver)quiver.getItem()).getQuiverMetalBoltTier(quiver);
-				is.stackTagCompound.setInteger("ammo", t);
-				
-				return true;
+				return t;
 			}
 		}
-		return false;
+		return 0;
 	}
 	
 	//Removes ammo from quiver.
@@ -385,8 +386,8 @@ public class ItemCustomCrossbow extends ItemBow implements ISize
 		{
 			world.spawnEntityInWorld(entityarrow);
 		}
-		
-		is.getTagCompound().setInteger("ammo", 0);
+
+		is.stackTagCompound.setInteger("ammo", 0);
 		is.stackTagCompound.setFloat("forceMult", 0);
 		is.stackTagCompound.setBoolean("load", false);
 	}

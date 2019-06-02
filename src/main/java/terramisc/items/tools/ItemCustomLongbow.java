@@ -55,12 +55,12 @@ public class ItemCustomLongbow extends ItemBow implements ISize
 		//Check to see if player is in creative mode or has enchantments.
 		boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
 		//First we check the if there is ammo in the player's quiver
-		boolean hasQuiverAmmo = flag || this.hasAmmoQuiver(is, player);
+		boolean hasQuiverAmmo = flag || this.writeTagCompoundIfPlayerHasAmmoQuiver(is, player);
 		boolean hasAmmo = false;
 		//If there was no quiver or ammo, we check the inventory.
 		if(!hasQuiverAmmo)
 		{
-			hasAmmo = this.hasAmmo(is, player);
+			hasAmmo = this.writeTagCompoundIfPlayerHasAmmo(is, player);
 		}
 		
 		if(hasQuiverAmmo || hasAmmo)
@@ -96,12 +96,12 @@ public class ItemCustomLongbow extends ItemBow implements ISize
 		//Check to see if player is in creative mode or has enchantments.
 		boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
 		//First we check the if there is ammo in the player's quiver
-		boolean hasQuiverAmmo = flag || this.hasAmmoQuiver(is, player);
+		boolean hasQuiverAmmo = flag || this.writeTagCompoundIfPlayerHasAmmoQuiver(is, player);
 		boolean hasAmmo = false;
 		//If there was no quiver or ammo, we check the inventory.
 		if(!hasQuiverAmmo)
 		{
-			hasAmmo = this.hasAmmo(is, player);
+			hasAmmo = this.writeTagCompoundIfPlayerHasAmmo(is, player);
 		}
 		
 		if (hasQuiverAmmo || hasAmmo)
@@ -231,8 +231,8 @@ public class ItemCustomLongbow extends ItemBow implements ISize
 	}
 
 	//Checks to see if player has ammo, and what type of ammo he/she has.
-			//Selects the lowest tier of ammo first.
-	public boolean hasAmmo(ItemStack is, EntityPlayer player) 
+	//Selects the lowest tier of ammo first.
+	public boolean writeTagCompoundIfPlayerHasAmmo(ItemStack is, EntityPlayer player)
 	{	
 		if(player.inventory.hasItem(TFCItems.arrow))
 		{
@@ -289,7 +289,7 @@ public class ItemCustomLongbow extends ItemBow implements ISize
 	}
 	
 	//Checks the custom quiver for bow ammo.
-	public boolean hasAmmoQuiver(ItemStack is, EntityPlayer player)
+	public boolean writeTagCompoundIfPlayerHasAmmoQuiver(ItemStack is, EntityPlayer player)
 	{
 		ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 		
