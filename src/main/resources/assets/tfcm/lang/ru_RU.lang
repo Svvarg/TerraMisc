@@ -1,19 +1,21 @@
 ﻿#ru_RU
 #This is the Russian language configuration file
-#translated by Morgana
+#translated by MOTOR_plus
 
 #==========
 #= Blocks =
 #==========
+
 //Tallow Candles
 tile.blockTallowCandle.name=Сальная свеча
 tile.blockTallowCandleOff.name=Погасшая сальная свеча
+
 //Road
 tile.blockRoadIgEx.Andesite.name=Дорожка из андезита
 tile.blockRoadIgEx.Basalt.name=Дорожка из базальта
 tile.blockRoadSed.Chalk.name=Дорожка из мела
 tile.blockRoadSed.Chert.name=Дорожка из кремнистого сланца
-tile.blockRoadSed.Claystone.name=Дорожка из уплотненной глины
+tile.blockRoadSed.Claystone.name=Дорожка из аргиллита
 tile.blockRoadSed.Conglomerate.name=Дорожка из конгломерата
 tile.blockRoadIgEx.Dacite.name=Дорожка из дацита
 tile.blockRoadIgIn.Diorite.name=Дорожка из диорита
@@ -23,19 +25,21 @@ tile.blockRoadMM.Gneiss.name=Дорожка из гнейса
 tile.blockRoadIgIn.Granite.name=Дорожка из гранита
 tile.blockRoadSed.Limestone.name=Дорожка из известняка
 tile.blockRoadMM.Marble.name=Дорожка из мрамора
-tile.blockRoadMM.Phyllite.name=Дорожка из филлита
+tile.blockRoadMM.Phyllite.name=Дорожка из слюдяного сланца
 tile.blockRoadMM.Quartzite.name=Дорожка из кварцита
 tile.blockRoadIgEx.Rhyolite.name=Дорожка из риолита
 tile.blockRoadSed.Rock Salt.name=Дорожка из каменной соли
 tile.blockRoadMM.Schist.name=Дорожка из кристаллического сланца
-tile.blockRoadSed.Shale.name=Дорожка из кремнистого сланца
+tile.blockRoadSed.Shale.name=Дорожка из уплотненной глины
 tile.blockRoadMM.Slate.name=Дорожка из глиннистого сланца
+
 //Other Things
 tile.blockFruitPress.name=Фруктовый пресс
 
 #=========
 #= Items = 
 #=========
+
 //Basic Items
 item.CasingBrass.name=Латунный корпус
 item.CasingIron.name=Корпус из кованого железа
@@ -50,8 +54,8 @@ item.SinewString.name=Сухожильные верёвки
 item.SinewBowString.name=Сухожильная тетива
 item.BowLimb.name=Плечи лука
 item.Suet.name=Сало
-item.BowlSuet.name=Миска с расплавлавленным жиром
-item.BowlTallow.0.name=Миска жира
+item.BowlSuet.name=Миска с жиром
+item.BowlTallow.0.name=Миска расплавленного жира
 item.BowlTallow.1.name=Миска жира
 item.BowlTallow.2.name=Миска жира
 item.BrownDye.name=Коричневый краситель
@@ -67,9 +71,11 @@ item.BottleJuiceOnion.name=Луковый сок
 item.BottleSoyMilk.name=Соевое молоко
 item.SoyPaste.name=Соевая паста
 item.BucketHotWater.name=Деревянное ведро (с горячей водой)
+
 //Bows and Such
 item.LongBow.name=Длинный лук
 item.CrossBow.name=Арбалет
+
 //Tallow Candle Dyes
 item.TallowDye.Black.name=Окрашенный жир (Черный)
 item.TallowDye.Red.name=Окрашенный жир (Красный)
@@ -86,6 +92,9 @@ item.TallowDye.Yellow.name=Окрашенный жир (Желтый)
 item.TallowDye.LightBlue.name=Окрашенный жир (Светло-голубой)
 item.TallowDye.Magenta.name=Окрашенный жир (Пурпурный)
 item.TallowDye.Orange.name=Окрашенный жир (Оранжевый)
+item.Pumpkin.name=Тыква
+item.Seeds Pumpkin.name=Семена тыквы
+item.Bear.name=Мясо медведя
 
 //Bolts
 item.Bolt_BismuthBronze.name=Болт из висмутовой бронзы
@@ -198,40 +207,40 @@ item.Poniard_Steel_Head.name=Лезвие кинжала из стали
 item.Poniard_WroughtIron_Head.name=Лезвие кинжала из кованого железа
 
 //Pottery Molds
-item.itemHalberd_Mold.Clay_Mold_Halberd.name=Глинянная форма алебарды
-item.itemHalberd_Mold.Ceramic_Mold_Halberd.name=Керамическая форма алебарды
-item.itemHalberd_Mold.Ceramic_Mold_Halberd_Copper.name=Керамическая форма алебарды (медь)
-item.itemHalberd_Mold.Ceramic_Mold_Halberd_Bronze.name=Керамическая форма алебарды (бронза)
-item.itemHalberd_Mold.Ceramic_Mold_Halberd_BlackBronze.name=Керамическая форма алебарды (чёрная бронза)
-item.itemHalberd_Mold.Ceramic_Mold_Halberd_BismuthBronze.name=Керамическая форма алебарды (висмутовая бронза)
+item.Halberd_Mold.Clay_Mold_Halberd.name=Глинянная форма алебарды
+item.Halberd_Mold.Ceramic_Mold_Halberd.name=Керамическая форма алебарды
+item.Halberd_Mold.Ceramic_Mold_Halberd_Copper.name=Керамическая форма алебарды (медь)
+item.Halberd_Mold.Ceramic_Mold_Halberd_Bronze.name=Керамическая форма алебарды (бронза)
+item.Halberd_Mold.Ceramic_Mold_Halberd_BlackBronze.name=Керамическая форма алебарды (чёрная бронза)
+item.Halberd_Mold.Ceramic_Mold_Halberd_BismuthBronze.name=Керамическая форма алебарды (висмутовая бронза)
 
-item.itemWarHammer_Mold.Clay_Mold_WarHammer.name=Глинянная форма боевого молота
-item.itemWarHammer_Mold.Ceramic_Mold_WarHammer.name=Керамическая форма боевого молота
-item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_Copper.name=Керамическая форма боевого молота (медь)
-item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_Bronze.name=Керамическая форма боевого молота (бронза)
-item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_BlackBronze.name=Керамическая форма боевого молота (чёрная бронза)
-item.itemWarHammer_Mold.Ceramic_Mold_WarHammer_BismuthBronze.name=Керамическая форма боевого молота (висмутовая бронза)
+item.WarHammer_Mold.Clay_Mold_WarHammer.name=Глинянная форма боевого молота
+item.WarHammer_Mold.Ceramic_Mold_WarHammer.name=Керамическая форма боевого молота
+item.WarHammer_Mold.Ceramic_Mold_WarHammer_Copper.name=Керамическая форма боевого молота (медь)
+item.WarHammer_Mold.Ceramic_Mold_WarHammer_Bronze.name=Керамическая форма боевого молота (бронза)
+item.WarHammer_Mold.Ceramic_Mold_WarHammer_BlackBronze.name=Керамическая форма боевого молота (чёрная бронза)
+item.WarHammer_Mold.Ceramic_Mold_WarHammer_BismuthBronze.name=Керамическая форма боевого молота (висмутовая бронза)
 
-item.itemPoniard_Mold.Clay_Mold_Poniard.name=Глинянная форма кинжала
-item.itemPoniard_Mold.Ceramic_Mold_Poniard.name=Керамическая форма кинжала
-item.itemPoniard_Mold.Ceramic_Mold_Poniard_Copper.name=Керамическая форма кинжала (медь)
-item.itemPoniard_Mold.Ceramic_Mold_Poniard_Bronze.name=Керамическая форма кинжала (бронза)
-item.itemPoniard_Mold.Ceramic_Mold_Poniard_BlackBronze.name=Керамическая форма кинжала (чёрная бронза)
-item.itemPoniard_Mold.Ceramic_Mold_Poniard_BismuthBronze.name=Керамическая форма кинжала (висмутовая бронза)
+item.Poniard_Mold.Clay_Mold_Poniard.name=Глинянная форма кинжала
+item.Poniard_Mold.Ceramic_Mold_Poniard.name=Керамическая форма кинжала
+item.Poniard_Mold.Ceramic_Mold_Poniard_Copper.name=Керамическая форма кинжала (медь)
+item.Poniard_Mold.Ceramic_Mold_Poniard_Bronze.name=Керамическая форма кинжала (бронза)
+item.Poniard_Mold.Ceramic_Mold_Poniard_BlackBronze.name=Керамическая форма кинжала (чёрная бронза)
+item.oniard_Mold.Ceramic_Mold_Poniard_BismuthBronze.name=Керамическая форма кинжала (висмутовая бронза)
 
-item.itemBolt_Mold.Clay_Mold_Bolt.name=Глинянная форма болта
-item.itemBolt_Mold.Ceramic_Mold_Bolt.name=Керамическая форма болта
-item.itemBolt_Mold.Ceramic_Mold_Bolt_Copper.name=Керамическая форма болта (медь)
-item.itemBolt_Mold.Ceramic_Mold_Bolt_Bronze.name=Керамическая форма болта (бронза)
-item.itemBolt_Mold.Ceramic_Mold_Bolt_BlackBronze.name=Керамическая форма болта (чёрная бронза)
-item.itemBolt_Mold.Ceramic_Mold_Bolt_BismuthBronze.name=Керамическая форма болта (висмутовая бронза)
+item.Bolt_Mold.Clay_Mold_Bolt.name=Глинянная форма болта
+item.Bolt_Mold.Ceramic_Mold_Bolt.name=Керамическая форма болта
+item.Bolt_Mold.Ceramic_Mold_Bolt_Copper.name=Керамическая форма болта (медь)
+item.Bolt_Mold.Ceramic_Mold_Bolt_Bronze.name=Керамическая форма болта (бронза)
+item.Bolt_Mold.Ceramic_Mold_Bolt_BlackBronze.name=Керамическая форма болта (чёрная бронза)
+item.Bolt_Mold.Ceramic_Mold_Bolt_BismuthBronze.name=Керамическая форма болта (висмутовая бронза)
 
-item.itemArrow_Mold.Clay_Mold_Arrow.name=Глинянная форма стрелы
-item.itemArrow_Mold.Ceramic_Mold_Arrow.name=Керамическая форма стрелы
-item.itemArrow_Mold.Ceramic_Mold_Arrow_Copper.name=Керамическая форма стрелы (медь)
-item.itemArrow_Mold.Ceramic_Mold_Arrow_Bronze.name=Керамическая форма стрелы (бронза)
-item.itemArrow_Mold.Ceramic_Mold_Arrow_BlackBronze.name=Керамическая форма стрелы (чёрная бронза)
-item.itemArrow_Mold.Ceramic_Mold_Arrow_BismuthBronze.name=Керамическая форма стрелы (висмутовая бронза)
+item.Arrow_Mold.Clay_Mold_Arrow.name=Глинянная форма стрелы
+item.Arrow_Mold.Ceramic_Mold_Arrow.name=Керамическая форма стрелы
+item.Arrow_Mold.Ceramic_Mold_Arrow_Copper.name=Керамическая форма стрелы (медь)
+item.Arrow_Mold.Ceramic_Mold_Arrow_Bronze.name=Керамическая форма стрелы (бронза)
+item.Arrow_Mold.Ceramic_Mold_Arrow_BlackBronze.name=Керамическая форма стрелы (чёрная бронза)
+item.Arrow_Mold.Ceramic_Mold_Arrow_BismuthBronze.name=Керамическая форма стрелы (висмутовая бронза)
 
 //Armor
 item.Coil_BismuthBronze.name=Катушка из висмутовой бронзы
@@ -307,6 +316,7 @@ item.Steel_Chain_Helmet.name=Кольчужный шлем из стали
 #=======
 #= GUI =
 #=======
+
 //Anvil Plans
 gui.plans.casing=Корпус
 gui.plans.clockgear=Шестерня
@@ -377,6 +387,25 @@ achievement.JuiceLemonAchievement=Лимонная голова!
 achievement.JuiceLemonAchievement.desc=Выпить лимонный сок.
 achievement.LemonadeAchievement=Летний денек!
 achievement.LemonadeAchievement.desc=Выпить лимонад.
+
+//Stained Clay
+tile.blockClay.name=Глиняный блок
+tile.blockStainedClay.hardened_clay.name=Высушенная глина
+tile.blockStainedClay.hardened_clay_stained_black.name=Чёрный глиняный блок
+tile.blockStainedClay.hardened_clay_stained_red.name=Красный глиняный блок
+tile.blockStainedClay.hardened_clay_stained_green.name=Зелёный глиняный блок
+tile.blockStainedClay.hardened_clay_stained_brown.name=Коричневый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_blue.name=Синий глиняный блок
+tile.blockStainedClay.hardened_clay_stained_purple.name=Пурпурный глиняный блок
+tile.blockStainedClay.hardened_clay_stained_cyan.name=Бирюзовый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_silver.name=Светло-серый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_gray.name=Серый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_pink.name=Розовый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_lime.name=Лаймовый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_yellow.name=Жёлтый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_light_blue.name=Голубой глиняный блок
+tile.blockStainedClay.hardened_clay_stained_magenta.name=Фиолетовый глиняный блок
+tile.blockStainedClay.hardened_clay_stained_orange.name=Оранжевый глиняный блок
 
 #===========
 #= Strings =
