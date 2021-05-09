@@ -1,6 +1,14 @@
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
+        jcenter {
+            url "https://jcenter.bintray.com"
+        }
+        maven {
+            name = "maven"
+            url = "https://repo1.maven.org/maven2"
+        }
         maven {
             name = "Minecraft Forge"
             url = "http://files.minecraftforge.net/maven"
@@ -29,11 +37,21 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'forge'
     apply plugin: 'maven'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+    
     group = config.group_name
     version = config.mod_version
     archivesBaseName = "[${config.minecraft_version}]${config.mod_id}"
 
+    minecraft {
+        version = "1.7.10-10.13.4.1614-1.7.10"
+        runDir = "run"
+    }
+    
 repositories {
+    mavenLocal()
     maven { // The repo from which to get waila
         name "Mobius Repo"
         url "http://mobiusstrip.eu/maven"
@@ -43,14 +61,14 @@ repositories {
         name 'CB Repo'
         url "http://chickenbones.net/maven/"
     }
-    maven { // the repo from which to get NEI and stuff
-        name 'test'
-        url "https://modmaven.k-4u.nl/"
-    }
-    maven { // the repo from which to get NEI and stuff
-        name 'test2'
-        url "https://maven.cil.li/"
-    }
+//    maven { // the repo from which to get NEI and stuff
+//        name 'test'
+//        url "https://modmaven.k-4u.nl/"
+//    }
+//    maven { // the repo from which to get NEI and stuff
+//        name 'test2'
+//        url "https://maven.cil.li/"
+//    }
 }
 
 dependencies {
@@ -59,17 +77,11 @@ dependencies {
 	compile "codechicken:CodeChickenLib:1.7.10-1.1.3.127:dev"
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.4.95:dev"
 	compile "mcp.mobius.waila:Waila:1.5.11-RC2-NONEI_1.7.10"
+        
+        //compile "com.bioxx.tfc:TerraFirmaCraft:1.7.10-0.79.38-SE-SRV"
 }
 
 
-    minecraft {
-        version = config.minecraft_version + "-" + config.forge_version
-        if(file('../run').exists()) {
-            runDir = "../run"
-        } else {
-            runDir = ""
-        }
-    }
 }
 
 //Creates a compiled de-obfuscated jar
