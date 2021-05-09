@@ -5,6 +5,7 @@ import com.bioxx.tfc.TerraFirmaCraft;
 import com.bioxx.tfc.Food.ItemFoodMeat;
 import com.bioxx.tfc.Food.ItemFoodTFC;
 import com.bioxx.tfc.api.Enums.EnumFoodGroup;
+import com.bioxx.tfc.api.TFCItems;
 
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
@@ -44,25 +45,25 @@ public class TFCMItemsSetup extends TFCMItems {
 
     public static void ItemSetup() {
         //Materials
-        ToolMaterial CopperToolMaterial;
-        ToolMaterial BronzeToolMaterial;
-        ToolMaterial BismuthBronzeToolMaterial;
-        ToolMaterial BlackBronzeToolMaterial;
-        ToolMaterial IronToolMaterial;
-        ToolMaterial SteelToolMaterial;
-        ToolMaterial BlackSteelToolMaterial;
-        ToolMaterial BlueSteelToolMaterial;
-        ToolMaterial RedSteelToolMaterial;
+//        ToolMaterial TFCItems.copperToolMaterial;
+//        ToolMaterial BronzeToolMaterial;
+//        ToolMaterial BismuthBronzeToolMaterial;
+//        ToolMaterial BlackBronzeToolMaterial;
+//        ToolMaterial IronToolMaterial;
+//        ToolMaterial SteelToolMaterial;
+//        ToolMaterial BlackSteelToolMaterial;
+//        ToolMaterial BlueSteelToolMaterial;
+//        ToolMaterial RedSteelToolMaterial;
 
-        int CopperUses = 600;
-        int BronzeUses = 1300;
-        int BismuthBronzeUses = 1200;
-        int BlackBronzeUses = 1460;
-        int WroughtIronUses = 2200;
-        int SteelUses = 3300;
-        int BlackSteelUses = 4200;
-        int BlueSteelUses = 6500;
-        int RedSteelUses = 6500;
+//        int CopperUses = 600;
+//        int BronzeUses = 1300;
+//        int BismuthBronzeUses = 1200;
+//        int BlackBronzeUses = 1460;
+//        int WroughtIronUses = 2200;
+//        int SteelUses = 3300;
+//        int BlackSteelUses = 4200;
+//        int BlueSteelUses = 6500;
+//        int RedSteelUses = 6500;
 
         float CopperEff = 8;
         float BronzeEff = 11;
@@ -74,15 +75,15 @@ public class TFCMItemsSetup extends TFCMItems {
         float BlueSteelEff = 18;
         float RedSteelEff = 18;
 
-        CopperToolMaterial = EnumHelper.addToolMaterial("Copper", 2, CopperUses, CopperEff, 65, 8);
-        BronzeToolMaterial = EnumHelper.addToolMaterial("Bronze", 2, BronzeUses, BronzeEff, 100, 13);
-        BismuthBronzeToolMaterial = EnumHelper.addToolMaterial("BismuthBronze", 2, BismuthBronzeUses, BismuthBronzeEff, 90, 10);
-        BlackBronzeToolMaterial = EnumHelper.addToolMaterial("BlackBronze", 2, BlackBronzeUses, BlackBronzeEff, 95, 10);
-        IronToolMaterial = EnumHelper.addToolMaterial("Iron", 2, WroughtIronUses, WroughtIronEff, 135, 10);
-        SteelToolMaterial = EnumHelper.addToolMaterial("Steel", 2, SteelUses, SteelEff, 170, 10);
-        BlackSteelToolMaterial = EnumHelper.addToolMaterial("BlackSteel", 2, BlackSteelUses, BlackSteelEff, 205, 12);
-        BlueSteelToolMaterial = EnumHelper.addToolMaterial("BlueSteel", 3, BlueSteelUses, BlueSteelEff, 240, 22);
-        RedSteelToolMaterial = EnumHelper.addToolMaterial("RedSteel", 3, RedSteelUses, RedSteelEff, 240, 22);
+//        TFCItems.copperToolMaterial = EnumHelper.addToolMaterial("Copper", 2, CopperUses, CopperEff, 65, 8);
+//        BronzeToolMaterial = EnumHelper.addToolMaterial("Bronze", 2, BronzeUses, BronzeEff, 100, 13);
+//        BismuthBronzeToolMaterial = EnumHelper.addToolMaterial("BismuthBronze", 2, BismuthBronzeUses, BismuthBronzeEff, 90, 10);
+//        BlackBronzeToolMaterial = EnumHelper.addToolMaterial("BlackBronze", 2, BlackBronzeUses, BlackBronzeEff, 95, 10);
+//        IronToolMaterial = EnumHelper.addToolMaterial("Iron", 2, WroughtIronUses, WroughtIronEff, 135, 10);
+//        SteelToolMaterial = EnumHelper.addToolMaterial("Steel", 2, SteelUses, SteelEff, 170, 10);
+//        BlackSteelToolMaterial = EnumHelper.addToolMaterial("BlackSteel", 2, BlackSteelUses, BlackSteelEff, 205, 12);
+//        BlueSteelToolMaterial = EnumHelper.addToolMaterial("BlueSteel", 3, BlueSteelUses, BlueSteelEff, 240, 22);
+//        RedSteelToolMaterial = EnumHelper.addToolMaterial("RedSteel", 3, RedSteelUses, RedSteelEff, 240, 22);
 
         System.out.println("[" + TFCMDetails.ModName + "] Registering s"); //Beginning of item registering
 
@@ -111,15 +112,15 @@ public class TFCMItemsSetup extends TFCMItems {
         crossBow = new ItemCustomCrossbow().setUnlocalizedName("CrossBow");
 
         //Halberds
-        halberd_BismuthBronze = new ItemCustomHalberd(BismuthBronzeToolMaterial, 315).setUnlocalizedName("Halberd_BismuthBronze").setMaxDamage(BismuthBronzeUses);
-        halberd_BlackBronze = new ItemCustomHalberd(BlackBronzeToolMaterial, 345).setUnlocalizedName("Halberd_BlackBronze").setMaxDamage(BlackBronzeUses);
-        halberd_BlackSteel = new ItemCustomHalberd(BlackSteelToolMaterial, 405).setUnlocalizedName("Halberd_BlackSteel").setMaxDamage(BlackSteelUses);
-        halberd_BlueSteel = new ItemCustomHalberd(BlueSteelToolMaterial, 472).setUnlocalizedName("Halberd_BlueSteel").setMaxDamage(BlueSteelUses);
-        halberd_Bronze = new ItemCustomHalberd(BronzeToolMaterial, 330).setUnlocalizedName("Halberd_Bronze").setMaxDamage(BronzeUses);
-        halberd_Copper = new ItemCustomHalberd(CopperToolMaterial, 248).setUnlocalizedName("Halberd_Copper").setMaxDamage(CopperUses);
-        halberd_WroughtIron = new ItemCustomHalberd(IronToolMaterial, 360).setUnlocalizedName("Halberd_WroughtIron").setMaxDamage(WroughtIronUses);
-        halberd_RedSteel = new ItemCustomHalberd(RedSteelToolMaterial, 472).setUnlocalizedName("Halberd_RedSteel").setMaxDamage(RedSteelUses);
-        halberd_Steel = new ItemCustomHalberd(SteelToolMaterial, 398).setUnlocalizedName("Halberd_Steel").setMaxDamage(SteelUses);
+        halberd_Copper        = new ItemCustomHalberd(TFCItems.copperToolMaterial,        248).setUnlocalizedName("Halberd_Copper").setMaxDamage(TFCItems.copperUses);
+        halberd_BismuthBronze = new ItemCustomHalberd(TFCItems.bismuthBronzeToolMaterial, 315).setUnlocalizedName("Halberd_BismuthBronze").setMaxDamage(TFCItems.bismuthBronzeUses);
+        halberd_Bronze        = new ItemCustomHalberd(TFCItems.bronzeToolMaterial,        330).setUnlocalizedName("Halberd_Bronze").setMaxDamage(TFCItems.bronzeUses);
+        halberd_BlackBronze   = new ItemCustomHalberd(TFCItems.blackBronzeToolMaterial,   345).setUnlocalizedName("Halberd_BlackBronze").setMaxDamage(TFCItems.blackBronzeUses);
+        halberd_WroughtIron   = new ItemCustomHalberd(TFCItems.ironToolMaterial,          360).setUnlocalizedName("Halberd_WroughtIron").setMaxDamage(TFCItems.wroughtIronUses);
+        halberd_Steel         = new ItemCustomHalberd(TFCItems.steelToolMaterial,         398).setUnlocalizedName("Halberd_Steel").setMaxDamage(TFCItems.steelUses);
+        halberd_BlackSteel    = new ItemCustomHalberd(TFCItems.blackSteelToolMaterial,    405).setUnlocalizedName("Halberd_BlackSteel").setMaxDamage(TFCItems.blackSteelUses);
+        halberd_BlueSteel     = new ItemCustomHalberd(TFCItems.blueSteelToolMaterial,     472).setUnlocalizedName("Halberd_BlueSteel").setMaxDamage(TFCItems.blueSteelUses);
+        halberd_RedSteel      = new ItemCustomHalberd(TFCItems.redSteelToolMaterial,      472).setUnlocalizedName("Halberd_RedSteel").setMaxDamage(TFCItems.redSteelUses);
 
         //Halberd Tool Heads
         halberd_BismuthBronze_Head = new ItemCustomToolHead().setUnlocalizedName("Halberd_BismuthBronze_Head");
@@ -133,15 +134,15 @@ public class TFCMItemsSetup extends TFCMItems {
         halberd_Steel_Head = new ItemCustomToolHead().setUnlocalizedName("Halberd_Steel_Head");
 
         //War Hammers
-        warHammer_BismuthBronze = new ItemCustomWarHammer(BismuthBronzeToolMaterial, 315).setUnlocalizedName("WarHammer_BismuthBronze").setMaxDamage(BismuthBronzeUses);
-        warHammer_BlackBronze = new ItemCustomWarHammer(BlackBronzeToolMaterial, 345).setUnlocalizedName("WarHammer_BlackBronze").setMaxDamage(BlackBronzeUses);
-        warHammer_BlackSteel = new ItemCustomWarHammer(BlackSteelToolMaterial, 405).setUnlocalizedName("WarHammer_BlackSteel").setMaxDamage(BlackSteelUses);
-        warHammer_BlueSteel = new ItemCustomWarHammer(BlueSteelToolMaterial, 472).setUnlocalizedName("WarHammer_BlueSteel").setMaxDamage(BlueSteelUses);
-        warHammer_Bronze = new ItemCustomWarHammer(BronzeToolMaterial, 330).setUnlocalizedName("WarHammer_Bronze").setMaxDamage(BronzeUses);
-        warHammer_Copper = new ItemCustomWarHammer(CopperToolMaterial, 248).setUnlocalizedName("WarHammer_Copper").setMaxDamage(CopperUses);
-        warHammer_WroughtIron = new ItemCustomWarHammer(IronToolMaterial, 360).setUnlocalizedName("WarHammer_WroughtIron").setMaxDamage(WroughtIronUses);
-        warHammer_RedSteel = new ItemCustomWarHammer(RedSteelToolMaterial, 472).setUnlocalizedName("WarHammer_RedSteel").setMaxDamage(RedSteelUses);
-        warHammer_Steel = new ItemCustomWarHammer(SteelToolMaterial, 398).setUnlocalizedName("WarHammer_Steel").setMaxDamage(SteelUses);
+        warHammer_Copper        = new ItemCustomWarHammer(TFCItems.copperToolMaterial,        248).setUnlocalizedName("WarHammer_Copper").setMaxDamage(TFCItems.copperUses);
+        warHammer_BismuthBronze = new ItemCustomWarHammer(TFCItems.bismuthBronzeToolMaterial, 315).setUnlocalizedName("WarHammer_BismuthBronze").setMaxDamage(TFCItems.bismuthBronzeUses);
+        warHammer_Bronze        = new ItemCustomWarHammer(TFCItems.bronzeToolMaterial,        330).setUnlocalizedName("WarHammer_Bronze").setMaxDamage(TFCItems.bronzeUses);
+        warHammer_BlackBronze   = new ItemCustomWarHammer(TFCItems.blackBronzeToolMaterial,   345).setUnlocalizedName("WarHammer_BlackBronze").setMaxDamage(TFCItems.blackBronzeUses);
+        warHammer_WroughtIron   = new ItemCustomWarHammer(TFCItems.ironToolMaterial,          360).setUnlocalizedName("WarHammer_WroughtIron").setMaxDamage(TFCItems.wroughtIronUses);
+        warHammer_Steel         = new ItemCustomWarHammer(TFCItems.steelToolMaterial,         398).setUnlocalizedName("WarHammer_Steel").setMaxDamage(TFCItems.steelUses);
+        warHammer_BlackSteel    = new ItemCustomWarHammer(TFCItems.blackSteelToolMaterial,    405).setUnlocalizedName("WarHammer_BlackSteel").setMaxDamage(TFCItems.blackSteelUses);
+        warHammer_BlueSteel     = new ItemCustomWarHammer(TFCItems.blueSteelToolMaterial,     472).setUnlocalizedName("WarHammer_BlueSteel").setMaxDamage(TFCItems.blueSteelUses);
+        warHammer_RedSteel      = new ItemCustomWarHammer(TFCItems.redSteelToolMaterial,      472).setUnlocalizedName("WarHammer_RedSteel").setMaxDamage(TFCItems.redSteelUses);
 
         //War Hammer Heads
         warHammer_BismuthBronze_Head = new ItemCustomToolHead().setUnlocalizedName("WarHammer_BismuthBronze_Head");
@@ -155,15 +156,15 @@ public class TFCMItemsSetup extends TFCMItems {
         warHammer_Steel_Head = new ItemCustomToolHead().setUnlocalizedName("WarHammer_Steel_Head");
 
         //Poniards
-        poniard_BismuthBronze = new ItemCustomPoniard(BismuthBronzeToolMaterial, 175).setUnlocalizedName("Poniard_BismuthBronze").setMaxDamage(BismuthBronzeUses);
-        poniard_BlackBronze = new ItemCustomPoniard(BlackBronzeToolMaterial, 190).setUnlocalizedName("Poniard_BlackBronze").setMaxDamage(BlackBronzeUses);
-        poniard_BlackSteel = new ItemCustomPoniard(BlackSteelToolMaterial, 225).setUnlocalizedName("Poniard_BlackSteel").setMaxDamage(BlackSteelUses);
-        poniard_BlueSteel = new ItemCustomPoniard(BlueSteelToolMaterial, 263).setUnlocalizedName("Poniard_BlueSteel").setMaxDamage(BlueSteelUses);
-        poniard_Bronze = new ItemCustomPoniard(BronzeToolMaterial, 183).setUnlocalizedName("Poniard_Bronze").setMaxDamage(BronzeUses);
-        poniard_Copper = new ItemCustomPoniard(CopperToolMaterial, 138).setUnlocalizedName("Poniard_Copper").setMaxDamage(CopperUses);
-        poniard_WroughtIron = new ItemCustomPoniard(IronToolMaterial, 200).setUnlocalizedName("Poniard_WroughtIron").setMaxDamage(WroughtIronUses);
-        poniard_RedSteel = new ItemCustomPoniard(RedSteelToolMaterial, 263).setUnlocalizedName("Poniard_RedSteel").setMaxDamage(RedSteelUses);
-        poniard_Steel = new ItemCustomPoniard(SteelToolMaterial, 221).setUnlocalizedName("Poniard_Steel").setMaxDamage(SteelUses);
+        poniard_BismuthBronze = new ItemCustomPoniard(TFCItems.bismuthBronzeToolMaterial, 175).setUnlocalizedName("Poniard_BismuthBronze").setMaxDamage(TFCItems.bismuthBronzeUses);
+        poniard_BlackBronze = new ItemCustomPoniard(TFCItems.blackBronzeToolMaterial, 190).setUnlocalizedName("Poniard_BlackBronze").setMaxDamage(TFCItems.blackBronzeUses);
+        poniard_BlackSteel = new ItemCustomPoniard(TFCItems.blackSteelToolMaterial, 225).setUnlocalizedName("Poniard_BlackSteel").setMaxDamage(TFCItems.blackSteelUses);
+        poniard_BlueSteel = new ItemCustomPoniard(TFCItems.blueSteelToolMaterial, 263).setUnlocalizedName("Poniard_BlueSteel").setMaxDamage(TFCItems.blueSteelUses);
+        poniard_Bronze = new ItemCustomPoniard(TFCItems.bronzeToolMaterial, 183).setUnlocalizedName("Poniard_Bronze").setMaxDamage(TFCItems.bronzeUses);
+        poniard_Copper = new ItemCustomPoniard(TFCItems.copperToolMaterial, 138).setUnlocalizedName("Poniard_Copper").setMaxDamage(TFCItems.copperUses);
+        poniard_WroughtIron = new ItemCustomPoniard(TFCItems.ironToolMaterial, 200).setUnlocalizedName("Poniard_WroughtIron").setMaxDamage(TFCItems.wroughtIronUses);
+        poniard_RedSteel = new ItemCustomPoniard(TFCItems.redSteelToolMaterial, 263).setUnlocalizedName("Poniard_RedSteel").setMaxDamage(TFCItems.redSteelUses);
+        poniard_Steel = new ItemCustomPoniard(TFCItems.steelToolMaterial, 221).setUnlocalizedName("Poniard_Steel").setMaxDamage(TFCItems.steelUses);
 
         //Poniard Blades
         poniard_BismuthBronze_Head = new ItemCustomToolHead().setUnlocalizedName("Poniard_BismuthBronze_Head");
@@ -304,14 +305,14 @@ public class TFCMItemsSetup extends TFCMItems {
 
         //Crops, See BlockCropTFCM.class CropRegistry.class and CropRender.class
         seedsPumpkin = new TFCMCustomSeeds(TFCMOptions.pumpkinID).setUnlocalizedName("Seeds Pumpkin");
-        pumpkin = new ItemPlaceableFood(EnumFoodGroup.Vegetable, 5, 0, 0, 10, 5, true, 80, TFCMBlocks.blockPumpkin, true).setFolder("food/unused/").setUnlocalizedName("Pumpkin").setTextureName("img73");
+        pumpkin      = new ItemPlaceableFood(EnumFoodGroup.Vegetable, 5, 0, 0, 10, 5, true, 80, TFCMBlocks.blockPumpkin, true).setFolder("food/unused/").setUnlocalizedName("Pumpkin").setTextureName("img73");
         seedsCayenne = new TFCMCustomSeeds(TFCMOptions.cayenneID).setUnlocalizedName("Seeds Cayenne");
         greenCayenne = new ItemFoodTFC(EnumFoodGroup.Vegetable, 10, 0, 0, 0, 20, true).setUnlocalizedName("greenCayenne");
-        redCayenne = new ItemFoodTFC(EnumFoodGroup.Vegetable, 10, 0, 0, 0, 45, true).setFolder("food/unused/").setUnlocalizedName("redCayenne").setTextureName("img105");
-        seedsCoffee = new TFCMCustomSeeds(TFCMOptions.coffeeID).setUnlocalizedName("Seeds Coffee");
+        redCayenne   = new ItemFoodTFC(EnumFoodGroup.Vegetable, 10, 0, 0, 0, 45, true).setFolder("food/unused/").setUnlocalizedName("redCayenne").setTextureName("img105");
+        seedsCoffee  = new TFCMCustomSeeds(TFCMOptions.coffeeID).setUnlocalizedName("Seeds Coffee");
         coffeeCherries = new ItemFoodReturn(EnumFoodGroup.Fruit, 10, 5, 0, 0, 5, true).setReturnFood(TFCMItems.greenCoffee, 1F, 0.2F).setUnlocalizedName("coffeeCherries");
-        greenCoffee = new ItemFoodTFC(EnumFoodGroup.None, 0, 0, 0, 15, 0, false, false).setUnlocalizedName("greenCoffee");
-        coffee = new ItemFoodTFC(EnumFoodGroup.None, 0, 0, 0, 25, 0, false, false).setFolder("food/unused/").setUnlocalizedName("coffee").setTextureName("img78");
+        greenCoffee  = new ItemFoodTFC(EnumFoodGroup.None, 0, 0, 0, 15, 0, false, false).setUnlocalizedName("greenCoffee");
+        coffee       = new ItemFoodTFC(EnumFoodGroup.None, 0, 0, 0, 25, 0, false, false).setFolder("food/unused/").setUnlocalizedName("coffee").setTextureName("img78");
         groundCoffee = new ItemFoodTFC(EnumFoodGroup.None, 0, 0, 0, 25, 0, false, false).setUnlocalizedName("groundCoffee");
 
         //Meat
@@ -327,61 +328,36 @@ public class TFCMItemsSetup extends TFCMItems {
         CommonProxy proxy = TerraFirmaCraft.proxy;
         int i = 0;
 
-        i = 0;
-        BismuthBronzeChainGreaves = (new ItemCustomArmor(ArmorStats.BismuthBronzeChain, proxy.getArmorRenderID("bismuthbronze"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        BlackBronzeChainGreaves = (new ItemCustomArmor(ArmorStats.BlackBronzeChain, proxy.getArmorRenderID("blackbronze"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        BlackSteelChainGreaves = (new ItemCustomArmor(ArmorStats.BlackSteelChain, proxy.getArmorRenderID("blacksteel"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        BlueSteelChainGreaves = (new ItemCustomArmor(ArmorStats.BlueSteelChain, proxy.getArmorRenderID("bluesteel"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        BronzeChainGreaves = (new ItemCustomArmor(ArmorStats.BronzeChain, proxy.getArmorRenderID("bronze"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        CopperChainGreaves = (new ItemCustomArmor(ArmorStats.CopperChain, proxy.getArmorRenderID("copper"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        WroughtIronChainGreaves = (new ItemCustomArmor(ArmorStats.WroughtIronChain, proxy.getArmorRenderID("wroughtiron"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        RedSteelChainGreaves = (new ItemCustomArmor(ArmorStats.RedSteelChain, proxy.getArmorRenderID("redsteel"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
-        i++;
-        SteelChainGreaves = (new ItemCustomArmor(ArmorStats.SteelChain, proxy.getArmorRenderID("steel"), 2, 50, 1).setUnlocalizedName(Names[i] + "_Chain_Greaves"));
+        BismuthBronzeChainGreaves = (new ItemCustomArmor(ArmorStats.BismuthBronzeChain, proxy.getArmorRenderID("bismuthbronze"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        BlackBronzeChainGreaves   = (new ItemCustomArmor(ArmorStats.BlackBronzeChain,   proxy.getArmorRenderID("blackbronze"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        BlackSteelChainGreaves    = (new ItemCustomArmor(ArmorStats.BlackSteelChain,    proxy.getArmorRenderID("blacksteel"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        BlueSteelChainGreaves     = (new ItemCustomArmor(ArmorStats.BlueSteelChain,     proxy.getArmorRenderID("bluesteel"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        BronzeChainGreaves        = (new ItemCustomArmor(ArmorStats.BronzeChain,        proxy.getArmorRenderID("bronze"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        CopperChainGreaves        = (new ItemCustomArmor(ArmorStats.CopperChain,        proxy.getArmorRenderID("copper"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        WroughtIronChainGreaves   = (new ItemCustomArmor(ArmorStats.WroughtIronChain,   proxy.getArmorRenderID("wroughtiron"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        RedSteelChainGreaves      = (new ItemCustomArmor(ArmorStats.RedSteelChain,      proxy.getArmorRenderID("redsteel"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
+        SteelChainGreaves         = (new ItemCustomArmor(ArmorStats.SteelChain,         proxy.getArmorRenderID("steel"), 2, 50, 1).setUnlocalizedName(Names[i++] + "_Chain_Greaves"));
 
         i = 0;
-        BismuthBronzeChainChestplate = (new ItemCustomArmor(ArmorStats.BismuthBronzeChain, proxy.getArmorRenderID("bismuthbronze"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        BlackBronzeChainChestplate = (new ItemCustomArmor(ArmorStats.BlackBronzeChain, proxy.getArmorRenderID("blackbronze"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        BlackSteelChainChestplate = (new ItemCustomArmor(ArmorStats.BlackSteelChain, proxy.getArmorRenderID("blacksteel"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        BlueSteelChainChestplate = (new ItemCustomArmor(ArmorStats.BlueSteelChain, proxy.getArmorRenderID("bluesteel"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        BronzeChainChestplate = (new ItemCustomArmor(ArmorStats.BronzeChain, proxy.getArmorRenderID("bronze"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        CopperChainChestplate = (new ItemCustomArmor(ArmorStats.CopperChain, proxy.getArmorRenderID("copper"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        WroughtIronChainChestplate = (new ItemCustomArmor(ArmorStats.WroughtIronChain, proxy.getArmorRenderID("wroughtiron"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        RedSteelChainChestplate = (new ItemCustomArmor(ArmorStats.RedSteelChain, proxy.getArmorRenderID("redsteel"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
-        i++;
-        SteelChainChestplate = (new ItemCustomArmor(ArmorStats.SteelChain, proxy.getArmorRenderID("steel"), 1, 50, 2).setUnlocalizedName(Names[i] + "_Chain_Chestplate"));
+        BismuthBronzeChainChestplate = (new ItemCustomArmor(ArmorStats.BismuthBronzeChain, proxy.getArmorRenderID("bismuthbronze"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        BlackBronzeChainChestplate   = (new ItemCustomArmor(ArmorStats.BlackBronzeChain, proxy.getArmorRenderID("blackbronze"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        BlackSteelChainChestplate    = (new ItemCustomArmor(ArmorStats.BlackSteelChain, proxy.getArmorRenderID("blacksteel"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        BlueSteelChainChestplate     = (new ItemCustomArmor(ArmorStats.BlueSteelChain, proxy.getArmorRenderID("bluesteel"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        BronzeChainChestplate        = (new ItemCustomArmor(ArmorStats.BronzeChain, proxy.getArmorRenderID("bronze"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        CopperChainChestplate        = (new ItemCustomArmor(ArmorStats.CopperChain, proxy.getArmorRenderID("copper"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        WroughtIronChainChestplate   = (new ItemCustomArmor(ArmorStats.WroughtIronChain, proxy.getArmorRenderID("wroughtiron"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        RedSteelChainChestplate      = (new ItemCustomArmor(ArmorStats.RedSteelChain, proxy.getArmorRenderID("redsteel"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
+        SteelChainChestplate         = (new ItemCustomArmor(ArmorStats.SteelChain, proxy.getArmorRenderID("steel"), 1, 50, 2).setUnlocalizedName(Names[i++] + "_Chain_Chestplate"));
 
         i = 0;
-        BismuthBronzeChainHelmet = (new ItemCustomArmor(ArmorStats.BismuthBronzeChain, proxy.getArmorRenderID("bismuthbronze"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        BlackBronzeChainHelmet = (new ItemCustomArmor(ArmorStats.BlackBronzeChain, proxy.getArmorRenderID("blackbronze"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        BlackSteelChainHelmet = (new ItemCustomArmor(ArmorStats.BlackSteelChain, proxy.getArmorRenderID("blacksteel"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        BlueSteelChainHelmet = (new ItemCustomArmor(ArmorStats.BlueSteelChain, proxy.getArmorRenderID("bluesteel"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        BronzeChainHelmet = (new ItemCustomArmor(ArmorStats.BronzeChain, proxy.getArmorRenderID("bronze"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        CopperChainHelmet = (new ItemCustomArmor(ArmorStats.CopperChain, proxy.getArmorRenderID("copper"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        WroughtIronChainHelmet = (new ItemCustomArmor(ArmorStats.WroughtIronChain, proxy.getArmorRenderID("wroughtiron"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        RedSteelChainHelmet = (new ItemCustomArmor(ArmorStats.RedSteelChain, proxy.getArmorRenderID("redsteel"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
-        i++;
-        SteelChainHelmet = (new ItemCustomArmor(ArmorStats.SteelChain, proxy.getArmorRenderID("steel"), 0, 50, 3).setUnlocalizedName(Names[i] + "_Chain_Helmet"));
+        BismuthBronzeChainHelmet = (new ItemCustomArmor(ArmorStats.BismuthBronzeChain, proxy.getArmorRenderID("bismuthbronze"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        BlackBronzeChainHelmet   = (new ItemCustomArmor(ArmorStats.BlackBronzeChain, proxy.getArmorRenderID("blackbronze"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        BlackSteelChainHelmet    = (new ItemCustomArmor(ArmorStats.BlackSteelChain, proxy.getArmorRenderID("blacksteel"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        BlueSteelChainHelmet     = (new ItemCustomArmor(ArmorStats.BlueSteelChain, proxy.getArmorRenderID("bluesteel"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        BronzeChainHelmet        = (new ItemCustomArmor(ArmorStats.BronzeChain, proxy.getArmorRenderID("bronze"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        CopperChainHelmet        = (new ItemCustomArmor(ArmorStats.CopperChain, proxy.getArmorRenderID("copper"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        WroughtIronChainHelmet   = (new ItemCustomArmor(ArmorStats.WroughtIronChain, proxy.getArmorRenderID("wroughtiron"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        RedSteelChainHelmet      = (new ItemCustomArmor(ArmorStats.RedSteelChain, proxy.getArmorRenderID("redsteel"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
+        SteelChainHelmet         = (new ItemCustomArmor(ArmorStats.SteelChain, proxy.getArmorRenderID("steel"), 0, 50, 3).setUnlocalizedName(Names[i++] + "_Chain_Helmet"));
     }
 }
