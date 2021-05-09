@@ -9,15 +9,15 @@ import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
 public class TFCMCraftingHandler
 {
-	@SubscribeEvent
-	public void onCrafting(ItemCraftedEvent e)
-	{
-		ItemStack itemstack = e.crafting;
-		Item item = itemstack.getItem();
-		IInventory inventory = e.craftMatrix;
-		
-		if (item == null || inventory == null) return;
-	}
+//	@SubscribeEvent //пока не понятно что это за заглушка - временно убрал
+//	public void onCrafting(ItemCraftedEvent e)
+//	{
+//		ItemStack itemstack = e.crafting;
+//		Item item = itemstack.getItem();
+//		IInventory inventory = e.craftMatrix;
+//
+//		if (item == null || inventory == null) return;
+//	}
 
 	private static void damageItem(EntityPlayer entityPlayer, IInventory inventory, int index, Item shiftedIndex)
 	{
