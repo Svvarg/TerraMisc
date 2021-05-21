@@ -221,12 +221,18 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
     }
 
     //Removes ammo from quiver.
-    public void consumeBoltInQuiver(EntityPlayer player, int t) {
+    public void consumeBoltInQuiver(EntityPlayer player, int boltId) {
         ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 
-        Item ammo;
+        Item ammo = getBoltItem(boltId);
+        if (quiver != null && quiver.getItem() instanceof ItemCustomQuiver) {
+            ((ItemCustomQuiver) quiver.getItem()).consumeMetalAmmo(quiver, ammo, true);
+        }
+    }
 
-        switch (t) {
+    private Item getBoltItem(int boltId) {
+        Item ammo = null;
+        switch (boltId) {
             case 1: {
                 ammo = TFCMItems.bolt_Copper;
                 break;
@@ -268,10 +274,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
                 break;
             }
         }
-
-        if (quiver != null && quiver.getItem() instanceof ItemCustomQuiver) {
-            ((ItemCustomQuiver) quiver.getItem()).consumeMetalAmmo(quiver, ammo, true);
-        }
+        return ammo;
     }
 
     public void fireCrossbow(ItemStack is, World world, EntityPlayer player, float forceMult) {
@@ -279,80 +282,80 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
 
         float ammoMult = 0;
 
-        EntityMetalBolt entityarrow = new EntityMetalBolt(world, player, 2);;
+        EntityMetalBolt bolt = new EntityMetalBolt(world, player, 2);
 
         switch (ammo) {
             case 1:
                 ammoMult = 0.6F; //Copper
-                entityarrow.setPickupItem(TFCMItems.bolt_Copper);
+                bolt.setPickupItem(TFCMItems.bolt_Copper);
                 break;
             case 2:
                 ammoMult = 0.65F; //Bismuth Bronze
-                entityarrow.setPickupItem(TFCMItems.bolt_BismuthBronze);
+                bolt.setPickupItem(TFCMItems.bolt_BismuthBronze);
                 break;
             case 3:
                 ammoMult = 0.7F; //Bronze
-                entityarrow.setPickupItem(TFCMItems.bolt_Bronze);
+                bolt.setPickupItem(TFCMItems.bolt_Bronze);
                 break;
             case 4:
                 ammoMult = 0.75F; //Black Bronze
-                entityarrow.setPickupItem(TFCMItems.bolt_BlackBronze);
+                bolt.setPickupItem(TFCMItems.bolt_BlackBronze);
                 break;
             case 5:
                 ammoMult = 0.8F; //Wrought Iron
-                entityarrow.setPickupItem(TFCMItems.bolt_WroughtIron);
+                bolt.setPickupItem(TFCMItems.bolt_WroughtIron);
                 break;
             case 6:
                 ammoMult = 0.85F; //Steel
-                entityarrow.setPickupItem(TFCMItems.bolt_Steel);
+                bolt.setPickupItem(TFCMItems.bolt_Steel);
                 break;
             case 7:
                 ammoMult = 0.9F; //Black Steel
-                entityarrow.setPickupItem(TFCMItems.bolt_BlackSteel);
+                bolt.setPickupItem(TFCMItems.bolt_BlackSteel);
                 break;
             case 8:
                 ammoMult = 1.0F; //Blue Steel
-                entityarrow.setPickupItem(TFCMItems.bolt_BlueSteel);
+                bolt.setPickupItem(TFCMItems.bolt_BlueSteel);
                 break;
             case 9:
                 ammoMult = 1.0F; //Red Steel
-                entityarrow.setPickupItem(TFCMItems.bolt_RedSteel);
+                bolt.setPickupItem(TFCMItems.bolt_RedSteel);
                 break;
             default:
                 ammoMult = 0.8F; //Wrought Iron
-                entityarrow.setPickupItem(TFCMItems.bolt_WroughtIron);
+                bolt.setPickupItem(TFCMItems.bolt_WroughtIron);
                 break;
         }
 
-        entityarrow.setDamage((400.0) * ammoMult);
+        bolt.setDamage((400.0) * ammoMult);
 
         int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, is);
 
         if (k > 0) {
-            entityarrow.setDamage(entityarrow.getDamage() + k * 50D + 25D);
+            bolt.setDamage(bolt.getDamage() + k * 50D + 25D);
         }
 
         int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, is);
 
         if (l > 0) {
-            entityarrow.setKnockbackStrength(l);
+            bolt.setKnockbackStrength(l);
         }
 
         if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, is) > 0) {
-            entityarrow.setFire(100);
+            bolt.setFire(100);
         }
 
         //Check to see if player is in creative mode or has enchantments.
         boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
 
         if (flag) {
-            entityarrow.canBePickedUp = 2;
+            bolt.canBePickedUp = 2;
         }
 
         is.damageItem(1, player);
         world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + forceMult * 0.5F);
         if (!world.isRemote) {
-            world.spawnEntityInWorld(entityarrow);
+            world.spawnEntityInWorld(bolt);
         }
 
         is.stackTagCompound.setInteger("ammo", 0);
@@ -363,19 +366,12 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
     public float getUseSpeed(EntityPlayer player) {
         float speed = 60.0f;
         ItemStack[] armor = player.inventory.armorInventory;
-        if (armor[0] != null && armor[0].getItem() instanceof ISize) {
-            speed += 20.0f / ((ISize) armor[0].getItem()).getWeight(armor[0]).multiplier;
+        for (int i = 0; i <= 3; i++) {
+            ItemStack part = armor[i];
+            if (part != null && part.getItem() instanceof ISize) {
+                speed += 20.0f / ((ISize) part.getItem()).getWeight(part).multiplier;
+            }
         }
-        if (armor[1] != null && armor[1].getItem() instanceof ISize) {
-            speed += 20.0f / ((ISize) armor[1].getItem()).getWeight(armor[1]).multiplier;
-        }
-        if (armor[2] != null && armor[2].getItem() instanceof ISize) {
-            speed += 20.0f / ((ISize) armor[2].getItem()).getWeight(armor[2]).multiplier;
-        }
-        if (armor[3] != null && armor[3].getItem() instanceof ISize) {
-            speed += 20.0f / ((ISize) armor[3].getItem()).getWeight(armor[3]).multiplier;
-        }
-
         return speed;
     }
 
@@ -386,7 +382,12 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
 
         if (is.stackTagCompound != null) {
             if (is.getTagCompound().getBoolean("load") == true) {
-                arraylist.add(TFC_Core.translate("gui.crossbow.loaded"));
+                arraylist.add(TFC_Core.translate("gui.crossbow.loaded") );
+                final int boltId = is.getTagCompound().getInteger("ammo");
+                Item ammo = getBoltItem(boltId);//ammoi>-1 && ammoi < ammos.length ? ammos[ammoi] : "?";
+                if (ammo != null) {
+                    arraylist.add(TFC_Core.translate(ammo.getUnlocalizedName()));//TODO translate
+                }
             }
             else {
                 arraylist.add(TFC_Core.translate("gui.crossbow.unloaded"));
