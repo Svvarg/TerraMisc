@@ -1,23 +1,22 @@
 package terramisc.entities;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
-import net.minecraft.world.World;
 import terramisc.core.TFCMItems;
+import net.minecraft.world.World;
+import net.minecraft.entity.EntityLivingBase;
 
 import com.bioxx.tfc.Entities.EntityProjectileTFC;
 import com.bioxx.tfc.api.Enums.EnumDamageType;
 
 public class EntityMetalBolt extends EntityProjectileTFC {
 
-    public Item pickupItem = TFCMItems.bolt_Copper;
-
-    public EntityMetalBolt(World par1World) {
-        super(par1World);
+    public EntityMetalBolt(World world) {
+        super(world);
+        this.pickupItem = TFCMItems.bolt_Copper;
     }
 
-    public EntityMetalBolt(World par1World, EntityLivingBase shooter, float force) {
-        super(par1World, shooter, force);
+    public EntityMetalBolt(World world, EntityLivingBase shooter, float force) {
+        super(world, shooter, force);
+        this.pickupItem = TFCMItems.bolt_Copper;
     }
 
     @Override
