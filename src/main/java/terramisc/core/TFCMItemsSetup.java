@@ -4,11 +4,10 @@ import com.bioxx.tfc.CommonProxy;
 import com.bioxx.tfc.TerraFirmaCraft;
 import com.bioxx.tfc.Food.ItemFoodMeat;
 import com.bioxx.tfc.Food.ItemFoodTFC;
+import com.bioxx.tfc.api.Constant.Global;
 import com.bioxx.tfc.api.Enums.EnumFoodGroup;
 import com.bioxx.tfc.api.TFCItems;
 
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraftforge.common.util.EnumHelper;
 import terramisc.common.ArmorStats;
 import terramisc.items.ItemBowLimb;
 import terramisc.items.ItemBowlTallow;
@@ -44,46 +43,9 @@ import terramisc.items.weights.ItemWeightTinyLight;
 public class TFCMItemsSetup extends TFCMItems {
 
     public static void ItemSetup() {
-        //Materials
-//        ToolMaterial TFCItems.copperToolMaterial;
-//        ToolMaterial BronzeToolMaterial;
-//        ToolMaterial BismuthBronzeToolMaterial;
-//        ToolMaterial BlackBronzeToolMaterial;
-//        ToolMaterial IronToolMaterial;
-//        ToolMaterial SteelToolMaterial;
-//        ToolMaterial BlackSteelToolMaterial;
-//        ToolMaterial BlueSteelToolMaterial;
-//        ToolMaterial RedSteelToolMaterial;
-
-//        int CopperUses = 600;
-//        int BronzeUses = 1300;
-//        int BismuthBronzeUses = 1200;
-//        int BlackBronzeUses = 1460;
-//        int WroughtIronUses = 2200;
-//        int SteelUses = 3300;
-//        int BlackSteelUses = 4200;
-//        int BlueSteelUses = 6500;
-//        int RedSteelUses = 6500;
-
-        float CopperEff = 8;
-        float BronzeEff = 11;
-        float BismuthBronzeEff = 10;
-        float BlackBronzeEff = 9;
-        float WroughtIronEff = 12;
-        float SteelEff = 14;
-        float BlackSteelEff = 16;
-        float BlueSteelEff = 18;
-        float RedSteelEff = 18;
-
-//        TFCItems.copperToolMaterial = EnumHelper.addToolMaterial("Copper", 2, CopperUses, CopperEff, 65, 8);
-//        BronzeToolMaterial = EnumHelper.addToolMaterial("Bronze", 2, BronzeUses, BronzeEff, 100, 13);
-//        BismuthBronzeToolMaterial = EnumHelper.addToolMaterial("BismuthBronze", 2, BismuthBronzeUses, BismuthBronzeEff, 90, 10);
-//        BlackBronzeToolMaterial = EnumHelper.addToolMaterial("BlackBronze", 2, BlackBronzeUses, BlackBronzeEff, 95, 10);
-//        IronToolMaterial = EnumHelper.addToolMaterial("Iron", 2, WroughtIronUses, WroughtIronEff, 135, 10);
-//        SteelToolMaterial = EnumHelper.addToolMaterial("Steel", 2, SteelUses, SteelEff, 170, 10);
-//        BlackSteelToolMaterial = EnumHelper.addToolMaterial("BlackSteel", 2, BlackSteelUses, BlackSteelEff, 205, 12);
-//        BlueSteelToolMaterial = EnumHelper.addToolMaterial("BlueSteel", 3, BlueSteelUses, BlueSteelEff, 240, 22);
-//        RedSteelToolMaterial = EnumHelper.addToolMaterial("RedSteel", 3, RedSteelUses, RedSteelEff, 240, 22);
+       /* Materials - используется из самого TFC.
+        Это важно для правильной работы расчёта механики износа и резиста брони
+        во время удара*/
 
         System.out.println("[" + TFCMDetails.ModName + "] Registering s"); //Beginning of item registering
 
@@ -178,15 +140,15 @@ public class TFCMItemsSetup extends TFCMItems {
         poniard_Steel_Head = new ItemCustomToolHead().setUnlocalizedName("Poniard_Steel_Head");
 
         //Arrows
-        arrow_BismuthBronze = new ItemCustomArrow().setUnlocalizedName("Arrow_BismuthBronze");
-        arrow_BlackBronze = new ItemCustomArrow().setUnlocalizedName("Arrow_BlackBronze");
-        arrow_BlackSteel = new ItemCustomArrow().setUnlocalizedName("Arrow_BlackSteel");
-        arrow_BlueSteel = new ItemCustomArrow().setUnlocalizedName("Arrow_BlueSteel");
-        arrow_Bronze = new ItemCustomArrow().setUnlocalizedName("Arrow_Bronze");
-        arrow_Copper = new ItemCustomArrow().setUnlocalizedName("Arrow_Copper");
-        arrow_RedSteel = new ItemCustomArrow().setUnlocalizedName("Arrow_RedSteel");
-        arrow_Steel = new ItemCustomArrow().setUnlocalizedName("Arrow_Steel");
-        arrow_WroughtIron = new ItemCustomArrow().setUnlocalizedName("Arrow_WroughtIron");
+        arrow_BismuthBronze = new ItemCustomArrow(Global.BISMUTHBRONZE).setUnlocalizedName("Arrow_BismuthBronze");
+        arrow_BlackBronze   = new ItemCustomArrow(Global.BLACKBRONZE).setUnlocalizedName("Arrow_BlackBronze");
+        arrow_BlackSteel    = new ItemCustomArrow(Global.BLACKSTEEL).setUnlocalizedName("Arrow_BlackSteel");
+        arrow_BlueSteel     = new ItemCustomArrow(Global.BLUESTEEL).setUnlocalizedName("Arrow_BlueSteel");
+        arrow_Bronze        = new ItemCustomArrow(Global.BRONZE).setUnlocalizedName("Arrow_Bronze");
+        arrow_Copper        = new ItemCustomArrow(Global.COPPER).setUnlocalizedName("Arrow_Copper");
+        arrow_RedSteel      = new ItemCustomArrow(Global.REDSTEEL).setUnlocalizedName("Arrow_RedSteel");
+        arrow_Steel         = new ItemCustomArrow(Global.STEEL).setUnlocalizedName("Arrow_Steel");
+        arrow_WroughtIron   = new ItemCustomArrow(Global.WROUGHTIRON).setUnlocalizedName("Arrow_WroughtIron");
 
         //Arrow Heads
         arrow_BismuthBronze_Head = new ItemCustomProjectileHead().setUnlocalizedName("Arrow_BismuthBronze_Head");
@@ -200,15 +162,15 @@ public class TFCMItemsSetup extends TFCMItems {
         arrow_Steel_Head = new ItemCustomProjectileHead().setUnlocalizedName("Arrow_Steel_Head");
 
         //Bolt
-        bolt_BismuthBronze = new ItemCustomBolt().setUnlocalizedName("Bolt_BismuthBronze");
-        bolt_BlackBronze = new ItemCustomBolt().setUnlocalizedName("Bolt_BlackBronze");
-        bolt_BlackSteel = new ItemCustomBolt().setUnlocalizedName("Bolt_BlackSteel");
-        bolt_BlueSteel = new ItemCustomBolt().setUnlocalizedName("Bolt_BlueSteel");
-        bolt_Bronze = new ItemCustomBolt().setUnlocalizedName("Bolt_Bronze");
-        bolt_Copper = new ItemCustomBolt().setUnlocalizedName("Bolt_Copper");
-        bolt_RedSteel = new ItemCustomBolt().setUnlocalizedName("Bolt_RedSteel");
-        bolt_Steel = new ItemCustomBolt().setUnlocalizedName("Bolt_Steel");
-        bolt_WroughtIron = new ItemCustomBolt().setUnlocalizedName("Bolt_WroughtIron");
+        bolt_BismuthBronze = new ItemCustomBolt(Global.BISMUTHBRONZE).setUnlocalizedName("Bolt_BismuthBronze");
+        bolt_BlackBronze   = new ItemCustomBolt(Global.BLACKBRONZE).setUnlocalizedName("Bolt_BlackBronze");
+        bolt_BlackSteel    = new ItemCustomBolt(Global.BLACKSTEEL).setUnlocalizedName("Bolt_BlackSteel");
+        bolt_BlueSteel     = new ItemCustomBolt(Global.BLUESTEEL).setUnlocalizedName("Bolt_BlueSteel");
+        bolt_Bronze        = new ItemCustomBolt(Global.BRONZE).setUnlocalizedName("Bolt_Bronze");
+        bolt_Copper        = new ItemCustomBolt(Global.COPPER).setUnlocalizedName("Bolt_Copper");
+        bolt_RedSteel      = new ItemCustomBolt(Global.REDSTEEL).setUnlocalizedName("Bolt_RedSteel");
+        bolt_Steel         = new ItemCustomBolt(Global.STEEL).setUnlocalizedName("Bolt_Steel");
+        bolt_WroughtIron   = new ItemCustomBolt(Global.WROUGHTIRON).setUnlocalizedName("Bolt_WroughtIron");
 
         //Bolt Heads
         bolt_BismuthBronze_Head = new ItemCustomProjectileHead().setUnlocalizedName("Bolt_BismuthBronze_Head");
@@ -324,7 +286,8 @@ public class TFCMItemsSetup extends TFCMItems {
     }
 
     public static void SetupArmor() {
-        String[] Names = {"BismuthBronze", "BlackBronze", "BlackSteel", "BlueSteel", "Bronze", "Copper", "WroughtIron", "RedSteel", "Steel"};
+        ArmorStats.setupTFCMArmorTypes();
+        final String[] Names = {"BismuthBronze", "BlackBronze", "BlackSteel", "BlueSteel", "Bronze", "Copper", "WroughtIron", "RedSteel", "Steel"};
         CommonProxy proxy = TerraFirmaCraft.proxy;
         int i = 0;
 
