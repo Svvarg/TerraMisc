@@ -78,7 +78,8 @@ dependencies {
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.4.95:dev"
 	compile "mcp.mobius.waila:Waila:1.5.11-RC2-NONEI_1.7.10"
         
-        //compile "com.bioxx.tfc:TerraFirmaCraft:1.7.10-0.79.38-SE-SRV"
+        //compile "com.bioxx.tfc:TerraFirmaCraft:1.7.10-0.79.39-SE-SRV" нужны dev версии!!
+        //compile files('libs/[1.7.10]TerraFirmaCraft-0.79.39-SE-SRV.jar')
 }
 
 
