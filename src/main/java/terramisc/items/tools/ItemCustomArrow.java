@@ -9,14 +9,21 @@ import net.minecraft.item.ItemStack;
 
 import com.bioxx.tfc.Core.TFCTabs;
 import com.bioxx.tfc.Items.ItemTerra;
+import com.bioxx.tfc.api.Constant.Global;
 import com.bioxx.tfc.api.Enums.EnumAmmo;
+import com.bioxx.tfc.api.Enums.EnumDamageType;
 import com.bioxx.tfc.api.Enums.EnumItemReach;
 import com.bioxx.tfc.api.Enums.EnumSize;
 import com.bioxx.tfc.api.Enums.EnumWeight;
+import com.bioxx.tfc.api.Interfaces.ICausesDamage;
+import com.bioxx.tfc.api.Interfaces.IMetallTier;
 import com.bioxx.tfc.api.Interfaces.IQuiverAmmo;
 import com.bioxx.tfc.api.Interfaces.ISize;
+import com.bioxx.tfc.api.Metal;
 
-public class ItemCustomArrow extends Item implements ISize, IQuiverAmmo {
+public class ItemCustomArrow extends Item implements ISize, IQuiverAmmo, IMetallTier, ICausesDamage {
+
+    private Metal metal;
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
@@ -24,11 +31,12 @@ public class ItemCustomArrow extends Item implements ISize, IQuiverAmmo {
         ItemTerra.addSizeInformation(is, arraylist);
     }
 
-    public ItemCustomArrow() {
+    public ItemCustomArrow(Metal metal) {
         super();
         this.maxStackSize = 16;
         this.hasSubtypes = false;
         this.setCreativeTab(TFCTabs.TFC_WEAPONS);
+        this.metal = metal;
     }
 
     @Override
@@ -60,4 +68,20 @@ public class ItemCustomArrow extends Item implements ISize, IQuiverAmmo {
     public EnumAmmo getAmmoType() {
         return EnumAmmo.ARROW;
     }
+
+    @Override
+    public int getMetallTier() {
+        return Metal.getTier(this.metal);
+    }
+
+    @Override
+    public Metal getMetal() {
+        return this.metal == null ? Global.UNKNOWN : this.metal;
+    }
+
+    @Override
+    public EnumDamageType getDamageType() {
+        return EnumDamageType.PIERCING;
+    }
+
 }
