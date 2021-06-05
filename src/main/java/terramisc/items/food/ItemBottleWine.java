@@ -18,6 +18,8 @@ import com.bioxx.tfc.api.Enums.EnumFoodGroup;
 
 public class ItemBottleWine extends ItemAlcohol {
 
+    public static final DamageSource DMG_ALCOHOL = new DamageSource("alcohol").setDamageBypassesArmor().setDamageIsAbsolute();
+
     public ItemBottleWine() {
         super();
         this.setFolder("food/");
@@ -38,29 +40,29 @@ public class ItemBottleWine extends ItemAlcohol {
 
         if (!world.isRemote) {
 
-            Random rand = new Random();
+            Random rand = world.rand;//new Random();
             FoodStatsTFC fs = TFC_Core.getPlayerFoodStats(player);
             fs.restoreWater(player, 4000);
             fs.addNutrition(EnumFoodGroup.Fruit, 25.0F);
             int time = 400 + rand.nextInt(1000);
             fs.consumeAlcohol();
             if (rand.nextInt(100) == 0) {
-                player.addPotionEffect(new PotionEffect(8, time, 4));
+                player.addPotionEffect(new PotionEffect(8, time, 4)); //Jump Boost
             }
             if (rand.nextInt(100) == 0) {
-                player.addPotionEffect(new PotionEffect(5, time, 4));
+                player.addPotionEffect(new PotionEffect(5, time, 4));//Strength
             }
             if (rand.nextInt(100) == 0) {
                 player.addPotionEffect(new PotionEffect(8, time, 4));
             }
             if (rand.nextInt(200) == 0) {
-                player.addPotionEffect(new PotionEffect(10, time, 4));
+                player.addPotionEffect(new PotionEffect(10, time, 4)); //Regeneration
             }
             if (rand.nextInt(150) == 0) {
-                player.addPotionEffect(new PotionEffect(12, time, 4));
+                player.addPotionEffect(new PotionEffect(12, time, 4)); //Fire Resistance
             }
             if (rand.nextInt(180) == 0) {
-                player.addPotionEffect(new PotionEffect(13, time, 4));
+                player.addPotionEffect(new PotionEffect(13, time, 4)); //Water Breathing
             }
             int levelMod = 250 * player.experienceLevel;
             if (fs.soberTime > TFC_Time.getTotalTicks() + 3000 + levelMod) {
@@ -69,21 +71,22 @@ public class ItemBottleWine extends ItemAlcohol {
 				}*/
                 if (fs.soberTime > TFC_Time.getTotalTicks() + 5000 + levelMod) {
                     if (rand.nextInt(4) == 0) {
-                        player.addPotionEffect(new PotionEffect(18, time, 4));
+                        player.addPotionEffect(new PotionEffect(18, time, 4));   //Weakness
                     }
                     if (fs.soberTime > TFC_Time.getTotalTicks() + 7000 + levelMod) {
                         if (rand.nextInt(2) == 0) {
-                            player.addPotionEffect(new PotionEffect(15, time, 4));
+                            player.addPotionEffect(new PotionEffect(15, time, 4)); //Blindness
                         }
                         if (fs.soberTime > TFC_Time.getTotalTicks() + 8000 + levelMod) {
                             if (rand.nextInt(10) == 0) {
-                                player.addPotionEffect(new PotionEffect(20, time, 4));
+                                player.addPotionEffect(new PotionEffect(20, time, 4)); //Wither
                             }
                         }
                         if (fs.soberTime > TFC_Time.getTotalTicks() + 10000 + levelMod && !player.capabilities.isCreativeMode) {
                             fs.soberTime = 0;
 
-                            player.attackEntityFrom(new DamageSource("alcohol").setDamageBypassesArmor().setDamageIsAbsolute(), player.getMaxHealth());
+                            //player.attackEntityFrom(new DamageSource("alcohol").setDamageBypassesArmor().setDamageIsAbsolute(), player.getMaxHealth());
+                            player.attackEntityFrom(DMG_ALCOHOL, player.getMaxHealth());
                         }
                     }
 
