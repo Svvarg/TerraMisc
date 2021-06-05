@@ -38,10 +38,10 @@ public class ItemBottleSoyMilk extends ItemAlcohol
 		{
 
 			FoodStatsTFC fs = TFC_Core.getPlayerFoodStats(player);
-			fs.restoreWater(player, 8000);
-			fs.addNutrition(EnumFoodGroup.Dairy, 20.0F);
-			
-			player.clearActivePotions();
+			fs.restoreWater(player, 4000);// в оригинальном тфк ведро молока(1л) востанавливает 16000 здесь 250мл - т.е. 4к
+			fs.addNutrition(EnumFoodGroup.Protein, 2.0F);//20 востанавливать белковое! очень спорно и имбово, что соевое молоко востанавливает молочку(Dairy)
+			TFC_Core.setPlayerFoodStats(player, fs);
+			//player.clearActivePotions();//?? имба - снимать все эффекты соевым молоком
 		}
 		
 		// First try to add the empty bottle to an existing stack of bottles in the inventory
