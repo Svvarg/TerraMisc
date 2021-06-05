@@ -40,8 +40,9 @@ public class ItemBottleJuice extends ItemAlcohol
 		{
 
 			FoodStatsTFC fs = TFC_Core.getPlayerFoodStats(player);
-			fs.restoreWater(player, 8000);
-			fs.addNutrition(EnumFoodGroup.Fruit, 20.0F);
+			fs.restoreWater(player, 4000);
+			fs.addNutrition(EnumFoodGroup.Fruit, 5.0F);//original 20
+                        TFC_Core.setPlayerFoodStats(player, fs);
 		}
 		
 		// First try to add the empty bottle to an existing stack of bottles in the inventory
