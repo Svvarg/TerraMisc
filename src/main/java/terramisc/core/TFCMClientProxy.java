@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import terramisc.render.CropRender;
+import terramisc.render.HalberdRenderer;
 import terramisc.render.ItemCrossbowRender;
 import terramisc.render.ItemLongbowRender;
 import terramisc.render.ItemPolearmRender;
@@ -118,15 +119,15 @@ public class TFCMClientProxy extends TFCMCommonProxy
 		MinecraftForgeClient.registerItemRenderer(TFCMItems.longBow, new ItemLongbowRender());
 		MinecraftForgeClient.registerItemRenderer(TFCMItems.crossBow, new ItemCrossbowRender());
 		//Halberds
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BismuthBronze, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BlackBronze, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BlackSteel, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BlueSteel, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_Bronze, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_Copper, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_RedSteel, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_Steel, new ItemPolearmRender());
-		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_WroughtIron, new ItemPolearmRender());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BismuthBronze, new HalberdRenderer());//ItemPolearmRender()
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BlackBronze, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BlackSteel, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_BlueSteel, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_Bronze, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_Copper, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_RedSteel, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_Steel, new HalberdRenderer());
+		MinecraftForgeClient.registerItemRenderer(TFCMItems.halberd_WroughtIron, new HalberdRenderer());
 		//War Hammers
 		MinecraftForgeClient.registerItemRenderer(TFCMItems.warHammer_BismuthBronze, new ItemPolearmRender());
 		MinecraftForgeClient.registerItemRenderer(TFCMItems.warHammer_BlackBronze, new ItemPolearmRender());

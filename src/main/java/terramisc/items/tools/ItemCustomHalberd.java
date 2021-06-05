@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraft.util.IIcon;
 
 import com.bioxx.tfc.Core.TFCTabs;
 import com.bioxx.tfc.Items.Tools.ItemWeapon;
@@ -16,6 +17,8 @@ import com.bioxx.tfc.api.Enums.EnumSize;
 import com.bioxx.tfc.api.Enums.EnumWeight;
 
 public class ItemCustomHalberd extends ItemWeapon {
+
+    public IIcon bigIcon;
 
     public ItemCustomHalberd(ToolMaterial par2EnumToolMaterial, float damage, EnumDamageType dt) {
         super(par2EnumToolMaterial, damage);
@@ -31,6 +34,7 @@ public class ItemCustomHalberd extends ItemWeapon {
     @Override
     public void registerIcons(IIconRegister registerer) {
         this.itemIcon = registerer.registerIcon("tfcm:tools/" + this.getUnlocalizedName().replace("item.", ""));
+        this.bigIcon = registerer.registerIcon("tfcm:tools/" + this.getUnlocalizedName().replace("item.", "") + "Big");
     }
 
     @Override
