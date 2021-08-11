@@ -120,37 +120,9 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
                 if (hasAmmo) {
                     int ammo = playerHasAmmo(player);
                     writeAmmoToCrossbow(is, ammo);
-
-                    switch (ammo) {
-                        case 1:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_Copper);
-                            break;
-                        case 2:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_BismuthBronze);
-                            break;
-                        case 3:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_Bronze);
-                            break;
-                        case 4:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_BlackBronze);
-                            break;
-                        case 5:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_WroughtIron);
-                            break;
-                        case 6:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_Steel);
-                            break;
-                        case 7:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_BlackSteel);
-                            break;
-                        case 8:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_BlueSteel);
-                            break;
-                        case 9:
-                            player.inventory.consumeInventoryItem(TFCMItems.bolt_RedSteel);
-                            break;
-                        default:
-                            break;
+                    Item boltItem = ItemCustomQuiver.getBoltItemFromTier(ammo);
+                    if (boltItem != null) {
+                        player.inventory.consumeInventoryItem(boltItem);
                     }
                 }
                 else if (hasQuiverAmmo) {
@@ -176,35 +148,18 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
     //Checks to see if player has ammo, and what type of ammo he/she has.
     //Selects the lowest tier of ammo first.
     public int playerHasAmmo(EntityPlayer player) {
-        if (player.inventory.hasItem(TFCMItems.bolt_Copper)) {
-            return 1;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_BismuthBronze)) {
-            return 2;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_Bronze)) {
-            return 3;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_BlackBronze)) {
-            return 4;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_WroughtIron)) {
-            return 5;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_Steel)) {
-            return 6;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_BlackSteel)) {
-            return 7;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_BlueSteel)) {
-            return 8;
-        }
-        if (player.inventory.hasItem(TFCMItems.bolt_RedSteel)) {
-            return 9;
+        final int sz = player.inventory.getSizeInventory();
+        for (int i = 0; i < sz; i++) {
+            ItemStack is0 = player.inventory.getStackInSlot(i);
+            if (is0 != null && is0.getItem() != null) {//inv[i] instanceof TFC_Arrow TFCM_Arrow?
+                int ammoId = ItemCustomQuiver.getMetalArrowTier(is0.getItem());
+                if (ammoId > 0) {
+                    return ammoId;
+                }
+            }
         }
 
-        return 0;
+        return 0;//false
     }
 
     //Checks the custom quiver for crossbow ammo.
@@ -212,10 +167,14 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
         ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 
         if (quiver != null && quiver.getItem() instanceof ItemCustomQuiver) {
-            if (((ItemCustomQuiver) quiver.getItem()).hasBoltAmmo(quiver) != null) {
-                int t = ((ItemCustomQuiver) quiver.getItem()).getQuiverMetalBoltTier(quiver);
-                return t;
+            final int tier = ((ItemCustomQuiver) quiver.getItem()).getQuiverMetalBoltTierOrZero(quiver);
+            if (tier > 0) {
+                return tier;
             }
+            //if (((ItemCustomQuiver) quiver.getItem()).hasBoltAmmo(quiver) != null) {
+            //    int t = ((ItemCustomQuiver) quiver.getItem()).getQuiverMetalBoltTier(quiver);
+            //    return t;
+            //}
         }
         return 0;
     }
@@ -224,107 +183,23 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
     public void consumeBoltInQuiver(EntityPlayer player, int boltId) {
         ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 
-        Item ammo = getBoltItem(boltId);
         if (quiver != null && quiver.getItem() instanceof ItemCustomQuiver) {
+            Item ammo = ItemCustomQuiver.getBoltItemFromTier(boltId);
             ((ItemCustomQuiver) quiver.getItem()).consumeMetalAmmo(quiver, ammo, true);
         }
     }
 
-    private Item getBoltItem(int boltId) {
-        Item ammo = null;
-        switch (boltId) {
-            case 1: {
-                ammo = TFCMItems.bolt_Copper;
-                break;
-            }
-            case 2: {
-                ammo = TFCMItems.bolt_BismuthBronze;
-                break;
-            }
-            case 3: {
-                ammo = TFCMItems.bolt_Bronze;
-                break;
-            }
-            case 4: {
-                ammo = TFCMItems.bolt_BlackBronze;
-                break;
-            }
-            case 5: {
-                ammo = TFCMItems.bolt_WroughtIron;
-                break;
-            }
-            case 6: {
-                ammo = TFCMItems.bolt_Steel;
-                break;
-            }
-            case 7: {
-                ammo = TFCMItems.bolt_BlackSteel;
-                break;
-            }
-            case 8: {
-                ammo = TFCMItems.bolt_BlueSteel;
-                break;
-            }
-            case 9: {
-                ammo = TFCMItems.bolt_RedSteel;
-                break;
-            }
-            default: {
-                ammo = null;
-                break;
-            }
-        }
-        return ammo;
-    }
 
     public void fireCrossbow(ItemStack is, World world, EntityPlayer player, float forceMult) {
-        int ammo = is.getTagCompound().getInteger("ammo");
+        int ammoId = is.getTagCompound().getInteger("ammo");//ammoId == tier
 
-        float ammoMult = 0;
+        float ammoMult = 0.8f;//default сила удара
 
         EntityMetalBolt bolt = new EntityMetalBolt(world, player, 2);
 
-        switch (ammo) {
-            case 1:
-                ammoMult = 0.6F; //Copper
-                bolt.setPickupItem(TFCMItems.bolt_Copper);
-                break;
-            case 2:
-                ammoMult = 0.65F; //Bismuth Bronze
-                bolt.setPickupItem(TFCMItems.bolt_BismuthBronze);
-                break;
-            case 3:
-                ammoMult = 0.7F; //Bronze
-                bolt.setPickupItem(TFCMItems.bolt_Bronze);
-                break;
-            case 4:
-                ammoMult = 0.75F; //Black Bronze
-                bolt.setPickupItem(TFCMItems.bolt_BlackBronze);
-                break;
-            case 5:
-                ammoMult = 0.8F; //Wrought Iron
-                bolt.setPickupItem(TFCMItems.bolt_WroughtIron);
-                break;
-            case 6:
-                ammoMult = 0.85F; //Steel
-                bolt.setPickupItem(TFCMItems.bolt_Steel);
-                break;
-            case 7:
-                ammoMult = 0.9F; //Black Steel
-                bolt.setPickupItem(TFCMItems.bolt_BlackSteel);
-                break;
-            case 8:
-                ammoMult = 1.0F; //Blue Steel
-                bolt.setPickupItem(TFCMItems.bolt_BlueSteel);
-                break;
-            case 9:
-                ammoMult = 1.0F; //Red Steel
-                bolt.setPickupItem(TFCMItems.bolt_RedSteel);
-                break;
-            default:
-                ammoMult = 0.8F; //Wrought Iron
-                bolt.setPickupItem(TFCMItems.bolt_WroughtIron);
-                break;
+        if (ammoId > 0 && ammoId < ItemCustomQuiver.AMMO_TIER_MULT.length) {
+            bolt.setPickupItem(ItemCustomQuiver.getBoltItemFromTier(ammoId));//установка предмета (что поднимать)
+            ammoMult = ItemCustomQuiver.AMMO_TIER_MULT[ammoId];
         }
 
         bolt.setDamage((400.0) * ammoMult);
@@ -384,7 +259,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
             if (is.getTagCompound().getBoolean("load") == true) {
                 arraylist.add(TFC_Core.translate("gui.crossbow.loaded") );
                 final int boltId = is.getTagCompound().getInteger("ammo");
-                Item ammo = getBoltItem(boltId);//ammoi>-1 && ammoi < ammos.length ? ammos[ammoi] : "?";
+                Item ammo = ItemCustomQuiver.getBoltItemFromTier(boltId);//ammoi>-1 && ammoi < ammos.length ? ammos[ammoi] : "?";
                 if (ammo != null) {
                     arraylist.add(TFC_Core.translate(ammo.getUnlocalizedName()));//TODO translate
                 }

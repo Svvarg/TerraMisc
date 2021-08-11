@@ -21,8 +21,10 @@ import terramisc.entities.EntityMetalArrow;
 
 import com.bioxx.tfc.Core.TFCTabs;
 import com.bioxx.tfc.Core.Player.InventoryPlayerTFC;
+import com.bioxx.tfc.Items.ItemQuiver;
 import com.bioxx.tfc.Items.ItemTerra;
 import com.bioxx.tfc.api.TFCItems;
+import com.bioxx.tfc.api.Enums.EnumAmmo;
 import com.bioxx.tfc.api.Enums.EnumItemReach;
 import com.bioxx.tfc.api.Enums.EnumSize;
 import com.bioxx.tfc.api.Enums.EnumWeight;
@@ -48,7 +50,7 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
             is.stackTagCompound = new NBTTagCompound();
             is.stackTagCompound.setInteger("ammo", 0);
         }
-
+        
         //Check to see if player is in creative mode or has enchantments.
         boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
         //First we check the if there is ammo in the player's quiver
@@ -101,7 +103,7 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
 
         if (hasQuiverAmmo || hasAmmo) {
             float forceMult = j / getUseSpeed(player);
-            float ammoMult = 0;
+            float ammoMult = 0.55f;//default - Stone
 
             if (forceMult < (0.25D * drawSpeed)) {
                 return;
@@ -113,51 +115,9 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
 
             EntityMetalArrow entityarrow = new EntityMetalArrow(world, player, (float) ((forceMult / drawSpeed) * 3.0F));
 
-            switch (ammo) {
-                case 1:
-                    ammoMult = 0.55F; //Stone
-                    entityarrow.setPickupItem(TFCItems.arrow);
-                    break;
-                case 2:
-                    ammoMult = 0.6F; //Copper
-                    entityarrow.setPickupItem(TFCMItems.arrow_Copper);
-                    break;
-                case 3:
-                    ammoMult = 0.65F; //Bismuth Bronze
-                    entityarrow.setPickupItem(TFCMItems.arrow_BismuthBronze);
-                    break;
-                case 4:
-                    ammoMult = 0.7F; //Bronze
-                    entityarrow.setPickupItem(TFCMItems.arrow_Bronze);
-                    break;
-                case 5:
-                    ammoMult = 0.75F; //Black Bronze
-                    entityarrow.setPickupItem(TFCMItems.arrow_BlackBronze);
-                    break;
-                case 6:
-                    ammoMult = 0.8F; //Wrought Iron
-                    entityarrow.setPickupItem(TFCMItems.arrow_WroughtIron);
-                    break;
-                case 7:
-                    ammoMult = 0.85F; //Steel
-                    entityarrow.setPickupItem(TFCMItems.arrow_Steel);
-                    break;
-                case 8:
-                    ammoMult = 0.9F; //Black Steel
-                    entityarrow.setPickupItem(TFCMItems.arrow_BlackSteel);
-                    break;
-                case 9:
-                    ammoMult = 1.0F; //Blue Steel
-                    entityarrow.setPickupItem(TFCMItems.arrow_BlueSteel);
-                    break;
-                case 10:
-                    ammoMult = 1.0F; //Red Steel
-                    entityarrow.setPickupItem(TFCMItems.arrow_RedSteel);
-                    break;
-                default:
-                    ammoMult = 0.8F; //Wrought Iron
-                    entityarrow.setPickupItem(TFCMItems.arrow_WroughtIron);
-                    break;
+            if (ammo > 0 && ammo - 1 < ItemCustomQuiver.AMMO_TIER_MULT.length) {
+                entityarrow.setPickupItem(ItemCustomQuiver.getArrowItemFromTier(ammo));//установка предмета (что поднимать)
+                ammoMult = ItemCustomQuiver.AMMO_TIER_MULT[ammo - 1];//! -1 для стрел т.к. у стрел 1 - Stone, а у болтов 1 - Copper (0-дефолтный)
             }
 
             int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, is);
@@ -181,39 +141,9 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
             }
 
             if (hasAmmo) {
-                switch (ammo) {
-                    case 1:
-                        player.inventory.consumeInventoryItem(TFCItems.arrow);
-                        break;
-                    case 2:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_Copper);
-                        break;
-                    case 3:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_BismuthBronze);
-                        break;
-                    case 4:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_Bronze);
-                        break;
-                    case 5:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_BlackBronze);
-                        break;
-                    case 6:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_WroughtIron);
-                        break;
-                    case 7:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_Steel);
-                        break;
-                    case 8:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_BlackSteel);
-                        break;
-                    case 9:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_BlueSteel);
-                        break;
-                    case 10:
-                        player.inventory.consumeInventoryItem(TFCMItems.arrow_RedSteel);
-                        break;
-                    default:
-                        break;
+                Item arrowItem = ItemCustomQuiver.getArrowItemFromTier(ammo);
+                if (arrowItem != null) {
+                    player.inventory.consumeInventoryItem(arrowItem);
                 }
             }
             else if (hasQuiverAmmo) {
@@ -237,61 +167,56 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
     }
 
     //Checks to see if player has ammo, and what type of ammo he/she has.
-    //Selects the lowest tier of ammo first.
+    /**
+     * ECO Refactored За один проход по всему инвентарю проверяеются сразу все виды поддерживаемых стрел
+     * InventoryPlayerTFC использует mainInventory так же как и в ванильном InventoryPlayer
+     * доступ идёт через интерфейс getStackInSlot(i);
+     * замена множественных вызовов player.inventory.hasItem(TFCItems.arrow) для каждого типа стрел
+     *
+     * Для выстрела будут выбираться снаряды по порядку укладки в инвентаре
+     * @param is
+     * @param player
+     * @return
+     */
     public boolean writeTagCompoundIfPlayerHasAmmo(ItemStack is, EntityPlayer player) {
-        if (player.inventory.hasItem(TFCItems.arrow)) {
-            is.stackTagCompound.setInteger("ammo", 1);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_Copper)) {
-            is.stackTagCompound.setInteger("ammo", 2);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_BismuthBronze)) {
-            is.stackTagCompound.setInteger("ammo", 3);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_Bronze)) {
-            is.stackTagCompound.setInteger("ammo", 4);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_BlackBronze)) {
-            is.stackTagCompound.setInteger("ammo", 5);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_WroughtIron)) {
-            is.stackTagCompound.setInteger("ammo", 6);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_Steel)) {
-            is.stackTagCompound.setInteger("ammo", 7);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_BlackSteel)) {
-            is.stackTagCompound.setInteger("ammo", 8);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_BlueSteel)) {
-            is.stackTagCompound.setInteger("ammo", 9);
-            return true;
-        }
-        else if (player.inventory.hasItem(TFCMItems.arrow_RedSteel)) {
-            is.stackTagCompound.setInteger("ammo", 10);
-            return true;
-        }
+        final int sz = player.inventory.getSizeInventory();
+        for (int i = 0; i < sz; i++) {
+            ItemStack is0 = player.inventory.getStackInSlot(i);
+            if (is0 != null && is0.getItem() != null) {
+                int ammoId = ItemCustomQuiver.getMetalArrowTier(is0.getItem());
 
+                if (ammoId > 0) {
+                    is.stackTagCompound.setInteger("ammo", ammoId);
+                    return true;
+                }
+            }
+        }
+        
         return false;
     }
 
     //Checks the custom quiver for bow ammo.
+    //Добавлена поддержка работы с обычным тфк-колчаном
     public boolean writeTagCompoundIfPlayerHasAmmoQuiver(ItemStack is, EntityPlayer player) {
         ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 
         if (quiver != null && quiver.getItem() instanceof ItemCustomQuiver) {
-            if (((ItemCustomQuiver) quiver.getItem()).hasArrowAmmo(quiver) != null) {
-                int t = ((ItemCustomQuiver) quiver.getItem()).getQuiverMetalArrowTier(quiver);
-                is.stackTagCompound.setInteger("ammo", t);
-
+            final int tier = ((ItemCustomQuiver) quiver.getItem()).getQuiverMetalArrowTierOrZero(quiver);
+            if (tier > 0) {//hasArrowAmmo
+                is.stackTagCompound.setInteger("ammo", tier);
+                return true;
+            }
+            //if (((ItemCustomQuiver) quiver.getItem()).hasArrowAmmo(quiver) != null) {
+            //    int t = ((ItemCustomQuiver) quiver.getItem()).getQuiverMetalArrowTier(quiver);
+            //    is.stackTagCompound.setInteger("ammo", t);
+            //    return true;
+            //}
+        }
+        //поддержка обычного тфк-колча и обычных каменных-тфк-стрел
+        else if (quiver != null && quiver.getItem() instanceof ItemQuiver) {
+            ItemStack ammo = ((ItemQuiver) quiver.getItem()).consumeAmmo(quiver, EnumAmmo.ARROW, false);
+            if (ammo != null && ammo.getItem() == TFCItems.arrow) {
+                is.stackTagCompound.setInteger("ammo", 1);//ItemCustomQuiver.getMetalArrowTier(TFCItems.arrow));
                 return true;
             }
         }
@@ -299,60 +224,17 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
     }
 
     //Removes ammo from quiver.
+    //Добавлена поддержка работы с обычным тфк-колчаном
     public void consumeArrowInQuiver(EntityPlayer player, int t) {
         ItemStack quiver = ((InventoryPlayerTFC) player.inventory).extraEquipInventory[0];
 
-        Item ammo;
-
-        switch (t) {
-            case 1: {
-                ammo = TFCItems.arrow;
-                break;
-            }
-            case 2: {
-                ammo = TFCMItems.arrow_Copper;
-                break;
-            }
-            case 3: {
-                ammo = TFCMItems.arrow_BismuthBronze;
-                break;
-            }
-            case 4: {
-                ammo = TFCMItems.arrow_Bronze;
-                break;
-            }
-            case 5: {
-                ammo = TFCMItems.arrow_BlackBronze;
-                break;
-            }
-            case 6: {
-                ammo = TFCMItems.arrow_WroughtIron;
-                break;
-            }
-            case 7: {
-                ammo = TFCMItems.arrow_Steel;
-                break;
-            }
-            case 8: {
-                ammo = TFCMItems.arrow_BlackSteel;
-                break;
-            }
-            case 9: {
-                ammo = TFCMItems.arrow_BlueSteel;
-                break;
-            }
-            case 10: {
-                ammo = TFCMItems.arrow_RedSteel;
-                break;
-            }
-            default: {
-                ammo = null;
-                break;
-            }
-        }
-
         if (quiver != null && quiver.getItem() instanceof ItemCustomQuiver) {
+            Item ammo = ItemCustomQuiver.getArrowItemFromTier(t);
             ((ItemCustomQuiver) quiver.getItem()).consumeMetalAmmo(quiver, ammo, true);
+        }
+        //поддержка обычного тфк-колча и обычных каменных-тфк-стрел
+        else if (quiver != null && quiver.getItem() instanceof ItemQuiver) {
+            ((ItemQuiver) quiver.getItem()).consumeAmmo(quiver, EnumAmmo.ARROW, true);
         }
     }
 
