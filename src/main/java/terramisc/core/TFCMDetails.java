@@ -4,6 +4,7 @@ public class TFCMDetails
 {
 	public static final String ModID = "tfcm";
 	public static final String ModName = "TerraMisc";
+	public static final String MOD_VERSION = "0.15.1SE";
 
 	public static final String ModDependencies = "required-after:TerraFirmaCraft" + "required-after:" + "Waila";
 	public static final String ModChannel = "TerraMisc";
