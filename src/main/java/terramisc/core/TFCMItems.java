@@ -105,6 +105,7 @@ public class TFCMItems
 	public static Item arrow_WroughtIron;
 	public static Item arrow_RedSteel;
 	public static Item arrow_Steel;
+	public static Item[] ARROWS = new Item[11];
 	
 	//Arrow Heads
 	public static Item arrow_BismuthBronze_Head;
@@ -127,6 +128,7 @@ public class TFCMItems
 	public static Item bolt_WroughtIron;
 	public static Item bolt_RedSteel;
 	public static Item bolt_Steel;
+	public static Item[] BOLTS = new Item[11];
 	
 	//Bolt Heads
 	public static Item bolt_BismuthBronze_Head;

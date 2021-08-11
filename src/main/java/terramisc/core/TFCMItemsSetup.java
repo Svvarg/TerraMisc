@@ -150,6 +150,18 @@ public class TFCMItemsSetup extends TFCMItems {
         arrow_Steel         = new ItemCustomArrow(Global.STEEL).setUnlocalizedName("Arrow_Steel");
         arrow_WroughtIron   = new ItemCustomArrow(Global.WROUGHTIRON).setUnlocalizedName("Arrow_WroughtIron");
 
+        //ammoId    item
+        ARROWS[1] = TFCItems.arrow;
+        ARROWS[2] = arrow_Copper;
+        ARROWS[3] = arrow_BismuthBronze;
+        ARROWS[4] = arrow_Bronze;
+        ARROWS[5] = arrow_BlackBronze;
+        ARROWS[6] = arrow_WroughtIron;
+        ARROWS[7] = arrow_Steel;
+        ARROWS[8] = arrow_BlackSteel;
+        ARROWS[9] = arrow_BlueSteel;
+        ARROWS[10] = arrow_RedSteel;
+
         //Arrow Heads
         arrow_BismuthBronze_Head = new ItemCustomProjectileHead().setUnlocalizedName("Arrow_BismuthBronze_Head");
         arrow_BlackBronze_Head = new ItemCustomProjectileHead().setUnlocalizedName("Arrow_BlackBronze_Head");
@@ -171,6 +183,17 @@ public class TFCMItemsSetup extends TFCMItems {
         bolt_RedSteel      = new ItemCustomBolt(Global.REDSTEEL).setUnlocalizedName("Bolt_RedSteel");
         bolt_Steel         = new ItemCustomBolt(Global.STEEL).setUnlocalizedName("Bolt_Steel");
         bolt_WroughtIron   = new ItemCustomBolt(Global.WROUGHTIRON).setUnlocalizedName("Bolt_WroughtIron");
+
+        //ammoId   item
+        BOLTS[1] = bolt_Copper;
+        BOLTS[2] = bolt_BismuthBronze;
+        BOLTS[3] = bolt_Bronze;
+        BOLTS[4] = bolt_BlackBronze;
+        BOLTS[5] = bolt_WroughtIron;
+        BOLTS[6] = bolt_Steel;
+        BOLTS[7] = bolt_BlackSteel;
+        BOLTS[8] = bolt_BlueSteel;
+        BOLTS[9] = bolt_RedSteel;
 
         //Bolt Heads
         bolt_BismuthBronze_Head = new ItemCustomProjectileHead().setUnlocalizedName("Bolt_BismuthBronze_Head");
