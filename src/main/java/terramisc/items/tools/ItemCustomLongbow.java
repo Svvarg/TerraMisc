@@ -51,8 +51,7 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
             is.stackTagCompound.setInteger("ammo", 0);
         }
 
-        //Check to see if player is in creative mode or has enchantments.
-        boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
+        boolean flag = TFCMOptions.hasInfinityAmmo(player, is);
         //First we check the if there is ammo in the player's quiver
         boolean hasQuiverAmmo = flag || this.writeTagCompoundIfPlayerHasAmmoQuiver(is, player);
         boolean hasAmmo = false;
@@ -91,8 +90,7 @@ public class ItemCustomLongbow extends ItemBow implements ISize {
         }
         j = event.charge;
 
-        //Check to see if player is in creative mode or has enchantments.
-        boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
+        boolean flag = TFCMOptions.hasInfinityAmmo(player, is);
         //First we check the if there is ammo in the player's quiver
         boolean hasQuiverAmmo = flag || this.writeTagCompoundIfPlayerHasAmmoQuiver(is, player);
         boolean hasAmmo = false;

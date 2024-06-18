@@ -17,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import terramisc.entities.EntityMetalBolt;
 import terramisc.core.TFCMItems;
+import terramisc.core.TFCMOptions;
 import com.bioxx.tfc.Core.TFCTabs;
 import com.bioxx.tfc.Core.TFC_Core;
 import com.bioxx.tfc.Core.Player.InventoryPlayerTFC;
@@ -63,8 +64,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
 
         //To try to prevent crashing, from cheated in crossbows.
         if (is.stackTagCompound != null) {
-            //Check to see if player is in creative mode or has enchantments.
-            boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
+            boolean flag = TFCMOptions.hasInfinityAmmo(player, is);
             //First we check the if there is ammo in the player's quiver
             boolean hasQuiverAmmo = flag || this.playerHasAmmoQuiver(player) != 0;
             boolean hasAmmo = false;
@@ -100,8 +100,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
         int j = this.getMaxItemUseDuration(is) - inUseCount;
         float forceMult = j / getUseSpeed(player);
 
-        //Check to see if player is in creative mode or has enchantments.
-        boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
+        boolean flag = TFCMOptions.hasInfinityAmmo(player, is);
         //First we check the if there is ammo in the player's quiver
         boolean hasQuiverAmmo = flag || this.playerHasAmmoQuiver(player) != 0;
         boolean hasAmmo = false;
@@ -151,8 +150,8 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
         final int sz = player.inventory.getSizeInventory();
         for (int i = 0; i < sz; i++) {
             ItemStack is0 = player.inventory.getStackInSlot(i);
-            if (is0 != null && is0.getItem() != null) {//inv[i] instanceof TFC_Arrow TFCM_Arrow?
-                int ammoId = ItemCustomQuiver.getMetalArrowTier(is0.getItem());
+            if (is0 != null && is0.getItem() != null) {
+                int ammoId = ItemCustomQuiver.getMetalBoltTier(is0.getItem());
                 if (ammoId > 0) {
                     return ammoId;
                 }
@@ -220,8 +219,7 @@ public class ItemCustomCrossbow extends ItemBow implements ISize {
             bolt.setFire(100);
         }
 
-        //Check to see if player is in creative mode or has enchantments.
-        boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
+        boolean flag = TFCMOptions.hasInfinityAmmo(player, is);
 
         if (flag) {
             bolt.canBePickedUp = 2;

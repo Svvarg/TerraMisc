@@ -2,6 +2,11 @@ package terramisc.core;
 
 import java.io.File;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantment;
+
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
@@ -14,6 +19,7 @@ public class TFCMOptions
 	public static boolean enableCraftingLongbow = true;
 	public static double LongbowDrawSpeedMult = 1;
 	public static boolean enableCraftingCrossbow = true;
+	public static boolean enableInfinityEnchantment = false;
 	//Crucible Emptying
 	public static boolean enableCrucibleEmptying = true;
 	//Other
@@ -49,6 +55,7 @@ public class TFCMOptions
 		enableCraftingLongbow = getBooleanFor(config, "Archery", "enableCraftingLongbow", true, "Enable Longbow crafting. (Default = true)");
 		LongbowDrawSpeedMult = getDoubleFor(config, "Archery", "LongbowDrawSpeedMult", 1, "Longbow draw speed modifier, higher the number the more time it takes to draw the bow. Must be greater than 0. (Default = 1");
 		enableCraftingCrossbow = getBooleanFor(config, "Archery", "enableCraftingCrossbow", true, "Enable Crossbow crafting. (Default = true)");
+		enableInfinityEnchantment = getBooleanFor(config, "Archery", "enableInfinityEnchantment", false, "Enable Crossbow and Longbow using of the Infinite ammo enchantmnet (Default = false)");
 			//Crucible Emptying
 		enableCrucibleEmptying = getBooleanFor(config, "Crucible Emptying", "enableCrucibleEmptying", true, "Enable Crucible Emptying Recipe. (Default = true)");
 			//Other
@@ -216,4 +223,14 @@ public class TFCMOptions
 		}
 		return value;
 	}
+
+    // Used by Crossbow and Longbow
+    // Check to see if player is in creative mode or has enchantments.
+	public static boolean hasInfinityAmmo(EntityPlayer p, ItemStack is)
+    {
+        if (is == null || p == null) return false;
+
+        return p.capabilities.isCreativeMode || enableInfinityEnchantment &&
+            EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, is) > 0;
+    }
 }
