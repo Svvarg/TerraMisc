@@ -7,7 +7,7 @@ import com.bioxx.tfc.Food.CropManager;
 import terramisc.core.TFCMItems;
 import terramisc.core.TFCMOptions;
 
-public class CropRegistry 
+public class CropRegistry
 {
 	/**
 	 * CropIndex (ID, Name, Nutrient Type, Time, Stages, minimiumGTemp, minimiumATemp, Nutrient Usage, Seeds, Crop)

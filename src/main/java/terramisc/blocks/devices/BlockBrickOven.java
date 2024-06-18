@@ -32,7 +32,7 @@ public class BlockBrickOven extends BlockTerraContainer
 {
 	public static final int BLOOMERY_TO_STACK_MAP[][] = { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
 	public static final int SIDES_MAP[][] = { { 1, 0 }, { 0, 1 }, { 1, 0 }, { 0, 1 } };
-	
+
 	public BlockBrickOven()
 	{
 		super(Material.rock);
@@ -45,7 +45,7 @@ public class BlockBrickOven extends BlockTerraContainer
 		if(!world.isRemote)
 		{
 			TEBrickOven te = (TEBrickOven) world.getTileEntity(x, y, z);
-			
+
 			if (!canBlockStay(world, x, y, z))
 			{
 				world.setBlockToAir(x, y, z);
@@ -88,7 +88,7 @@ public class BlockBrickOven extends BlockTerraContainer
 	{
 		world.setBlockToAir(i, j, k);
 		world.spawnEntityInWorld(new EntityItem(world, i, j, k, new ItemStack(this, 1)));
-		
+
 		eject(world,i,j,k);
 	}
 
@@ -137,7 +137,7 @@ public class BlockBrickOven extends BlockTerraContainer
 		else
 			return 15;
 	}
-	
+
 	//MultiBlock TODO
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
@@ -375,13 +375,13 @@ public class BlockBrickOven extends BlockTerraContainer
 
 		return b && t;
 	}
-	
+
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int  z)
 	{
 		return canBlockStay(world, x, y, z);
 	}
-	
+
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack is)
 	{
@@ -398,7 +398,7 @@ public class BlockBrickOven extends BlockTerraContainer
 			}
 		}
 	}
-	
+
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
 	{
@@ -432,13 +432,13 @@ public class BlockBrickOven extends BlockTerraContainer
 		te.swapFlipped();
 		return canBlockStay(world, x, y, z);
 	}
-	
+
 	/***********************************************************************************
-	 * 
+	 *
 	 * Client Only Code Below This Point
-	 * 
+	 *
 	 ***********************************************************************************/
-	
+
 	/**
 	 * Displays a flat icon image for an ItemStack containing the block, instead of a render. Using primarily for WAILA HUD.
 	 */
@@ -455,7 +455,7 @@ public class BlockBrickOven extends BlockTerraContainer
 	{
 		return world.getBlock(x, y, z) == this;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegisterer)

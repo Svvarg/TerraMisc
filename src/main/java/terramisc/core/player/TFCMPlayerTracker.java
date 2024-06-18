@@ -14,37 +14,37 @@ import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent.ServerDisconnectionFromClientEvent;
 
-public class TFCMPlayerTracker 
+public class TFCMPlayerTracker
 {
-    @SubscribeEvent 
-    public void onPlayerLoggedIn(PlayerLoggedInEvent e) 
-    { 
-        AbstractPacket packet = new TFCMInitClientWorldPacket(); 
-        TerraFirmaCraft.PACKET_PIPELINE.sendTo(packet, (EntityPlayerMP)e.player); 
-    } 
+    @SubscribeEvent
+    public void onPlayerLoggedIn(PlayerLoggedInEvent e)
+    {
+        AbstractPacket packet = new TFCMInitClientWorldPacket();
+        TerraFirmaCraft.PACKET_PIPELINE.sendTo(packet, (EntityPlayerMP)e.player);
+    }
 
-    @SubscribeEvent 
-    public void onClientConnect(ClientConnectedToServerEvent e) 
-    { 
-    } 
+    @SubscribeEvent
+    public void onClientConnect(ClientConnectedToServerEvent e)
+    {
+    }
 
-    @SubscribeEvent 
-    public void onClientDisconnect(ServerDisconnectionFromClientEvent e) 
-    { 
-    } 
+    @SubscribeEvent
+    public void onClientDisconnect(ServerDisconnectionFromClientEvent e)
+    {
+    }
 
-    @SubscribeEvent 
-    public void onPlayerRespawn(PlayerRespawnEvent e) 
-    { 
-    } 
+    @SubscribeEvent
+    public void onPlayerRespawn(PlayerRespawnEvent e)
+    {
+    }
 
-    @SubscribeEvent 
-    public void notifyPickup(ItemPickupEvent e) 
-    { 
-    } 
+    @SubscribeEvent
+    public void notifyPickup(ItemPickupEvent e)
+    {
+    }
 
-    @SubscribeEvent 
-    public void onPlayerTossEvent(ItemTossEvent e) 
-    { 
-    } 
+    @SubscribeEvent
+    public void onPlayerTossEvent(ItemTossEvent e)
+    {
+    }
 }

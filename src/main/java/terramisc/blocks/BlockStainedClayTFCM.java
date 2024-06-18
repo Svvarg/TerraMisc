@@ -23,8 +23,8 @@ import terramisc.items.itemblocks.ItemBlockStainedClayTFCM;
 public class BlockStainedClayTFCM extends BlockTerra
 {
 	protected IIcon[] icons;
-	
-	public BlockStainedClayTFCM(Material material) 
+
+	public BlockStainedClayTFCM(Material material)
 	{
 		super(material);
 		this.setHardness(15);
@@ -43,7 +43,7 @@ public class BlockStainedClayTFCM extends BlockTerra
 		for(int i = 0; i < ItemBlockStainedClayTFCM.names.length; i++)
 			list.add(new ItemStack(this,1,i));
 	}
-	
+
 	/*
 	 * Mapping from metadata value to damage value
 	 */
@@ -52,7 +52,7 @@ public class BlockStainedClayTFCM extends BlockTerra
 	{
 		return i;
 	}
-	
+
 	@Override
 	public IIcon getIcon(int i, int j)
 	{
@@ -60,12 +60,12 @@ public class BlockStainedClayTFCM extends BlockTerra
 			return icons[0];
 		return icons[j & 15];
 	}
-	
+
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegisterer)
 	{
 		icons = new IIcon[16];
-		
+
 		icons[0] = iconRegisterer.registerIcon("Minecraft" + ":" +"hardened_clay");
 		icons[1] = iconRegisterer.registerIcon("Minecraft" + ":" +"hardened_clay_stained_black");
 		icons[2] = iconRegisterer.registerIcon("Minecraft" + ":" +"hardened_clay_stained_red");
@@ -83,19 +83,19 @@ public class BlockStainedClayTFCM extends BlockTerra
 		icons[14] = iconRegisterer.registerIcon("Minecraft" + ":" +"hardened_clay_stained_magenta");
 		icons[15] = iconRegisterer.registerIcon("Minecraft" + ":" +"hardened_clay_stained_orange");
 	}
-	
+
 	/**
 	 * Called when the block is clicked by a player. Args: x, y, z, entityPlayer
 	 */
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int side, float par7, float par8, float par9)  
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int side, float par7, float par8, float par9)
 	{
 		boolean hasHammer = false;
 		for(int i = 0; i < 9;i++)
 			if(entityplayer.inventory.mainInventory[i] != null && entityplayer.inventory.mainInventory[i].getItem() instanceof ItemHammer)
 				hasHammer = true;
 
-		if(entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() instanceof IToolChisel && 
+		if(entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() instanceof IToolChisel &&
 				hasHammer && !world.isRemote && ((IToolChisel)entityplayer.getCurrentEquippedItem().getItem()).canChisel(entityplayer, x, y, z))
 		{
 			Block id = world.getBlock(x, y, z);

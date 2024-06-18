@@ -15,21 +15,21 @@ import com.bioxx.tfc.api.Enums.EnumWeight;
 import com.bioxx.tfc.api.Interfaces.ISize;
 
 public class ItemBowLimb extends Item implements ISize{
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
 	{
 		ItemTerra.addSizeInformation(is, arraylist);
 	}
-	
+
 	public ItemBowLimb()
 	{
 		super();
 		this.maxStackSize = 4;
 		this.hasSubtypes = false;
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
 	{
@@ -38,30 +38,30 @@ public class ItemBowLimb extends Item implements ISize{
 		else
 			this.itemIcon = registerer.registerIcon(TFCMDetails.ModID + ":" + this.getUnlocalizedName().replace("item.", ""));
 	}
-	
+
 	@Override
-	public EnumSize getSize(ItemStack is) 
+	public EnumSize getSize(ItemStack is)
 	{
 		// TODO Auto-generated method stub
 		return EnumSize.LARGE;
 	}
 
 	@Override
-	public EnumWeight getWeight(ItemStack is) 
+	public EnumWeight getWeight(ItemStack is)
 	{
 		// TODO Auto-generated method stub
 		return EnumWeight.LIGHT;
 	}
 
 	@Override
-	public EnumItemReach getReach(ItemStack is) 
+	public EnumItemReach getReach(ItemStack is)
 	{
 		// TODO Auto-generated method stub
 		return EnumItemReach.SHORT;
 	}
 
 	@Override
-	public boolean canStack() 
+	public boolean canStack()
 	{
 		// TODO Auto-generated method stub
 		return false;

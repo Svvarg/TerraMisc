@@ -26,7 +26,7 @@ public class ItemMetalPart extends ItemTerra implements ISmeltable
 {
 	private String metal;
 	private short metalAmount;
-	
+
 	public ItemMetalPart()
 	{
 		super();
@@ -52,7 +52,7 @@ public class ItemMetalPart extends ItemTerra implements ISmeltable
 	{
 		this.itemIcon = registerer.registerIcon(TFCMDetails.ModID + ":" + this.getUnlocalizedName().replace("item.", ""));
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses()
@@ -71,34 +71,34 @@ public class ItemMetalPart extends ItemTerra implements ISmeltable
 	{
 		return EnumWeight.MEDIUM;
 	}
-	
+
 	@Override
-	public Metal getMetalType(ItemStack is) 
+	public Metal getMetalType(ItemStack is)
 	{
-		if(metal == null) 
+		if(metal == null)
 		{
 			return MetalRegistry.instance.getMetalFromItem(this);
-		} 
-		else 
+		}
+		else
 		{
 			return MetalRegistry.instance.getMetalFromString(metal);
 		}
 	}
 
 	@Override
-	public short getMetalReturnAmount(ItemStack is) 
+	public short getMetalReturnAmount(ItemStack is)
 	{
 		return metalAmount;
 	}
 
 	@Override
-	public boolean isSmeltable(ItemStack is) 
+	public boolean isSmeltable(ItemStack is)
 	{
 		return true;
 	}
 
 	@Override
-	public EnumTier getSmeltTier(ItemStack is) 
+	public EnumTier getSmeltTier(ItemStack is)
 	{
 		return EnumTier.TierI;
 	}
@@ -130,7 +130,7 @@ public class ItemMetalPart extends ItemTerra implements ISmeltable
 			}
 		}
 	}
-	
+
 	@Override
 	public int getItemStackLimit(ItemStack is)
 	{

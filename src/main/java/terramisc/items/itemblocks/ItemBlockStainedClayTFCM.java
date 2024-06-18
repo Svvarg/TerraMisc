@@ -15,12 +15,12 @@ public class ItemBlockStainedClayTFCM extends ItemTerraBlock
 			"hardened_clay_stained_cyan", "hardened_clay_stained_silver", "hardened_clay_stained_gray", "hardened_clay_stained_pink",
 			"hardened_clay_stained_lime", "hardened_clay_stained_yellow", "hardened_clay_stained_light_blue", "hardened_clay_stained_magenta",
 			"hardened_clay_stained_orange"};
-	
+
 	@SuppressWarnings("static-access")
 	public ItemBlockStainedClayTFCM(Block b)
 	{
 		super(b);
-		
+
 		if(b == TFCMBlocks.blockStainedClay)
 		{
 			metaNames = this.names;

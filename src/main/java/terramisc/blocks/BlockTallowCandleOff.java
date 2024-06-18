@@ -41,7 +41,7 @@ public class BlockTallowCandleOff extends BlockTallowCandle
 		{
 			TETallowCandle tile = (TETallowCandle) world.getTileEntity(x, y, z);
 			int color = tile.color;
-			
+
 			if (player.inventory.getCurrentItem() != null &&
 				player.inventory.getCurrentItem().getItem() == Item.getItemFromBlock(TFCBlocks.torch))
 			{
@@ -58,7 +58,7 @@ public class BlockTallowCandleOff extends BlockTallowCandle
 			else if (player.inventory.getCurrentItem() != null && (player.inventory.getCurrentItem().getItem() instanceof ItemFirestarter || player.inventory.getCurrentItem().getItem() instanceof ItemFlintAndSteel))
 			{
 				ItemStack equippedItem = player.getCurrentEquippedItem();
-							
+
 				if ((TETallowCandle) world.getTileEntity(x, y, z) != null)
 				{
 					if (player.inventory.getCurrentItem().getItem() instanceof ItemFlintAndSteel)
@@ -66,7 +66,7 @@ public class BlockTallowCandleOff extends BlockTallowCandle
 						Random rand = new Random();
 						world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "fire.ignite", 1.0F, rand.nextFloat() * 0.4F + 0.8F);
 					}
-								
+
 					equippedItem.damageItem(1, player);
 					int meta = world.getBlockMetadata(x, y, z);
 					world.setBlock(x, y, z, TFCMBlocks.blockTallowCandle, meta, 3);
@@ -79,7 +79,7 @@ public class BlockTallowCandleOff extends BlockTallowCandle
 				}
 			}
 		}
-		
+
 		return true;
 	}
 

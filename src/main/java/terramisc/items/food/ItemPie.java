@@ -19,8 +19,8 @@ public class ItemPie extends ItemMeal
 	{
 		super();
 		this.hasSubtypes = true;
-		this.metaNames = new String[]{"Pie","PieApple","PieBlackberry","PieBlueberry", 
-									  "PieCherry","PiePeach","PieLemon","PiePeach", 
+		this.metaNames = new String[]{"Pie","PieApple","PieBlackberry","PieBlueberry",
+									  "PieCherry","PiePeach","PieLemon","PiePeach",
 									  "PiePumpkin","PieRaspberry", "PieStrawberry"};
 		this.metaIcons = new IIcon[10];
 		this.setFolder("food/");
@@ -33,21 +33,21 @@ public class ItemPie extends ItemMeal
 
 		return name.append(getPieContentsString(is)).toString() + " " + (TFC_Core.translate(this.getUnlocalizedName(is) + ".name"));
 	}
-	
+
 	protected String getPieContentsString(ItemStack is)
 	{
 		int[] fg = Food.getFoodGroups(is);
 
 		if (fg[1] != -1)
 			return (localize2(fg[1]));
-		
+
 		return null;
 	}
 
 	protected String localize2(int id)
 	{
 		Item is = FoodRegistry.getInstance().getFood(id);
-		
+
 		if(is == null)
 		{
 			return "";
@@ -55,7 +55,7 @@ public class ItemPie extends ItemMeal
 		else
 			return TFC_Core.translate(is.getUnlocalizedName() + ".name");
 	}
-	
+
 	@Override
 	protected void addFGInformation(ItemStack is, List<String> arraylist)
 	{
@@ -121,6 +121,6 @@ public class ItemPie extends ItemMeal
 		Food.setFoodGroups(is, foodGroups);
 		return is;
 	}
-	
+
 	//Add method for potion effects to be granted; maybe speed for the pies?
 }

@@ -20,41 +20,41 @@ public class ItemCustomProjectileHead extends Item implements ISize
 	{
 		ItemTerra.addSizeInformation(is, arraylist);
 	}
-	
+
 	public ItemCustomProjectileHead()
 	{
 		super();
 		this.maxStackSize = 16;
 		this.hasSubtypes = false;
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
 	{
 		String name = this.getUnlocalizedName().replace("item.", "");
 		this.itemIcon = registerer.registerIcon("tfcm:toolheads/" + name);
 	}
-	
+
 	@Override
-	public EnumSize getSize(ItemStack is) 
+	public EnumSize getSize(ItemStack is)
 	{
 		return EnumSize.SMALL;
 	}
 
 	@Override
-	public EnumWeight getWeight(ItemStack is) 
+	public EnumWeight getWeight(ItemStack is)
 	{
 		return EnumWeight.HEAVY;
 	}
 
 	@Override
-	public EnumItemReach getReach(ItemStack is) 
+	public EnumItemReach getReach(ItemStack is)
 	{
 		return EnumItemReach.SHORT;
 	}
 
 	@Override
-	public boolean canStack() 
+	public boolean canStack()
 	{
 		return true;
 	}

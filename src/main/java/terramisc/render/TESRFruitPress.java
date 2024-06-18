@@ -101,7 +101,7 @@ public class TESRFruitPress extends TESRBase
 
 		@SuppressWarnings("unchecked")
 		@Override
-		public void render(Entity entity, float x, float y, float z, float maxX, float maxY, float maxZ) 
+		public void render(Entity entity, float x, float y, float z, float maxX, float maxY, float maxZ)
 		{
 			renderer = new ModelRenderer(this);
 

@@ -11,7 +11,7 @@ public class ItemToolMold extends ItemPotteryMold
 	IIcon BronzeIcon;
 	IIcon BismuthBronzeIcon;
 	IIcon BlackBronzeIcon;
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
 	{
@@ -25,7 +25,7 @@ public class ItemToolMold extends ItemPotteryMold
 			BlackBronzeIcon = registerer.registerIcon("tfcm:pottery/" + metaNames[5]);
 		}
 	}
-	
+
 	@Override
 	public IIcon getIconFromDamage(int damage)
 	{

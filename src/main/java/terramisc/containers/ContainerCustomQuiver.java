@@ -12,11 +12,11 @@ import com.bioxx.tfc.Containers.Slots.SlotForShowOnly;
 public class ContainerCustomQuiver extends ContainerQuiver
 {
 
-	public ContainerCustomQuiver(InventoryPlayer playerinv, World world, int x, int y, int z) 
+	public ContainerCustomQuiver(InventoryPlayer playerinv, World world, int x, int y, int z)
 	{
 		super(playerinv, world, x, y, z);
 	}
-	
+
 	@Override
 	protected void layoutContainer(IInventory playerInventory, int xSize, int ySize)
 	{

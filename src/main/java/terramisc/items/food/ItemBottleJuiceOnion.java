@@ -27,40 +27,40 @@ public class ItemBottleJuiceOnion extends ItemTerra
 		this.setContainerItem(TFCItems.glassBottle);
 		this.setMaxStackSize(64);
 	}
-	
+
 	@Override
 	public boolean canStack()
 	{
 		return true;
 	}
-	
+
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		EntityPotion entitypotion = new EntityPotion(par2World, par3EntityPlayer, new ItemStack(Items.potionitem, 1, 4));
-		
+
 		--par1ItemStack.stackSize;
-		
+
 		if (!par2World.isRemote)
 		{
 			par2World.spawnEntityInWorld(entitypotion);
 		}
-		
+
 		return par1ItemStack;
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag) 
+	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
 	{
 		arraylist.add("Right click to throw onion juice.");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister registerer)
 	{
-		this.itemIcon = registerer.registerIcon(Reference.MOD_ID + ":Glass Bottle Overlay");		
+		this.itemIcon = registerer.registerIcon(Reference.MOD_ID + ":Glass Bottle Overlay");
 	}
 
 	@Override

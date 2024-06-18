@@ -20,10 +20,10 @@ import terramisc.tileentities.TESoupKettle;
 public class TFCMGuiHandler extends terramisc.handlers.TFCMGuiHandler
 {
 	@Override
-	public Object getClientGuiElement(int Id, EntityPlayer player, World world, int x, int y, int z) 
+	public Object getClientGuiElement(int Id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		TileEntity te;
-		
+
 		try
 		{
 			te = world.getTileEntity(x, y, z);
@@ -65,7 +65,7 @@ public class TFCMGuiHandler extends terramisc.handlers.TFCMGuiHandler
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void openGuiHandler(GuiOpenEvent event)
 	{

@@ -29,7 +29,7 @@ public class ItemCustomWarHammer extends ItemWeapon
 		this.damageType = EnumDamageType.CRUSHING;
 		this.setCreativeTab(TFCTabs.TFC_WEAPONS);
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
 	{
@@ -41,7 +41,7 @@ public class ItemCustomWarHammer extends ItemWeapon
 	{
 		return is;
 	}
-	
+
 	 @Override
 	 public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
 	 {
@@ -56,13 +56,13 @@ public class ItemCustomWarHammer extends ItemWeapon
 	         }
 	     }
 	 }
-	
+
 	@Override
 	public EnumItemReach getReach(ItemStack is)
 	{
 		return EnumItemReach.FAR;
 	}
-	
+
 	@Override
 	public EnumSize getSize(ItemStack is)
 	{

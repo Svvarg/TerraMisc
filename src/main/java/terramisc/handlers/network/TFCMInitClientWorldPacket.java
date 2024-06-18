@@ -10,23 +10,23 @@ import com.bioxx.tfc.Handlers.Network.AbstractPacket;
 public class TFCMInitClientWorldPacket extends AbstractPacket
 {
 	@Override
-	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) 
+	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 	}
 
 	@Override
-	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) 
+	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 	}
 
 	@Override
-	public void handleClientSide(EntityPlayer player) 
+	public void handleClientSide(EntityPlayer player)
 	{
-		TFCMRecipes.initialiseAnvil(); 
+		TFCMRecipes.initialiseAnvil();
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player) 
+	public void handleServerSide(EntityPlayer player)
 	{
 	}
 }

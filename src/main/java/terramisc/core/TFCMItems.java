@@ -24,11 +24,11 @@ public class TFCMItems
 	public static Item brownDye;
 	public static Item ironDust;
 	public static Item tallowDye;
-		
+
 	//Bows and Such
 	public static Item longBow;
 	public static Item crossBow;
-	
+
 	//Halberds
 	public static Item halberd_BismuthBronze;
 	public static Item halberd_BlackBronze;
@@ -39,7 +39,7 @@ public class TFCMItems
 	public static Item halberd_WroughtIron;
 	public static Item halberd_RedSteel;
 	public static Item halberd_Steel;
-	
+
 	//Halberd Tool Heads
 	public static Item halberd_BismuthBronze_Head;
 	public static Item halberd_BlackBronze_Head;
@@ -50,7 +50,7 @@ public class TFCMItems
 	public static Item halberd_WroughtIron_Head;
 	public static Item halberd_RedSteel_Head;
 	public static Item halberd_Steel_Head;
-	
+
 	//War Hammers
 	public static Item warHammer_BismuthBronze;
 	public static Item warHammer_BlackBronze;
@@ -61,7 +61,7 @@ public class TFCMItems
 	public static Item warHammer_WroughtIron;
 	public static Item warHammer_RedSteel;
 	public static Item warHammer_Steel;
-	
+
 	//War Hammer Heads
 	public static Item warHammer_BismuthBronze_Head;
 	public static Item warHammer_BlackBronze_Head;
@@ -72,7 +72,7 @@ public class TFCMItems
 	public static Item warHammer_WroughtIron_Head;
 	public static Item warHammer_RedSteel_Head;
 	public static Item warHammer_Steel_Head;
-	
+
 	//Poniards
 	public static Item poniard_BismuthBronze;
 	public static Item poniard_BlackBronze;
@@ -83,7 +83,7 @@ public class TFCMItems
 	public static Item poniard_WroughtIron;
 	public static Item poniard_RedSteel;
 	public static Item poniard_Steel;
-	
+
 	//Poniard Blades
 	public static Item poniard_BismuthBronze_Head;
 	public static Item poniard_BlackBronze_Head;
@@ -94,7 +94,7 @@ public class TFCMItems
 	public static Item poniard_WroughtIron_Head;
 	public static Item poniard_RedSteel_Head;
 	public static Item poniard_Steel_Head;
-	
+
 	//Arrows
 	public static Item arrow_BismuthBronze;
 	public static Item arrow_BlackBronze;
@@ -106,7 +106,7 @@ public class TFCMItems
 	public static Item arrow_RedSteel;
 	public static Item arrow_Steel;
 	public static Item[] ARROWS = new Item[11];
-	
+
 	//Arrow Heads
 	public static Item arrow_BismuthBronze_Head;
 	public static Item arrow_BlackBronze_Head;
@@ -117,7 +117,7 @@ public class TFCMItems
 	public static Item arrow_WroughtIron_Head;
 	public static Item arrow_RedSteel_Head;
 	public static Item arrow_Steel_Head;
-	
+
 	//Bolts
 	public static Item bolt_BismuthBronze;
 	public static Item bolt_BlackBronze;
@@ -129,7 +129,7 @@ public class TFCMItems
 	public static Item bolt_RedSteel;
 	public static Item bolt_Steel;
 	public static Item[] BOLTS = new Item[11];
-	
+
 	//Bolt Heads
 	public static Item bolt_BismuthBronze_Head;
 	public static Item bolt_BlackBronze_Head;
@@ -140,14 +140,14 @@ public class TFCMItems
 	public static Item bolt_WroughtIron_Head;
 	public static Item bolt_RedSteel_Head;
 	public static Item bolt_Steel_Head;
-	
+
 	//Pottery
 	public static Item halberd_Mold;
 	public static Item warHammer_Mold;
 	public static Item poniard_Mold;
 	public static Item arrow_Mold;
 	public static Item bolt_Mold;
-	
+
 	//Armor
 	public static Item coil_BismuthBronze;
 	public static Item coil_BlackBronze;
@@ -158,7 +158,7 @@ public class TFCMItems
 	public static Item coil_WroughtIron;
 	public static Item coil_RedSteel;
 	public static Item coil_Steel;
-	
+
 	public static Item link_BismuthBronze;
 	public static Item link_BlackBronze;
 	public static Item link_BlackSteel;
@@ -168,7 +168,7 @@ public class TFCMItems
 	public static Item link_WroughtIron;
 	public static Item link_RedSteel;
 	public static Item link_Steel;
-	
+
 	public static Item chain_Square_BismuthBronze;
 	public static Item chain_Square_BlackBronze;
 	public static Item chain_Square_BlackSteel;
@@ -178,7 +178,7 @@ public class TFCMItems
 	public static Item chain_Square_WroughtIron;
 	public static Item chain_Square_RedSteel;
 	public static Item chain_Square_Steel;
-	
+
 	public static Item chain_Sheet_BismuthBronze;
 	public static Item chain_Sheet_BlackBronze;
 	public static Item chain_Sheet_BlackSteel;
@@ -188,7 +188,7 @@ public class TFCMItems
 	public static Item chain_Sheet_WroughtIron;
 	public static Item chain_Sheet_RedSteel;
 	public static Item chain_Sheet_Steel;
-	
+
 	public static Item BismuthBronzeChainGreaves;
 	public static Item BlackBronzeChainGreaves;
 	public static Item BlackSteelChainGreaves;
@@ -198,7 +198,7 @@ public class TFCMItems
 	public static Item WroughtIronChainGreaves;
 	public static Item RedSteelChainGreaves;
 	public static Item SteelChainGreaves;
-	
+
 	public static Item BismuthBronzeChainChestplate;
 	public static Item BlackBronzeChainChestplate;
 	public static Item BlackSteelChainChestplate;
@@ -208,7 +208,7 @@ public class TFCMItems
 	public static Item WroughtIronChainChestplate;
 	public static Item RedSteelChainChestplate;
 	public static Item SteelChainChestplate;
-	
+
 	public static Item BismuthBronzeChainHelmet;
 	public static Item BlackBronzeChainHelmet;
 	public static Item BlackSteelChainHelmet;
@@ -218,23 +218,23 @@ public class TFCMItems
 	public static Item WroughtIronChainHelmet;
 	public static Item RedSteelChainHelmet;
 	public static Item SteelChainHelmet;
-	
+
 	//Food Stuffs
 	public static Item bottleFruitJuice;
 	public static Item bottleFruitWine;
 	public static Item bottleSugar;
-	
+
 	public static Item bottleJuiceApple;
 	public static Item bottleJuiceOrange;
 	public static Item bottleJuiceLemon;
 	public static Item bottleLemonade;
 	public static Item bottleJuiceOnion;
-	
+
 		//Soy
 	public static Item bottleSoyMilk;
 	public static Item bucketHotWater;
 	public static Item soyPaste;
-	
+
 		//Crops
 	public static Item seedsPumpkin;
 	public static Item pumpkin;
@@ -246,25 +246,25 @@ public class TFCMItems
 	public static Item greenCoffee;
 	public static Item coffee;
 	public static Item groundCoffee;
-	
+
 	public static Item pie;
 	public static Item casserole;
 	public static Item soup;
 	public static Item stew;
-	
+
 	public static Item bearRaw;
-	
+
 	//Inventory s
 	public static Item itemQuiver;
-	
+
 	public static void registers()
 	{
 		//Basic s
 		GameRegistry.registerItem(casingBrass, casingBrass.getUnlocalizedName());
 		GameRegistry.registerItem(casingIron, casingIron.getUnlocalizedName());
 		GameRegistry.registerItem(casingRoseGold, casingRoseGold.getUnlocalizedName());
-		GameRegistry.registerItem(gear, gear.getUnlocalizedName()); 
-		GameRegistry.registerItem(caseinGlue, caseinGlue.getUnlocalizedName());		
+		GameRegistry.registerItem(gear, gear.getUnlocalizedName());
+		GameRegistry.registerItem(caseinGlue, caseinGlue.getUnlocalizedName());
 		GameRegistry.registerItem(pistonBase, pistonBase.getUnlocalizedName());
 		GameRegistry.registerItem(circuit, circuit.getUnlocalizedName());
 		GameRegistry.registerItem(deerTendon, deerTendon.getUnlocalizedName());
@@ -278,11 +278,11 @@ public class TFCMItems
 		GameRegistry.registerItem(brownDye, brownDye.getUnlocalizedName());
 		GameRegistry.registerItem(ironDust, ironDust.getUnlocalizedName());
 		GameRegistry.registerItem(tallowDye, tallowDye.getUnlocalizedName());
-		
+
 		//Bows and Such
 		GameRegistry.registerItem(longBow, longBow.getUnlocalizedName());
 		GameRegistry.registerItem(crossBow, crossBow.getUnlocalizedName());
-		
+
 		//Halberds
 		GameRegistry.registerItem(halberd_BismuthBronze, halberd_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(halberd_BlackBronze, halberd_BlackBronze.getUnlocalizedName());
@@ -293,7 +293,7 @@ public class TFCMItems
 		GameRegistry.registerItem(halberd_WroughtIron, halberd_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(halberd_RedSteel, halberd_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(halberd_Steel, halberd_Steel.getUnlocalizedName());
-		
+
 		//Halberd Tool Heads
 		GameRegistry.registerItem(halberd_BismuthBronze_Head, halberd_BismuthBronze_Head.getUnlocalizedName());
 		GameRegistry.registerItem(halberd_BlackBronze_Head, halberd_BlackBronze_Head.getUnlocalizedName());
@@ -304,7 +304,7 @@ public class TFCMItems
 		GameRegistry.registerItem(halberd_WroughtIron_Head, halberd_WroughtIron_Head.getUnlocalizedName());
 		GameRegistry.registerItem(halberd_RedSteel_Head, halberd_RedSteel_Head.getUnlocalizedName());
 		GameRegistry.registerItem(halberd_Steel_Head, halberd_Steel_Head.getUnlocalizedName());
-		
+
 		//War Hammers
 		GameRegistry.registerItem(warHammer_BismuthBronze, warHammer_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_BlackBronze, warHammer_BlackBronze.getUnlocalizedName());
@@ -315,7 +315,7 @@ public class TFCMItems
 		GameRegistry.registerItem(warHammer_WroughtIron, warHammer_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_RedSteel, warHammer_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_Steel, warHammer_Steel.getUnlocalizedName());
-		
+
 		//War Hammer Heads
 		GameRegistry.registerItem(warHammer_BismuthBronze_Head, warHammer_BismuthBronze_Head.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_BlackBronze_Head, warHammer_BlackBronze_Head.getUnlocalizedName());
@@ -326,7 +326,7 @@ public class TFCMItems
 		GameRegistry.registerItem(warHammer_WroughtIron_Head, warHammer_WroughtIron_Head.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_RedSteel_Head, warHammer_RedSteel_Head.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_Steel_Head, warHammer_Steel_Head.getUnlocalizedName());
-	
+
 		//Poniards
 		GameRegistry.registerItem(poniard_BismuthBronze, poniard_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_BlackBronze, poniard_BlackBronze.getUnlocalizedName());
@@ -337,7 +337,7 @@ public class TFCMItems
 		GameRegistry.registerItem(poniard_WroughtIron, poniard_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_RedSteel, poniard_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_Steel, poniard_Steel.getUnlocalizedName());
-		
+
 		//Poniard Blades
 		GameRegistry.registerItem(poniard_BismuthBronze_Head, poniard_BismuthBronze_Head.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_BlackBronze_Head, poniard_BlackBronze_Head.getUnlocalizedName());
@@ -348,7 +348,7 @@ public class TFCMItems
 		GameRegistry.registerItem(poniard_WroughtIron_Head, poniard_WroughtIron_Head.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_RedSteel_Head, poniard_RedSteel_Head.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_Steel_Head, poniard_Steel_Head.getUnlocalizedName());
-		
+
 		//Arrows
 		GameRegistry.registerItem(arrow_BismuthBronze, arrow_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_BlackBronze, arrow_BlackBronze.getUnlocalizedName());
@@ -359,7 +359,7 @@ public class TFCMItems
 		GameRegistry.registerItem(arrow_WroughtIron, arrow_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_RedSteel, arrow_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_Steel, arrow_Steel.getUnlocalizedName());
-		
+
 		//Arrow Heads
 		GameRegistry.registerItem(arrow_BismuthBronze_Head, arrow_BismuthBronze_Head.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_BlackBronze_Head, arrow_BlackBronze_Head.getUnlocalizedName());
@@ -370,7 +370,7 @@ public class TFCMItems
 		GameRegistry.registerItem(arrow_WroughtIron_Head, arrow_WroughtIron_Head.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_RedSteel_Head, arrow_RedSteel_Head.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_Steel_Head, arrow_Steel_Head.getUnlocalizedName());
-	
+
 		//Bolts
 		GameRegistry.registerItem(bolt_BismuthBronze, bolt_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_BlackBronze, bolt_BlackBronze.getUnlocalizedName());
@@ -381,7 +381,7 @@ public class TFCMItems
 		GameRegistry.registerItem(bolt_WroughtIron, bolt_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_RedSteel, bolt_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_Steel, bolt_Steel.getUnlocalizedName());
-		
+
 		//Bolt Heads
 		GameRegistry.registerItem(bolt_BismuthBronze_Head, bolt_BismuthBronze_Head.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_BlackBronze_Head, bolt_BlackBronze_Head.getUnlocalizedName());
@@ -392,14 +392,14 @@ public class TFCMItems
 		GameRegistry.registerItem(bolt_WroughtIron_Head, bolt_WroughtIron_Head.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_RedSteel_Head, bolt_RedSteel_Head.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_Steel_Head, bolt_Steel_Head.getUnlocalizedName());
-		
+
 		//Pottery
 		GameRegistry.registerItem(halberd_Mold, halberd_Mold.getUnlocalizedName());
 		GameRegistry.registerItem(warHammer_Mold, warHammer_Mold.getUnlocalizedName());
 		GameRegistry.registerItem(poniard_Mold, poniard_Mold.getUnlocalizedName());
 		GameRegistry.registerItem(arrow_Mold, arrow_Mold.getUnlocalizedName());
 		GameRegistry.registerItem(bolt_Mold, bolt_Mold.getUnlocalizedName());
-		
+
 		//Armor
 		GameRegistry.registerItem(coil_BismuthBronze, coil_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(coil_BlackBronze, coil_BlackBronze.getUnlocalizedName());
@@ -410,7 +410,7 @@ public class TFCMItems
 		GameRegistry.registerItem(coil_WroughtIron, coil_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(coil_RedSteel, coil_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(coil_Steel, coil_Steel.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(link_BismuthBronze, link_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(link_BlackBronze, link_BlackBronze.getUnlocalizedName());
 		GameRegistry.registerItem(link_BlackSteel, link_BlackSteel.getUnlocalizedName());
@@ -420,7 +420,7 @@ public class TFCMItems
 		GameRegistry.registerItem(link_WroughtIron, link_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(link_RedSteel, link_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(link_Steel, link_Steel.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(chain_Square_BismuthBronze, chain_Square_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Square_BlackBronze, chain_Square_BlackBronze.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Square_BlackSteel, chain_Square_BlackSteel.getUnlocalizedName());
@@ -430,7 +430,7 @@ public class TFCMItems
 		GameRegistry.registerItem(chain_Square_WroughtIron, chain_Square_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Square_RedSteel, chain_Square_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Square_Steel, chain_Square_Steel.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(chain_Sheet_BismuthBronze, chain_Sheet_BismuthBronze.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Sheet_BlackBronze, chain_Sheet_BlackBronze.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Sheet_BlackSteel, chain_Sheet_BlackSteel.getUnlocalizedName());
@@ -440,7 +440,7 @@ public class TFCMItems
 		GameRegistry.registerItem(chain_Sheet_WroughtIron, chain_Sheet_WroughtIron.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Sheet_RedSteel, chain_Sheet_RedSteel.getUnlocalizedName());
 		GameRegistry.registerItem(chain_Sheet_Steel, chain_Sheet_Steel.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(BismuthBronzeChainGreaves, BismuthBronzeChainGreaves.getUnlocalizedName());
 		GameRegistry.registerItem(BlackBronzeChainGreaves, BlackBronzeChainGreaves.getUnlocalizedName());
 		GameRegistry.registerItem(BlackSteelChainGreaves, BlackSteelChainGreaves.getUnlocalizedName());
@@ -450,7 +450,7 @@ public class TFCMItems
 		GameRegistry.registerItem(WroughtIronChainGreaves, WroughtIronChainGreaves.getUnlocalizedName());
 		GameRegistry.registerItem(RedSteelChainGreaves, RedSteelChainGreaves.getUnlocalizedName());
 		GameRegistry.registerItem(SteelChainGreaves, SteelChainGreaves.getUnlocalizedName());
-	
+
 		GameRegistry.registerItem(BismuthBronzeChainChestplate, BismuthBronzeChainChestplate.getUnlocalizedName());
 		GameRegistry.registerItem(BlackBronzeChainChestplate, BlackBronzeChainChestplate.getUnlocalizedName());
 		GameRegistry.registerItem(BlackSteelChainChestplate, BlackSteelChainChestplate.getUnlocalizedName());
@@ -460,7 +460,7 @@ public class TFCMItems
 		GameRegistry.registerItem(WroughtIronChainChestplate, WroughtIronChainChestplate.getUnlocalizedName());
 		GameRegistry.registerItem(RedSteelChainChestplate, RedSteelChainChestplate.getUnlocalizedName());
 		GameRegistry.registerItem(SteelChainChestplate, SteelChainChestplate.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(BismuthBronzeChainHelmet, BismuthBronzeChainHelmet.getUnlocalizedName());
 		GameRegistry.registerItem(BlackBronzeChainHelmet, BlackBronzeChainHelmet.getUnlocalizedName());
 		GameRegistry.registerItem(BlackSteelChainHelmet, BlackSteelChainHelmet.getUnlocalizedName());
@@ -470,24 +470,24 @@ public class TFCMItems
 		GameRegistry.registerItem(WroughtIronChainHelmet, WroughtIronChainHelmet.getUnlocalizedName());
 		GameRegistry.registerItem(RedSteelChainHelmet, RedSteelChainHelmet.getUnlocalizedName());
 		GameRegistry.registerItem(SteelChainHelmet, SteelChainHelmet.getUnlocalizedName());
-		
+
 		//Food Stuffs
 		GameRegistry.registerItem(bottleFruitJuice, bottleFruitJuice.getUnlocalizedName());
 		GameRegistry.registerItem(bottleFruitWine, bottleFruitWine.getUnlocalizedName());
 		GameRegistry.registerItem(bottleSugar, bottleSugar.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(bottleJuiceApple, bottleJuiceApple.getUnlocalizedName());
 		GameRegistry.registerItem(bottleJuiceOrange, bottleJuiceOrange.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(bottleJuiceLemon, bottleJuiceLemon.getUnlocalizedName());
 		GameRegistry.registerItem(bottleLemonade, bottleLemonade.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(bottleJuiceOnion, bottleJuiceOnion.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(bottleSoyMilk, bottleSoyMilk.getUnlocalizedName());
 		GameRegistry.registerItem(bucketHotWater, bucketHotWater.getUnlocalizedName());
 		GameRegistry.registerItem(soyPaste, soyPaste.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(seedsPumpkin, seedsPumpkin.getUnlocalizedName());
 		GameRegistry.registerItem(pumpkin, pumpkin.getUnlocalizedName());
 		GameRegistry.registerItem(seedsCayenne, seedsCayenne.getUnlocalizedName());
@@ -498,14 +498,14 @@ public class TFCMItems
 		GameRegistry.registerItem(greenCoffee, greenCoffee.getUnlocalizedName());
 		GameRegistry.registerItem(coffee, coffee.getUnlocalizedName());
 		GameRegistry.registerItem(groundCoffee, groundCoffee.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(pie, pie.getUnlocalizedName());
 		//GameRegistry.registerItem(casserole, casserole.getUnlocalizedName());
 		//GameRegistry.registerItem(soup, soup.getUnlocalizedName());
 		//GameRegistry.registerItem(stew, stew.getUnlocalizedName());
-		
+
 		GameRegistry.registerItem(bearRaw, bearRaw.getUnlocalizedName());
-		
+
 		//Inventory Items
 		GameRegistry.registerItem(itemQuiver, itemQuiver.getUnlocalizedName());
 	}

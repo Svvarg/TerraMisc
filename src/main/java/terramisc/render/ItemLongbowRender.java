@@ -9,20 +9,20 @@ import net.minecraftforge.client.IItemRenderer;
 public class ItemLongbowRender implements IItemRenderer{
 
 	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) 
+	public boolean handleRenderType(ItemStack item, ItemRenderType type)
 	{
 		 return type == ItemRenderType.EQUIPPED || type == ItemRenderType.EQUIPPED_FIRST_PERSON;
 	}
 
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
-			ItemRendererHelper helper) 
+			ItemRendererHelper helper)
 	{
 		return false;
 	}
 
 	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) 
+	public void renderItem(ItemRenderType type, ItemStack item, Object... data)
 	{
 		EntityLivingBase entity = (EntityLivingBase) data[1];
 

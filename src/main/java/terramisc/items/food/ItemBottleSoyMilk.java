@@ -19,13 +19,13 @@ public class ItemBottleSoyMilk extends ItemAlcohol
 		this.setContainerItem(TFCItems.glassBottle);
 		this.setMaxStackSize(64);
 	}
-	
+
 	@Override
 	public boolean canStack()
 	{
 		return true;
 	}
-	
+
 	@Override
 	public ItemStack onEaten(ItemStack is, World world, EntityPlayer player)
 	{
@@ -43,7 +43,7 @@ public class ItemBottleSoyMilk extends ItemAlcohol
 			TFC_Core.setPlayerFoodStats(player, fs);
 			//player.clearActivePotions();//?? имба - снимать все эффекты соевым молоком
 		}
-		
+
 		// First try to add the empty bottle to an existing stack of bottles in the inventory
 				if (!player.capabilities.isCreativeMode && !player.inventory.addItemStackToInventory(new ItemStack(TFCItems.glassBottle)))
 				{
@@ -54,7 +54,7 @@ public class ItemBottleSoyMilk extends ItemAlcohol
 					else
 						player.dropPlayerItemWithRandomChoice(new ItemStack(TFCItems.glassBottle), false);
 				}
-		
+
 		return is;
 	}
 }

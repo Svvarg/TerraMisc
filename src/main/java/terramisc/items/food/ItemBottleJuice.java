@@ -21,13 +21,13 @@ public class ItemBottleJuice extends ItemAlcohol
 		this.setContainerItem(TFCItems.glassBottle);
 		this.setMaxStackSize(64);
 	}
-	
+
 	@Override
 	public boolean canStack()
 	{
 		return true;
 	}
-	
+
 	@Override
 	public ItemStack onEaten(ItemStack is, World world, EntityPlayer player)
 	{
@@ -44,7 +44,7 @@ public class ItemBottleJuice extends ItemAlcohol
 			fs.addNutrition(EnumFoodGroup.Fruit, 5.0F);//original 20
                         TFC_Core.setPlayerFoodStats(player, fs);
 		}
-		
+
 		// First try to add the empty bottle to an existing stack of bottles in the inventory
 				if (!player.capabilities.isCreativeMode && !player.inventory.addItemStackToInventory(new ItemStack(TFCItems.glassBottle)))
 				{
@@ -55,8 +55,8 @@ public class ItemBottleJuice extends ItemAlcohol
 					else
 						player.dropPlayerItemWithRandomChoice(new ItemStack(TFCItems.glassBottle), false);
 				}
-		
-				
+
+
 		if(this == TFCMItems.bottleJuiceOrange)
 		{
 			player.addStat(TFCMAchievements.achJuiceOrange, 1);

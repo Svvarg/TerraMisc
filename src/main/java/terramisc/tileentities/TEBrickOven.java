@@ -34,20 +34,20 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 {
 	public ItemStack[] storage = new ItemStack[12]; //# of Storage Slots, equal to slots in ContainerBrickOven.
 	public int lastTab; //Tab in GUI, 0=Pie, 1=Casserole.
-	
+
 	private final float[] pieWeights = new float[]{2,3,2,2,1}; //Determines the size of the meal and the amt of food used.
 	private final float[] casseroleWeights = new float[]{2,3,2,2,1};
-	
+
 	private TEFireEntity fire; //TE used as the basis for TEFirepit and TEForge.
-	
+
 	//Multiblock TODO
 	public boolean isFlipped;
-	
+
 	public TEBrickOven()
 	{
 		isFlipped = false;
 	}
-	
+
 	public void openGui(EntityPlayer player) //Opens GUI and coresponding tab.
 	{
 		if(lastTab == 0)
@@ -55,7 +55,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 		else if (lastTab == 1)
 			player.openGui(TerraMisc.instance, 4, worldObj, xCoord, yCoord, zCoord);
 	}
-	
+
 	public void actionSwitchTab(int tab, EntityPlayer player)
 	{
 		NBTTagCompound nbt = new NBTTagCompound();
@@ -63,7 +63,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 		nbt.setString("player", player.getCommandSenderName());
 		this.broadcastPacketInRange(this.createDataPacket(nbt));
 	}
-	
+
 	public void actionCreate(EntityPlayer player) //Method used to produce meals.
 	{
 		if(!worldObj.isRemote)
@@ -81,14 +81,14 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			broadcastPacketInRange(pkt);
 		}
 	}
-	
+
 	public boolean validateIngreds(ItemStack... is) //Makes sure ingrediants are valid for usage.
 	{
 		for(int i = 0; i < is.length; i++)
 		{
 			if(is[i] == null)
 				return false;
-			
+
 			for(int j = 0; j < is.length; j++)
 			{
 
@@ -98,7 +98,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 		}
 		return true;
 	}
-	
+
 	private boolean compareIngred(ItemStack is1, ItemStack is2) //Prevents using duplicate ingrediants.
 	{
 		return !(is1 != null && is2 != null && is1.getItem() == is2.getItem());
@@ -146,8 +146,8 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			}
 		}
 	}
-	
-	private void createPie(EntityPlayer player) 
+
+	private void createPie(EntityPlayer player)
 	{
 		if(validatePie())
 		{
@@ -159,7 +159,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 				//Skip blocked slot
 				if(i == 1)
 					i++;
-				
+
 				ItemStack f = getStackInSlot(i);
 				if (f != null && Food.getWeight(f) >= pieWeights[i])
 					w = w + pieWeights[i];
@@ -183,7 +183,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			Food.setMealSkill(is, TFC_Core.getSkillStats(player).getSkillRank(Global.SKILL_COOKING).ordinal());
 			this.setInventorySlotContents(6, is);
 
-			consumeFoodWeight(pieWeights, getStackInSlot(0), getStackInSlot(2), getStackInSlot(3), 
+			consumeFoodWeight(pieWeights, getStackInSlot(0), getStackInSlot(2), getStackInSlot(3),
 					getStackInSlot(4), getStackInSlot(5));
 		}
 	}
@@ -197,17 +197,17 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 
 			if(!validateIngreds(storage[0],storage[2],storage[3]))
 				return false;
-			
+
 			if(((IFood) storage[2].getItem()).getFoodGroup() != EnumFoodGroup.Fruit)
 				return false;
-				
+
 
 			float weight = 0;
 			for(int i = 0; i < 5; i++)
 			{
 				if(i == 1)
 					i++;
-				
+
 				ItemStack f = getStackInSlot(i);
 				if (f != null && f.getItem() instanceof IFood && (Food.getWeight(f) - Food.getDecay(f) >= pieWeights[i]))
 				{
@@ -218,10 +218,10 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			if(weight < 7F)
 				return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	private void setPieIcon(ItemStack is) //Determines the texture used based on ingrediants.
 	{
 		if(getStackInSlot(2).getItem() == TFCItems.redApple || getStackInSlot(2).getItem() == TFCItems.greenApple)
@@ -246,12 +246,12 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			is.setItemDamage(0);
 
 	}
-	
+
 	private void createCasserole(EntityPlayer player) // TODO
 	{
 		if(validateCasserole())
 		{
-			
+
 		}
 	}
 
@@ -261,15 +261,15 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	private void setCasseroleIcon(ItemStack is) //Determines the texture used based on ingrediants. TODO
 	{
-		
+
 	}
-	
+
 	//Multiblock TODO
 	public void swapFlipped()
 	{
@@ -288,27 +288,27 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 		}
 		return ((BlockBrickOven)TFCMBlocks.blockBrickOven).checkStack(worldObj, xCoord, j, zCoord, worldObj.getBlockMetadata(xCoord, yCoord, zCoord)&3);
 	}
-	
+
 	//Visuals
 	public ResourceLocation getOvenTexture() //Sets texture for TESRBrickOven
 	{
 		this.fire = (TEFireEntity) worldObj.getTileEntity(xCoord, yCoord-1, zCoord);
-		
+
 		if(this.fire != null && this.fire.fireTemp >= 1F)
 		{
 			return new ResourceLocation("tfcm:textures/models/BrickOven_on.png");
 		}
-		
+
 		return new ResourceLocation("tfcm:textures/models/BrickOven_off.png");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getRenderBoundingBox()
 	{
 		return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 1, zCoord + 1);
 	}
-	
+
 	//Inventory and Container Methods
 	@Override
 	public void writeToNBT(NBTTagCompound nbt)
@@ -326,10 +326,10 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			}
 		}
 		nbt.setTag("Items", nbttaglist);
-		
+
 		nbt.setBoolean("isFlipped", isFlipped);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{
@@ -344,7 +344,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 				storage[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
 		}
 		nbt.setTag("Items", nbttaglist);
-		
+
 		isFlipped = nbt.getBoolean("isFlipped");
 	}
 
@@ -389,22 +389,22 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			worldObj.spawnEntityInWorld(entityitem);
 		}
 	}
-	
+
 	//IInventory: Methods added by IInventory
 	@Override
-	public int getSizeInventory() 
+	public int getSizeInventory()
 	{
 		return storage.length;
 	}
 
 	@Override
-	public ItemStack getStackInSlot(int i) 
+	public ItemStack getStackInSlot(int i)
 	{
 		return storage[i];
 	}
 
 	@Override
-	public ItemStack decrStackSize(int i, int j) 
+	public ItemStack decrStackSize(int i, int j)
 	{
 		if(storage[i] != null)
 		{
@@ -424,13 +424,13 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) 
+	public ItemStack getStackInSlotOnClosing(int i)
 	{
 		return null;
 	}
 
 	@Override
-	public void setInventorySlotContents(int i, ItemStack itemstack) 
+	public void setInventorySlotContents(int i, ItemStack itemstack)
 	{
 		if(!TFC_Core.areItemsEqual(storage[i], itemstack))
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
@@ -438,36 +438,36 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 	}
 
 	@Override
-	public String getInventoryName() 
+	public String getInventoryName()
 	{
 		return "gui.BrickOven.name";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() 
+	public boolean hasCustomInventoryName()
 	{
 		return false;
 	}
 
 	@Override
-	public int getInventoryStackLimit() 
+	public int getInventoryStackLimit()
 	{
 		return 64;
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer e) 
+	public boolean isUseableByPlayer(EntityPlayer e)
 	{
 		return false;
 	}
 
 	@Override
-	public void openInventory() 
+	public void openInventory()
 	{
 	}
 
 	@Override
-	public void closeInventory() 
+	public void closeInventory()
 	{
 		if(worldObj.isRemote)
 		{
@@ -482,7 +482,7 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 	}
 
 	@Override
-	public void handleInitPacket(NBTTagCompound nbt) 
+	public void handleInitPacket(NBTTagCompound nbt)
 	{
 		NBTTagList nbttaglist = nbt.getTagList("Items", 12);
 		storage = new ItemStack[getSizeInventory()];
@@ -493,13 +493,13 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			if(byte0 >= 0 && byte0 < storage.length)
 				storage[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
 		}
-		
+
 		isFlipped = nbt.getBoolean("isFlipped");
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
 
 	@Override
-	public void createInitNBT(NBTTagCompound nbt) 
+	public void createInitNBT(NBTTagCompound nbt)
 	{
 		NBTTagList nbttaglist = new NBTTagList();
 		for(int i = 0; i < storage.length; i++)
@@ -513,8 +513,8 @@ public class TEBrickOven extends NetworkTileEntity implements IInventory
 			}
 		}
 		nbt.setTag("Items", nbttaglist);
-		
+
 		nbt.setBoolean("isFlipped", this.isFlipped);
 	}
-	
+
 }

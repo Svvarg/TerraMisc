@@ -6,6 +6,8 @@ eclipse/
 build/
 libs/
 run/
+runClient/
+runServer/
 
 # Ignore Gradle GUI config
 gradle-app.setting

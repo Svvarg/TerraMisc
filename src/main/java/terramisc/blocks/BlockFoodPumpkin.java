@@ -25,58 +25,58 @@ public class BlockFoodPumpkin extends BlockTerraContainer
 {
 	private boolean isCarved;
 	private boolean isLit;
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon topIcon;
 	@SideOnly(Side.CLIENT)
 	private IIcon faceIcon;
 
-	public BlockFoodPumpkin(boolean carved, boolean lit) 
+	public BlockFoodPumpkin(boolean carved, boolean lit)
 	{
 		super(Material.gourd);
-		
+
 		this.isCarved = carved;
 		this.isLit = lit;
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	{
 		ItemStack is = player.getHeldItem();
-		
+
 		ArrayList<ItemStack> knives = OreDictionary.getOres("itemKnife");
 		int l = MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 2.5D) & 3;
-		
+
 		for(int j = 0; j < knives.size(); j++)
 		{
 			if(is.getItem() == knives.get(j).getItem())
 			{
 				if(world.getTileEntity(x, y, z) != null)
 					world.getTileEntity(x, y, z).invalidate();
-				
+
 				world.setBlock(x, y, z, TFCMBlocks.blockPumpkinCarved, l, 3);
-				
+
 				is.setItemDamage(is.getItemDamage()-1);
-				
+
 				return true;
 			}
 		}
-		
-		
+
+
 		return false;
 	}
-	
+
 	@Override
 	public int quantityDropped(Random rand)
 	{
 		return 0;
 	}
-	
+
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{
 		return new TEFoodBlock();
 	}
-	
+
 	@Override
 	public void onBlockDestroyedByExplosion(World par1World, int par2, int par3, int par4, Explosion ex)
 	{
@@ -94,7 +94,7 @@ public class BlockFoodPumpkin extends BlockTerraContainer
 	{
 		eject(par1World,par2,par3,par4);
 	}
-	
+
 	public void eject(World par1World, int par2, int par3, int par4)
 	{
 		if (par1World.getTileEntity(par2, par3, par4) instanceof TEFoodBlock)
@@ -104,7 +104,7 @@ public class BlockFoodPumpkin extends BlockTerraContainer
 			par1World.removeTileEntity(par2, par3, par4);
 		}
 	}
-	
+
 	/**
 	 * Gets the block's texture. Args: side, meta
 	 */
@@ -117,7 +117,7 @@ public class BlockFoodPumpkin extends BlockTerraContainer
         		meta == 0 && side == 3 ? this.faceIcon : meta == 1 && side == 4 ? this.faceIcon : // Face Side
         			this.blockIcon; // Blank Side
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)

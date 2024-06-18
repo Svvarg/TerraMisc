@@ -19,7 +19,7 @@ public class BlockClayTFCM extends BlockTerraContainer
 {
 	protected IIcon icon;
 
-	public BlockClayTFCM() 
+	public BlockClayTFCM()
 	{
 		super(Material.clay);
 		this.setBlockTextureName("minecraft:clay");
@@ -27,13 +27,13 @@ public class BlockClayTFCM extends BlockTerraContainer
 		this.setHardness(0.3F);
 		this.setResistance(5.0f);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{
 		return new TEWetClay();
 	}
-	
+
 	/**
 	 * Returns the items to drop on destruction.
 	 */

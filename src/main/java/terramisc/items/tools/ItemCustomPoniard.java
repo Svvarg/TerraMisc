@@ -30,7 +30,7 @@ public class ItemCustomPoniard extends ItemWeapon
 		this.damageType = EnumDamageType.PIERCING;
 		this.setCreativeTab(TFCTabs.TFC_WEAPONS);
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
 	{
@@ -40,9 +40,9 @@ public class ItemCustomPoniard extends ItemWeapon
 	@Override
 	public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player)
 	{
-		return is;	
+		return is;
 	}
-	
+
 	 @Override
 	 public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
 	 {
@@ -57,13 +57,13 @@ public class ItemCustomPoniard extends ItemWeapon
 	         }
 	     }
 	 }
-	
+
 	@Override
 	public EnumItemReach getReach(ItemStack is)
 	{
 		return EnumItemReach.SHORT;
 	}
-	
+
 	@Override
 	public EnumSize getSize(ItemStack is)
 	{

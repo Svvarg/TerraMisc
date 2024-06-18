@@ -9,20 +9,20 @@ import net.minecraftforge.client.IItemRenderer;
 public class ItemPolearmRender implements IItemRenderer
 {
 	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) 
+	public boolean handleRenderType(ItemStack item, ItemRenderType type)
 	{
 		 return type == ItemRenderType.EQUIPPED || type == ItemRenderType.EQUIPPED_FIRST_PERSON;
 	}
 
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
-			ItemRendererHelper helper) 
+			ItemRendererHelper helper)
 	{
 		return false;
 	}
-	
+
 	@Override
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data) 
+	public void renderItem(ItemRenderType type, ItemStack item, Object... data)
 	{
 		EntityLivingBase entity = (EntityLivingBase) data[1];
 
@@ -32,10 +32,10 @@ public class ItemPolearmRender implements IItemRenderer
             ItemRenderHelper.renderItem(entity, item, 0);
         } else {
             GL11.glPushMatrix();
-                        
+
             GL11.glScalef(1F, 1F, 1.7f);
             GL11.glTranslatef(0F, -0.1875F, 0F);
-            
+
             ItemRenderHelper.renderItem(entity, item, 0);
 
             GL11.glPopMatrix();

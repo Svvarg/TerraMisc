@@ -45,10 +45,10 @@ public class CropRender extends RenderCrop implements ISimpleBlockRenderingHandl
 		{
 			renderblocks.renderBlockCrops(block, x, y, z);
 		}
-		
+
 		return true;
 	}
-	
+
 	public static void drawCrossedSquares(Block block, double a, double b, double c, RenderBlocks rb, double d, double e)
 	{
 		try
@@ -60,9 +60,9 @@ public class CropRender extends RenderCrop implements ISimpleBlockRenderingHandl
 		}
 		catch(Exception ex)
 		{
-		}	
+		}
 	}
-	
+
 	public static void renderBlockCropsImpl(Block block, double i, double j, double k, RenderBlocks rb, double d, double e)
 	{
 		try
@@ -80,17 +80,17 @@ public class CropRender extends RenderCrop implements ISimpleBlockRenderingHandl
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
-		
+
 	}
 
 	@Override
-	public boolean shouldRender3DInInventory(int modelId) 
+	public boolean shouldRender3DInInventory(int modelId)
 	{
 		return false;
 	}
 
 	@Override
-	public int getRenderId() 
+	public int getRenderId()
 	{
 		return 0;
 	}

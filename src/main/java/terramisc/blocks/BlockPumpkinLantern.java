@@ -32,19 +32,19 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 
 	private boolean isCarved;
 	private boolean isLit;
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon topIcon;
 	@SideOnly(Side.CLIENT)
 	private IIcon faceIcon;
-	
+
 	public BlockPumpkinLantern(boolean carved, boolean lit)
 	{
 		super(Material.gourd);
-		
+
 		this.isCarved = carved;
 		this.isLit = lit;
-		
+
 		this.setCreativeTab(TFCTabs.TFC_DECORATION);
 		this.setTickRandomly(true);
 		setLightLevel(0.8F);
@@ -58,19 +58,19 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 	{
 		return new ItemStack(TFCMBlocks.blockPumpkinLanternOff).getItem();
 	}
-	
+
 	@Override
 	public int quantityDropped(Random rand)
 	{
 		return 1;
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{
 		return new TEPumpkinLantern();
 	}
-	
+
 	/**
 	 * Lights Jack-O'-Lantern when player right-clicks with a torch, firestarter, or flint&steel in hand.
 	 * Snuffs Jack-O'-Lantern if right=clicked by a player with an empty hand.
@@ -83,34 +83,34 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 			int meta = world.getBlockMetadata(x, y, z);
 			ItemStack is = player.inventory.getCurrentItem();
 			Item item = is != null ? is.getItem() : null;
-			
+
 			if(item == Item.getItemFromBlock(TFCBlocks.torch))
 			{
 				world.setBlock(x, y, z, TFCMBlocks.blockPumpkinLantern, meta, 3);
-				
+
 				return true;
 			}
 			else if(item instanceof ItemFirestarter || item instanceof ItemFlintAndSteel)
 			{
 				ItemStack equippedItem = player.getCurrentEquippedItem();
-				
+
 				if(item instanceof ItemFlintAndSteel)
 				{
 					Random rand = new Random();
 					world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "fire.ignite", 1.0F, rand.nextFloat() * 0.4F + 0.8F);
 				}
-				
+
 				equippedItem.damageItem(1, player);
-				
+
 				world.setBlock(x, y, z, TFCMBlocks.blockPumpkinLantern, meta, 3);
-				
+
 				return true;
 			}
 			else if(item == null)
 			{
 				if(world.getTileEntity(x, y, z) != null)
 					world.getTileEntity(x, y, z).invalidate();
-				
+
 				world.setBlock(x, y, z, TFCMBlocks.blockPumpkinLanternOff, meta, 3);
 			}
 		}
@@ -122,10 +122,10 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 				TerraFirmaCraft.LOG.info("Meta = " + (new StringBuilder()).append(getUnlocalizedName()).append(":").append(metadata).toString());
 		    }
 		}
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Ticks the block if it's been scheduled
 	 * If Jack-O'-Lantern has reached max burn time it will be replaced by the off-state lantern.
@@ -137,7 +137,7 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 		int meta = world.getBlockMetadata(x, y, z);
 
 		TEPumpkinLantern te = (TEPumpkinLantern)world.getTileEntity(x, y, z);
-		
+
 		if(!world.isRemote)
 		{
 			if(this.LanternBurnTime != 0 && world.getTileEntity(x, y, z) instanceof TEPumpkinLantern)
@@ -146,13 +146,13 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 				{
 					if(world.getTileEntity(x, y, z) != null)
 						world.getTileEntity(x, y, z).invalidate();
-					
+
 					world.setBlock(x, y, z, TFCMBlocks.blockPumpkinLanternOff, meta, 3);
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * Called whenever the block is added into the world. Args: world, x, y, z
 	 */
@@ -161,13 +161,13 @@ public class BlockPumpkinLantern extends BlockTerraContainer
 	{
 		((TEPumpkinLantern) world.getTileEntity(x, y, z)).create();
 	}
-	
+
 	@Override
 	public boolean isReplaceable(IBlockAccess world, int x, int y, int z)
 	{
 		return false;
 	}
-	
+
 	/**
 	 * Gets the block's texture. Args: side, meta
 	 */
@@ -180,7 +180,7 @@ public class BlockPumpkinLantern extends BlockTerraContainer
         		meta == 0 && side == 3 ? this.faceIcon : meta == 1 && side == 4 ? this.faceIcon : // Face Side
         			this.blockIcon; // Blank Side
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)

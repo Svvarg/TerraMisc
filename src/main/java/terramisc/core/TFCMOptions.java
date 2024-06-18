@@ -23,9 +23,9 @@ public class TFCMOptions
 	public static int pumpkinID = 100;
 	public static int cayenneID = 101;
 	public static int coffeeID= 102;
-	
+
 	public static void loadSettings()
-	{	
+	{
 		System.out.println("[" + TFCMDetails.ModName + "] Loading options.");
 
 		Configuration config;
@@ -34,13 +34,13 @@ public class TFCMOptions
 		{
 			config = new Configuration(new File(terramisc.TerraMisc.instance.getMinecraftDirectory(), TFCMDetails.ConfigFilePath+TFCMDetails.ConfigFileName));
 			config.load();
-		} 
-		catch (Exception ex) 
+		}
+		catch (Exception ex)
 		{
 			System.out.println("["+TFCMDetails.ModName+"] Error while trying to access settings configuration!");
 			config = null;
 		}
-		
+
 		/** Start Here **/
 			//Redstone
 		enableCraftingPiston = getBooleanFor(config, "RedStone", "enableCraftingPiston", true, "Enable Piston Crafting. (Default = true)");
@@ -80,13 +80,13 @@ public class TFCMOptions
 	    	//Other
 	    enableCraftingCompassClock = options == null ? true : enableCraftingCompassClock;
 	    TallowCandleBurnTime = options == null ? 1: TallowCandleBurnTime;
-	    
+
 	    pumpkinID = options == null ? 1: pumpkinID;
 	    cayenneID = options == null ? 1: cayenneID;
 	    coffeeID = options == null ? 1: coffeeID;
 	    System.out.println("[TerraMisc] Done loading options from options class.");
 	  }
-	
+
 	public static boolean getBooleanFor(Configuration config,String heading, String item, boolean value)
 	{
 		if (config == null)

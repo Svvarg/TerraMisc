@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 
 import com.bioxx.tfc.Core.TFC_Time;
 
-public class TETallowCandle extends TileEntity 
+public class TETallowCandle extends TileEntity
 {
 	public int hourPlaced = -1000;
 	public int color = 15;
@@ -27,16 +27,16 @@ public class TETallowCandle extends TileEntity
 	{
 		return false;
 	}
-	
+
 	public void setCandleTexture(int c)
 	{
 		color = c;
-		
+
 		int x = this.xCoord;
 		int y = this.yCoord;
 		int z = this.zCoord;
 		Block block = this.getWorldObj().getBlock(x, y, z);
-		
+
 		if(block == TFCMBlocks.blockTallowCandleOff)
 		{
 			switch(c)
@@ -145,10 +145,10 @@ public class TETallowCandle extends TileEntity
 				break;
 			}
 		}
-		
+
 		this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
-	
+
 	public ResourceLocation getCandleTexture()
 	{
 		if(candleBase != null && color == 15)
@@ -161,7 +161,7 @@ public class TETallowCandle extends TileEntity
 			return candleBase;
 		}
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{
@@ -177,16 +177,16 @@ public class TETallowCandle extends TileEntity
 		nbt.setInteger("hourPlaced", hourPlaced);
 		nbt.setInteger("color", color);
 	}
-	
+
 	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) 
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
 	{
 		NBTTagCompound tagCom = pkt.func_148857_g();
 		this.readFromNBT(tagCom);
 	}
 
 	@Override
-	public Packet getDescriptionPacket() 
+	public Packet getDescriptionPacket()
 	{
 		NBTTagCompound tagCom = new NBTTagCompound();
 		this.writeToNBT(tagCom);

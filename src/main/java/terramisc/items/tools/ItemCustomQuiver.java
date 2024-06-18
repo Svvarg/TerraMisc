@@ -11,6 +11,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import terramisc.TerraMisc;
 import terramisc.core.TFCMItems;
+import terramisc.core.TFCMItemsSetup;
 
 import com.bioxx.tfc.Core.TFC_Core;
 import com.bioxx.tfc.Items.ItemArrow;
@@ -18,7 +19,6 @@ import com.bioxx.tfc.Items.ItemQuiver;
 import com.bioxx.tfc.Items.ItemTerra;
 import com.bioxx.tfc.api.TFCItems;
 import net.minecraft.nbt.NBTTagList;
-import terramisc.core.TFCMItemsSetup;
 
 /**
  * Коды типа стрел и болтов пишутся в лук, арбалет.
@@ -334,7 +334,7 @@ public class ItemCustomQuiver extends ItemQuiver
             if (nbttaglist != null && nbttaglist.tagCount() > 0) {
                 final int sz = nbttaglist.tagCount();
                 final int ammoItemId = Item.getIdFromItem(ammo);
-                
+
                 for (int i = 0; i < sz; i++) {
                     NBTTagCompound slotNbt = nbttaglist.getCompoundTagAt(i);
                     if (slotNbt != null && slotNbt.hasKey("id")) {

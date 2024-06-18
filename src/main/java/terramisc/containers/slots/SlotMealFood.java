@@ -16,7 +16,7 @@ public class SlotMealFood extends SlotSize
 {
 	private List<EnumFoodGroup> excpetionsFG = new ArrayList<EnumFoodGroup>();
 	private List<EnumFoodGroup> inclusionsFG = new ArrayList<EnumFoodGroup>();
-	public SlotMealFood(IInventory iinventory, int i, int j, int k) 
+	public SlotMealFood(IInventory iinventory, int i, int j, int k)
 	{
 		super(iinventory, i, j, k);
 	}
@@ -38,7 +38,7 @@ public class SlotMealFood extends SlotSize
 		}
 		return false;
 	}
-	
+
 	public SlotMealFood addFGException(EnumFoodGroup... ex)
 	{
 		for(int i = 0; i < ex.length; i++)

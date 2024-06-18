@@ -60,17 +60,17 @@ public class TFCMClientProxy extends TFCMCommonProxy
 	{
 		return Minecraft.getMinecraft().mcDataDir;
 	}
-	
+
 	@Override
 	public void hideNEIItems()
 	{
 		if (Loader.isModLoaded(TFCMDetails.MODID_NEI) && TFCOptions.enableNEIHiding)
 		{
 			API.hideItem(new ItemStack(TFCMBlocks.blockTallowCandle));
-			
+
 			API.hideItem(new ItemStack(TFCBlocks.pumpkin));
 			API.hideItem(new ItemStack(TFCBlocks.litPumpkin));
-			
+
 			API.hideItem(new ItemStack(TFCMBlocks.blockPumpkinLantern));
 		}
 	}
@@ -80,7 +80,7 @@ public class TFCMClientProxy extends TFCMCommonProxy
 	{
 		return true;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void loadOptions()
@@ -149,15 +149,15 @@ public class TFCMClientProxy extends TFCMCommonProxy
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(TFCMBlocks.blockTallowCandleOff), new TESRTallowCandleItem(render2, new TETallowCandle()));
 			//Screen Overlay for custom quiver
 		//MinecraftForge.EVENT_BUS.register(new RenderQuiverOverlayHandler());
-		
+
 		RenderingRegistry.registerBlockHandler(TFCMBlocks.cropRenderId = RenderingRegistry.getNextAvailableRenderId(), new CropRender());
 	}
-	
+
 	@Override
 	public void registerTileEntities(boolean flag)
 	{
 		super.registerTileEntities(false);
-		
+
 		// TESR registers
 		ClientRegistry.registerTileEntity(TETallowCandle.class, "TallowCandleTESR", new TESRTallowCandle());
 		ClientRegistry.registerTileEntity(TEFruitPress.class, "FruitPressTESR", new TESRFruitPress());

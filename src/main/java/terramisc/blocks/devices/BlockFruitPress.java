@@ -330,7 +330,7 @@ public class BlockFruitPress extends BlockTerraContainer
 	{
 		return "hopper";
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{

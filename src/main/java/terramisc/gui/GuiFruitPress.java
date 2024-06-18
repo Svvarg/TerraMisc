@@ -9,7 +9,7 @@ import com.bioxx.tfc.Reference;
 import com.bioxx.tfc.Containers.ContainerHopper;
 import com.bioxx.tfc.GUI.GuiContainerTFC;
 
-public class GuiFruitPress extends GuiContainerTFC 
+public class GuiFruitPress extends GuiContainerTFC
 {
 	public static ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, Reference.ASSET_PATH_GUI + "gui_hopper.png");
 	public GuiFruitPress(InventoryPlayer inventoryplayer, TEFruitPress te, World world, int i, int j, int k)

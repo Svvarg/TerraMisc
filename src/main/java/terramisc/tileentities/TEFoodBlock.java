@@ -24,16 +24,16 @@ import terramisc.items.food.ItemPlaceableFood;
 public class TEFoodBlock extends NetworkTileEntity implements IInventory
 {
 	public ItemStack[] storage = new ItemStack[1];
-	
+
 	@Override
 	public void updateEntity()
 	{
 		if(storage[0] == null || Food.getWeight(storage[0]) <= Food.getDecay(storage[0]))
 			onDecay(worldObj, xCoord, yCoord, zCoord);
-		
+
 		float temp = TFC_Climate.getBioTemperature(worldObj, xCoord, zCoord);
 		float decay = TFC_Core.getEnvironmentalDecay(temp);
-		
+
 		TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord, decay);
 	}
 
@@ -43,15 +43,15 @@ public class TEFoodBlock extends NetworkTileEntity implements IInventory
 	public void onDecay(World worldOBj, int x, int y, int z)
 	{
 		worldObj.setBlock(x, y, z, Blocks.air);
-		
+
 		TileEntity te = worldObj.getTileEntity(x, y, z);
-		
+
 		if(te != null)
 			te.invalidate();
 	}
-	
+
 	@Override
-	public int getSizeInventory() 
+	public int getSizeInventory()
 	{
 		return 1;
 	}
@@ -60,13 +60,13 @@ public class TEFoodBlock extends NetworkTileEntity implements IInventory
 	 * Only returns storage, this inventory only has one slot.
 	 */
 	@Override
-	public ItemStack getStackInSlot(int slot) 
+	public ItemStack getStackInSlot(int slot)
 	{
 		return storage[slot];
 	}
 
 	@Override
-	public ItemStack decrStackSize(int i, int j) 
+	public ItemStack decrStackSize(int i, int j)
 	{
 		if(storage != null)
 		{
@@ -88,25 +88,25 @@ public class TEFoodBlock extends NetworkTileEntity implements IInventory
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int slot) 
+	public ItemStack getStackInSlotOnClosing(int slot)
 	{
 		return storage[slot];
 	}
 
 	@Override
-	public void setInventorySlotContents(int slot, ItemStack is) 
+	public void setInventorySlotContents(int slot, ItemStack is)
 	{
 		storage[slot] = is;
 	}
 
 	@Override
-	public String getInventoryName() 
+	public String getInventoryName()
 	{
 		return "FoodBlock";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() 
+	public boolean hasCustomInventoryName()
 	{
 		return false;
 	}
@@ -115,7 +115,7 @@ public class TEFoodBlock extends NetworkTileEntity implements IInventory
 	 * Food items only require a stack size of one.
 	 */
 	@Override
-	public int getInventoryStackLimit() 
+	public int getInventoryStackLimit()
 	{
 		return 1;
 	}
@@ -133,7 +133,7 @@ public class TEFoodBlock extends NetworkTileEntity implements IInventory
 	}
 
 	@Override
-	public void closeInventory() 
+	public void closeInventory()
 	{
 		if(worldObj.isRemote)
 		{
@@ -145,7 +145,7 @@ public class TEFoodBlock extends NetworkTileEntity implements IInventory
 	 * Checks to see if item is a valid food item.
 	 */
 	@Override
-	public boolean isItemValidForSlot(int slot, ItemStack is) 
+	public boolean isItemValidForSlot(int slot, ItemStack is)
 	{
 		if(is.getItem() instanceof ItemPlaceableFood)
 		{

@@ -38,7 +38,7 @@ public class TFCMCommonProxy
 	{
 		return false;
 	}
-	
+
 	public File getMinecraftDirectory()
 	{
 		return FMLCommonHandler.instance().getMinecraftServerInstance().getFile("");
@@ -47,7 +47,7 @@ public class TFCMCommonProxy
 	public void hideNEIItems()
 	{
 	}
-	
+
 	public boolean isRemote()
 	{
 		return false;
@@ -58,7 +58,7 @@ public class TFCMCommonProxy
 		//Load our settings from the Options file
 		TFCMOptions.loadSettings();
 	}
-	
+
 	public void onClientLogin()
 	{
 	}
@@ -97,7 +97,7 @@ public class TFCMCommonProxy
 	{
 		FMLCommonHandler.instance().bus().register(new terramisc.handlers.TFCMServerTickHandler());
 	}
-	
+
 	public void registerTileEntities(boolean flag)
 	{
 		// non TESR registers
@@ -119,36 +119,36 @@ public class TFCMCommonProxy
 	{
 		FluidRegistry.registerFluid(TFCMFluids.FRUITJUICE);
 		FluidRegistry.registerFluid(TFCMFluids.FRUITWINE);
-		
+
 		FluidRegistry.registerFluid(TFCMFluids.JUICEAPPLE);
 		FluidRegistry.registerFluid(TFCMFluids.JUICEORANGE);
-		
+
 		FluidRegistry.registerFluid(TFCMFluids.JUICELEMON);
 		FluidRegistry.registerFluid(TFCMFluids.LEMONADE);
-		
+
 		FluidRegistry.registerFluid(TFCMFluids.SOYMILK);
 		FluidRegistry.registerFluid(TFCMFluids.WATERHOT);
-		
+
 		FluidRegistry.registerFluid(TFCMFluids.JUICEONION);
 	}
-	
+
 	public void setupFluids()
 	{
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.FRUITJUICE, 250), new ItemStack(TFCMItems.bottleFruitJuice), new ItemStack(TFCItems.glassBottle));
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.FRUITWINE, 250), new ItemStack(TFCMItems.bottleFruitWine), new ItemStack(TFCItems.glassBottle));
-		
+
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.JUICEAPPLE, 250), new ItemStack(TFCMItems.bottleJuiceApple), new ItemStack(TFCItems.glassBottle));
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.JUICEORANGE, 250), new ItemStack(TFCMItems.bottleJuiceOrange), new ItemStack(TFCItems.glassBottle));
-		
+
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.JUICELEMON, 250), new ItemStack(TFCMItems.bottleJuiceLemon), new ItemStack(TFCItems.glassBottle));
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.LEMONADE, 250), new ItemStack(TFCMItems.bottleLemonade), new ItemStack(TFCItems.glassBottle));
-		
+
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.SOYMILK, 250), new ItemStack(TFCMItems.bottleSoyMilk), new ItemStack(TFCItems.glassBottle));
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.WATERHOT, 1000), new ItemStack(TFCMItems.bucketHotWater), new ItemStack(TFCItems.woodenBucketEmpty));
-	
+
 		FluidContainerRegistry.registerFluidContainer(new FluidStack(TFCMFluids.JUICEONION, 250), new ItemStack(TFCMItems.bottleJuiceOnion), new ItemStack(TFCItems.glassBottle));
 	}
-	
+
 	public void registerToolClasses()
 	{
 	}
@@ -156,9 +156,9 @@ public class TFCMCommonProxy
 	public void registerWailaClasses()
 	{
 		System.out.println("[TerraMisc] Registering WAILA Classes (TFCM)");
-		
+
 		FMLInterModComms.sendMessage("Waila", "register", "terramisc.waila.TFCMWailaData.callbackRegister");
-		
+
 		System.out.println("[TerraMisc] Done Registering WAILA Classes (TFCM)");
 	}
 

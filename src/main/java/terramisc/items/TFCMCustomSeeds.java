@@ -21,7 +21,7 @@ public class TFCMCustomSeeds extends ItemCustomSeeds
 	 * The type of block this seed turns into (wheat or pumpkin stems for instance)
 	 */
 	private int cropId;
-	
+
 	public TFCMCustomSeeds(int cropId)
 	{
 		super(cropId);
@@ -30,7 +30,7 @@ public class TFCMCustomSeeds extends ItemCustomSeeds
 
 	/**
 	 * Copied from ItemCustomSeeds
-	 * 
+	 *
 	 * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
 	 * True if something happen and false if it don't. This is for ITEMS, not BLOCKS !
 	 */
@@ -73,5 +73,5 @@ public class TFCMCustomSeeds extends ItemCustomSeeds
 		else
 			return false;
 	}
-	
+
 }

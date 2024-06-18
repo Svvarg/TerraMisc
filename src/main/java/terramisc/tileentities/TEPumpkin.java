@@ -7,7 +7,7 @@ import com.bioxx.tfc.api.Enums.EnumFoodGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
-public class TEPumpkin extends TileEntity 
+public class TEPumpkin extends TileEntity
 {
 	/**
 	 * Food can contain multiple NBT Tags including
@@ -30,7 +30,7 @@ public class TEPumpkin extends TileEntity
 	protected int tasteUmami;
 	protected boolean canBeSmoked;
 	protected float smokeAbsorb;
-	
+
 	public float getDecayRate(ItemStack is)
 	{
 		float mult = 1.0f; //Default food decay rate

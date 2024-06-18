@@ -30,7 +30,7 @@ import terramisc.tileentities.TETallowCandle;
 public class BlockTallowCandle extends BlockTerraContainer
 {
 	public int CandleBurnTime = (int) TFCMOptions.TallowCandleBurnTime;
-	
+
 	public BlockTallowCandle()
 	{
 		super(Material.circuits);
@@ -39,7 +39,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 		this.setBlockBounds(0.375f, 0.0f, 0.375f, 0.625f, 0.375f, 0.625f);
 		setLightLevel(0.8F);
 	}
-	
+
 	//Disables ablity to produce light if candle has burnt out.
 	@Override
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
@@ -51,7 +51,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 		}
 		return getLightValue();
 	}
-	
+
 	//Called when the block is right clicked.
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
@@ -62,7 +62,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 			ItemStack is = player.inventory.getCurrentItem();
 			Item item = is != null ? is.getItem() : null;
 			TETallowCandle te = (TETallowCandle)world.getTileEntity(x, y, z);
-			
+
 			// Refreshing candle timer, or re-lighting burned out candles that haven't converted yet.
 			if (item == Item.getItemFromBlock(TFCBlocks.torch))
 			{
@@ -76,7 +76,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 			else if (item instanceof ItemFirestarter || item instanceof ItemFlintAndSteel)
 			{
 				ItemStack equippedItem = player.getCurrentEquippedItem();
-				
+
 				if ((TETallowCandle) world.getTileEntity(x, y, z) != null)
 				{
 					if (item instanceof ItemFlintAndSteel)
@@ -84,7 +84,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 						Random rand = new Random();
 						world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "fire.ignite", 1.0F, rand.nextFloat() * 0.4F + 0.8F);
 					}
-					
+
 					equippedItem.damageItem(1, player);
 					world.setBlockMetadataWithNotify(x, y, z, meta, 3);
 					return true;
@@ -93,7 +93,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 			else if(te.color == 15 && item instanceof ItemTallowDye)
 			{
 				//Sets Candle color via NBT data.
-				
+
 				int d = item.getDamage(is);
 				if(d != 15)
 				{
@@ -105,7 +105,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 			else if(item == null)
 			{
 				int c1 = te.color;
-				
+
 				world.setBlock(x, y, z, TFCMBlocks.blockTallowCandleOff, meta, 3);
 				if(world.getTileEntity(x, y, z) instanceof TETallowCandle)
 				{
@@ -124,37 +124,37 @@ public class BlockTallowCandle extends BlockTerraContainer
 		}
 		return true;
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{
 		return new TETallowCandle();
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		return null;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock()
 	{
 		return false;
 	}
-	
+
 	@Override
 	public int getRenderType()
 	{
 		return -1;
 	}
-	
+
 	//Placing
 	private boolean canSupportCandle(World world, int x, int y, int z)
 	{
@@ -168,13 +168,13 @@ public class BlockTallowCandle extends BlockTerraContainer
 			return block.canPlaceTorchOnTop(world, x, y, z);
 		}
 	}
-	
+
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		return canSupportCandle(world, x, y - 1, z);
 	}
-	
+
 	/**
 	 * Ticks the block if it's been scheduled
 	 */
@@ -186,7 +186,7 @@ public class BlockTallowCandle extends BlockTerraContainer
 
 		TETallowCandle te = (TETallowCandle)world.getTileEntity(x, y, z);
 		int c1 = te.color;
-		
+
 		if (meta == 0)
 		{
 			this.onBlockAdded(world, x, y, z);
@@ -217,26 +217,26 @@ public class BlockTallowCandle extends BlockTerraContainer
 			}
 		}
 	}
-	
+
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block b)
 	{
 		if(!World.doesBlockHaveSolidTopSurface(world, x, y-1, z))
 			TFC_Core.setBlockToAirWithDrops(world, x, y, z);
 	}
-	
+
 	@Override
 	public boolean isReplaceable(IBlockAccess world, int x, int y, int z)
 	{
 		return false;
 	}
-	
+
 	@Override
 	public Item getItemDropped(int metadata, Random rand, int fortune)
 	{
 		return new ItemStack(TFCMBlocks.blockTallowCandleOff).getItem();
 	}
-	
+
 	//Particles
 	@Override
 	@SideOnly(Side.CLIENT)

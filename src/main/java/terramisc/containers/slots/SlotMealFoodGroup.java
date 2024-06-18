@@ -23,7 +23,7 @@ public class SlotMealFoodGroup extends SlotSize
 		group[0] = g;
 		group[1] = g;
 	}
-	
+
 	public SlotMealFoodGroup(IInventory iinventory, int i, int j, int k, EnumFoodGroup g, EnumFoodGroup g1)
 	{
 		super(iinventory, i, j, k);
@@ -47,9 +47,9 @@ public class SlotMealFoodGroup extends SlotSize
 				if(efg != group[1])
 					return false;
 			}
-			
-			
-			
+
+
+
 			boolean except = excpetionsFG.contains(efg);
 			boolean include = inclusionsFG.contains(efg) || inclusionsFG.isEmpty();
 			if (except || !include)
@@ -59,7 +59,7 @@ public class SlotMealFoodGroup extends SlotSize
 		}
 		return false;
 	}
-	
+
 	public SlotMealFoodGroup addFGException(EnumFoodGroup... ex)
 	{
 		for(int i = 0; i < ex.length; i++)

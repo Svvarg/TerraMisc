@@ -19,12 +19,12 @@ public class BlockCropTFCM extends BlockCrop
 	private IIcon[] iconsPumpkin = new IIcon[7];
 	private IIcon[] iconsCayenne = new IIcon[6];
 	private IIcon[] iconsCoffee = new IIcon[6];
-	
+
 	public BlockCropTFCM()
 	{
 		super();
 	}
-	
+
 	@Override
 	public void registerBlockIcons(IIconRegister register)
 	{
@@ -46,7 +46,7 @@ public class BlockCropTFCM extends BlockCrop
 
 		}
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess access, int x, int y, int z, int meta)
@@ -57,20 +57,20 @@ public class BlockCropTFCM extends BlockCrop
 		int stage = (int) Math.floor(te.growth);
 		if(stage > crop.numGrowthStages)
 			stage = crop.numGrowthStages;
-		
+
 		if(te.cropId == TFCMOptions.pumpkinID)
 			return iconsPumpkin[stage];
-		
+
 		if(te.cropId == TFCMOptions.cayenneID)
 			return iconsCayenne[stage];
-		
+
 		if(te.cropId == TFCMOptions.coffeeID)
 			return iconsCoffee[stage];
-		
+
 		else
 			return null;
 	}
-	
+
 	@Override
 	public int getRenderType()
 	{

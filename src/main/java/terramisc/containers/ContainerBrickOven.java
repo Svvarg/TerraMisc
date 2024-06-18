@@ -24,27 +24,27 @@ import terramisc.tileentities.TEBrickOven;
 public class ContainerBrickOven extends ContainerTFC
 {
 	//Combining Functionality from FoodPrep, and Grill
-	
+
 		private TEBrickOven te;
 		private EntityPlayer player;
 		private int guiTab;
-		
+
 		private TEFireEntity fire;
 		private float firetemp;
 
-		public ContainerBrickOven(InventoryPlayer playerinv, TEBrickOven pile, World world, int x, int y, int z, int tab) 
+		public ContainerBrickOven(InventoryPlayer playerinv, TEBrickOven pile, World world, int x, int y, int z, int tab)
 		{
 			this.player = playerinv.player;
 			this.te = pile;
 			guiTab = tab;
-			
+
 			firetemp = -1111;
 
 			if(world.getTileEntity(x, y-1, z) instanceof TEFireEntity)
 			{
 				fire = (TEFireEntity)world.getTileEntity(x, y-1, z);
 			}
-			
+
 			pile.openInventory();
 			layoutContainer(playerinv, pile, 0, 0);
 			pile.lastTab = tab;
@@ -66,14 +66,14 @@ public class ContainerBrickOven extends ContainerTFC
 		{
 			return true;
 		}
-		
+
 		protected void layoutContainer(IInventory playerInventory, IInventory chestInventory, int xSize, int ySize)
 		{
 			if(guiTab == 0) //Pie
 			{
 				this.addSlotToContainer(new SlotMealFood(chestInventory, 0, 44, 8).addItemInclusion(TFCItems.wheatDough, TFCItems.barleyDough, TFCItems.oatDough,
 						TFCItems.ryeDough, TFCItems.riceDough, TFCItems.cornmealDough).setSize(EnumSize.HUGE));
-				
+
 				this.addSlotToContainer(new SlotBlocked(chestInventory, 1, 26, 8));
 				this.addSlotToContainer(new SlotMealFoodGroup(chestInventory, 2, 62, 8, EnumFoodGroup.Fruit).addItemException(TFCItems.woodenBucketMilk).setSize(EnumSize.HUGE));
 				this.addSlotToContainer(new SlotFoodOnly(chestInventory, 3, 80, 8).addItemException(TFCItems.woodenBucketMilk).setSize(EnumSize.HUGE));
@@ -84,7 +84,7 @@ public class ContainerBrickOven extends ContainerTFC
 			{
 				this.addSlotToContainer(new SlotMealFood(chestInventory, 1, 44, 8).addItemInclusion(TFCItems.wheatGround, TFCItems.barleyGround, TFCItems.oatGround,
 						TFCItems.ryeGround, TFCItems.riceGround, TFCItems.cornmealGround).setSize(EnumSize.HUGE));
-					
+
 				this.addSlotToContainer(new SlotBlocked(chestInventory, 0, 26, 8));
 				this.addSlotToContainer(new SlotFoodOnly(chestInventory, 2, 62, 8).addItemException(TFCItems.woodenBucketMilk).setSize(EnumSize.HUGE));
 				this.addSlotToContainer(new SlotFoodOnly(chestInventory, 3, 80, 8).addItemException(TFCItems.woodenBucketMilk).setSize(EnumSize.HUGE));
@@ -99,7 +99,7 @@ public class ContainerBrickOven extends ContainerTFC
 			this.addSlotToContainer(new SlotSize(chestInventory, 10, 134, 44).setSize(EnumSize.SMALL));
 			this.addSlotToContainer(new SlotSize(chestInventory, 11, 134, 62).setSize(EnumSize.SMALL));
 		}
-		
+
 		public EntityPlayer getPlayer()
 		{
 			return player;
@@ -142,7 +142,7 @@ public class ContainerBrickOven extends ContainerTFC
 
 			return origStack;
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		@Override
 		public void detectAndSendChanges()
@@ -162,7 +162,7 @@ public class ContainerBrickOven extends ContainerTFC
 						((ICrafting)this.crafters.get(var4)).sendSlotContents(this, var1, var3);
 				}
 			}
-			
+
 			for (int var1 = 0; var1 < this.crafters.size(); ++var1)
 			{
 				ICrafting var2 = (ICrafting)this.crafters.get(var1);

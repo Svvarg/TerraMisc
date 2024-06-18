@@ -40,29 +40,29 @@ public class TerraMisc
 
 	@SidedProxy(clientSide = TFCMDetails.CLIENT_PROXY_CLASS, serverSide = TFCMDetails.SERVER_PROXY_CLASS)
 	public static TFCMCommonProxy proxy;
-	
+
 	public File getMinecraftDirectory()
 	{
 		return proxy.getMinecraftDirectory();
 	}
-	
+
 	@EventHandler
 	public void preInitialize(FMLPreInitializationEvent e)
 	{
-		instance = this;		
-		
+		instance = this;
+
 		//Registering Fluids
 		proxy.registerFluids();
-		
+
 		// Load our configs
 		proxy.loadOptions();
 		//Initialise Mod Blocks
 		TFCMBlocks.initialise();
 		//Register Tick Handler
 		proxy.registerTickHandler();
-		
+
 		TFCMBlocks.setupFire();
-	    
+
 		// Register Key Bindings(Client only)
 		proxy.registerKeys();
 		// Register KeyBinding Handler (Client only)
@@ -75,9 +75,9 @@ public class TerraMisc
 		proxy.registerSoundHandler();
 
 		TFCMItemsSetup.ItemSetup();
-		
+
 		// Register Gui Handler
-		proxy.registerGuiHandler();		
+		proxy.registerGuiHandler();
 	}
 
 	@EventHandler
@@ -86,10 +86,10 @@ public class TerraMisc
 		// Register packets in the TFC PacketPipeline
 		TerraFirmaCraft.PACKET_PIPELINE.registerPacket(TFCMInitClientWorldPacket.class);
 		TerraFirmaCraft.PACKET_PIPELINE.registerPacket(TFCMCreateMealPacket.class);
-		
+
 		// Register the player tracker
 		FMLCommonHandler.instance().bus().register(new TFCMPlayerTracker());
-		
+
 		// Register the tool classes
 		proxy.registerToolClasses();
 
@@ -100,34 +100,34 @@ public class TerraMisc
 
 		// Register the Chunk Load/Save Handler
 		MinecraftForge.EVENT_BUS.register(new TFCMChunkEventHandler());
-		
+
 		// Register all the render stuff for the client
 		proxy.registerRenderInformation();
 
 		// Register recipes
 		TFCMOreDictionary.registerOreDict();
 		TFCMRecipes.initialise();
-		
+
 		// Register Mob Drop Handlers
 		MinecraftForge.EVENT_BUS.register(new TFCMMobDropHandler());
-		
+
 		// Register Block Drop Handlers
 		MinecraftForge.EVENT_BUS.register(new TFCMBlockDropHandler());
-		
+
 		// Register Liquids
 		proxy.setupFluids();
-		
+
 		//Achievements
 		TFCMAchievements.initAchievements();
 		FMLCommonHandler.instance().bus().register(new EventListener());
-		
+
 		// Register the Entity Living Update Handler
 		MinecraftForge.EVENT_BUS.register(new TFCMEntityLivingHandler());
-		
+
 		// Register WAILA classes
 		proxy.registerWailaClasses();
 		proxy.hideNEIItems();
-		
+
 		//Register Crops
 		CropRegistry.registerCrops();
 	}

@@ -23,7 +23,7 @@ import com.bioxx.tfc.api.Food;
 public class TEFruitPress extends TEHopper
 {
 	private int cooldown = -1;
-	
+
 	@Override
 	public void updateEntity()
 	{
@@ -80,14 +80,14 @@ public class TEFruitPress extends TEHopper
 			}
 		}
 	}
-	
+
 	private void beginPressingItem()
 	{
 		int pressWeight = hasPressableItem();
 		if(pressWeight > 0)
 		{
 			this.pressCooldown += pressWeight/0.64f * 20;
-			sendCooldownPacket();	
+			sendCooldownPacket();
 		}
 	}
 
@@ -133,19 +133,19 @@ public class TEFruitPress extends TEHopper
 		}
 		return null;
 	}
-	
+
 	@Override
 	public boolean isCoolingDown()
 	{
 		return this.cooldown > 0;
 	}
-	
+
 	@Override
 	public void setCooldown(int time)
 	{
 		this.cooldown = time;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{
@@ -170,7 +170,7 @@ public class TEFruitPress extends TEHopper
 		this.pressCooldown = nbt.getInteger("pressCooldown");
 		this.pressBlock = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("pressBlock"));
 	}
-	
+
 	@Override
 	public void writeToNBT(NBTTagCompound nbt)
 	{
@@ -203,8 +203,8 @@ public class TEFruitPress extends TEHopper
 			nbt.setTag("pressBlock", nbttagcompound1);
 		}
 	}
-	
-	private void sendPressPacket() 
+
+	private void sendPressPacket()
 	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		if(pressBlock != null)

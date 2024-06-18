@@ -25,43 +25,43 @@ import terramisc.blocks.devices.BlockSoupKettle;
 import terramisc.items.itemblocks.ItemBlockStainedClayTFCM;
 import terramisc.items.itemblocks.ItemBlockWetClay;
 
-public class TFCMBlocks 
+public class TFCMBlocks
 {
 	public static int cropRenderId;
-	
+
 	//Candles
 	public static Block blockTallowCandle;
 	public static Block blockTallowCandleOff;
-	
+
 	//Roads
 	public static Block blockRoadIgEx;
 	public static Block blockRoadIgIn;
 	public static Block blockRoadMM;
 	public static Block blockRoadSed;
-	
+
 	//Food Devices
 	public static Block blockFruitPress;
 	public static Block blockBrickOven;
 	public static Block blockSoupKettle;
-	
+
 	//Food blockCrops
 	public static Block blockPumpkin;
 	public static Block blockPumpkinCarved;
 	public static Block blockPumpkinLantern;
 	public static Block blockPumpkinLanternOff;
-	
+
 	public static Block blockCrops;
-	
+
 	//Decoration
 	public static Block blockClay;
 	public static Block blockStainedClay;
-	
+
 	public static void initialise()
 	{
 		System.out.println("[" + TFCMDetails.ModName + "] Registering Blocks");
-		
+
 		registerBlocks();
-		
+
 		System.out.println("[" + TFCMDetails.ModName + "] Done Registering Blocks");
 	}
 
@@ -72,7 +72,7 @@ public class TFCMBlocks
 		GameRegistry.registerBlock(blockTallowCandle, "blockTallowCandle");
 		blockTallowCandleOff = new BlockTallowCandleOff().setBlockName("blockTallowCandleOff").setBlockTextureName("tfcm:TallowCandle").setHardness(0.2F);
 		GameRegistry.registerBlock(blockTallowCandleOff, "blockTallowCandleOff");
-		
+
 		//Roads
 		blockRoadIgEx = new BlockRoadIgEx().setHardness(16F).setBlockName("blockRoadIgEx");
 		GameRegistry.registerBlock(blockRoadIgEx, terramisc.items.itemblocks.ItemBlockRoadBlock.class, "blockRoadIgEx");
@@ -82,7 +82,7 @@ public class TFCMBlocks
 		GameRegistry.registerBlock(blockRoadMM, terramisc.items.itemblocks.ItemBlockRoadBlock.class, "blockRoadMM");
 		blockRoadSed = new BlockRoadSed().setHardness(14F).setBlockName("blockRoadSed");
 		GameRegistry.registerBlock(blockRoadSed, terramisc.items.itemblocks.ItemBlockRoadBlock.class, "blockRoadSed");
-	
+
 		//Food Devices
 		blockFruitPress = new BlockFruitPress().setHardness(2F).setBlockName("blockFruitPress");
 		GameRegistry.registerBlock(blockFruitPress, "blockFruitPress");
@@ -90,7 +90,7 @@ public class TFCMBlocks
 		GameRegistry.registerBlock(blockBrickOven, ItemTerraBlock.class, "blockBrickOven");
 		blockSoupKettle = new BlockSoupKettle().setHardness(8F).setBlockName("blockSoupKettle");
 		GameRegistry.registerBlock(blockSoupKettle, ItemTerraBlock.class, "blockSoupKettle");
-		
+
 		//Food blockCrops
 		blockPumpkin = new BlockFoodPumpkin(false, false).setHardness(1.0F).setStepSound(Block.soundTypeWood).setBlockName("blockPumpkin");
 		GameRegistry.registerBlock(blockPumpkin, ItemTerraBlock.class, "blockPumpkin");
@@ -100,10 +100,10 @@ public class TFCMBlocks
 		GameRegistry.registerBlock(blockPumpkinLantern, ItemTerraBlock.class, "blockPumpkinLantern");
 		blockPumpkinLanternOff = new BlockPumpkinLanternOff(true, false).setHardness(1.0F).setStepSound(Block.soundTypeWood).setBlockName("blockPumpkinLanternOff");
 		GameRegistry.registerBlock(blockPumpkinLanternOff, ItemTerraBlock.class, "blockPumpkinLanternOff");
-		
+
 		blockCrops = new BlockCropTFCM().setBlockName("blockCrops").setHardness(0.3F).setStepSound(Block.soundTypeGrass);
 		GameRegistry.registerBlock(blockCrops, "blockCrops");
-		
+
 		//Decoration
 		blockClay = new BlockClayTFCM().setBlockName("blockClay");
 		GameRegistry.registerBlock(blockClay, ItemBlockWetClay.class, "blockClay");
@@ -111,7 +111,7 @@ public class TFCMBlocks
 		GameRegistry.registerBlock(blockStainedClay, ItemBlockStainedClayTFCM.class,"blockStainedClay");
 	}
 
-	
+
 	public static void setupFire()
 	{
 		Blocks.fire.setFireInfo(blockCrops, 20, 20);

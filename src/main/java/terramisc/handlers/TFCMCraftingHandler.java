@@ -21,20 +21,20 @@ public class TFCMCraftingHandler
 
 	private static void damageItem(EntityPlayer entityPlayer, IInventory inventory, int index, Item shiftedIndex)
 	{
-		if (inventory.getStackInSlot(index).getItem() != shiftedIndex) 
+		if (inventory.getStackInSlot(index).getItem() != shiftedIndex)
 			return;
-		
+
 		ItemStack item = inventory.getStackInSlot(index).copy();
-		if (item == null) 
+		if (item == null)
 			return;
 
 		item.damageItem(1 , entityPlayer);
-		
+
 		if (item.getItemDamage() != 0 || entityPlayer.capabilities.isCreativeMode)
 		{
 			inventory.setInventorySlotContents(index, item);
 			inventory.getStackInSlot(index).stackSize = inventory.getStackInSlot(index).stackSize + 1;
-			
+
 			if (inventory.getStackInSlot(index).stackSize > 2)
 				inventory.getStackInSlot(index).stackSize = 2;
 		}
@@ -47,11 +47,11 @@ public class TFCMCraftingHandler
 		{
 			if(inventory.getStackInSlot(index) == null)
 				continue;
-			
+
 			if(inventory.getStackInSlot(index).getItem() == item)
 				return inventory.getStackInSlot(index);
 		}
-		
+
 		return null;
 	}
 
@@ -62,7 +62,7 @@ public class TFCMCraftingHandler
 		{
 			if (inventory.getStackInSlot(index) == null)
 				continue;
-			
+
 			for (int itemIndex = 0; itemIndex < items.length; itemIndex++)
 			{
 				damageItem(entityPlayer, inventory, index, items[itemIndex]);

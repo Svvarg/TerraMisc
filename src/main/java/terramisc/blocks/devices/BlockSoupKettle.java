@@ -180,7 +180,7 @@ public class BlockSoupKettle extends BlockTerraContainer
 	{
 		return world.getBlock(x, y, z) == this;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderType()

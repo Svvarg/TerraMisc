@@ -8,12 +8,12 @@ import net.minecraft.tileentity.TileEntity;
 public class TEPumpkinLantern extends TileEntity
 {
 	public int hourPlaced = -1000;
-	
+
 	public TEPumpkinLantern()
 	{
-		
+
 	}
-	
+
 	public void create()
 	{
 		hourPlaced = (int) TFC_Time.getTotalHours();
@@ -24,7 +24,7 @@ public class TEPumpkinLantern extends TileEntity
 	{
 		return false;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{

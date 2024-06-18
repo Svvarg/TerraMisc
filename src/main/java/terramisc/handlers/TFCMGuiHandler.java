@@ -16,12 +16,12 @@ import terramisc.tileentities.TESoupKettle;
 public class TFCMGuiHandler implements IGuiHandler
 {
 //	public static final int GuiIdCustom = ModDetails.GuiOffset + 1;
-	
+
 	@Override
-	public Object getServerGuiElement(int Id, EntityPlayer player, World world, int x, int y, int z) 
+	public Object getServerGuiElement(int Id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		
+
 		switch (Id)
 		{
 			case 1:
@@ -51,7 +51,7 @@ public class TFCMGuiHandler implements IGuiHandler
 			default:
 			{
 				return null;
-			}	
+			}
 		}
 	}
 

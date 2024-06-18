@@ -18,7 +18,7 @@ public class ItemWeightLargeHeavy extends ItemTerra implements ISize
 		this.maxStackSize = 8;
 		this.hasSubtypes = false;
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
 	{
@@ -27,27 +27,27 @@ public class ItemWeightLargeHeavy extends ItemTerra implements ISize
 		else
 			this.itemIcon = registerer.registerIcon(TFCMDetails.ModID + ":" + this.getUnlocalizedName().replace("item.", ""));
 	}
-	
+
 	@Override
-	public EnumSize getSize(ItemStack is) 
+	public EnumSize getSize(ItemStack is)
 	{
 		return EnumSize.LARGE;
 	}
 
 	@Override
-	public EnumWeight getWeight(ItemStack is) 
+	public EnumWeight getWeight(ItemStack is)
 	{
 		return EnumWeight.HEAVY;
 	}
 
 	@Override
-	public EnumItemReach getReach(ItemStack is) 
+	public EnumItemReach getReach(ItemStack is)
 	{
 		return EnumItemReach.SHORT;
 	}
 
 	@Override
-	public boolean canStack() 
+	public boolean canStack()
 	{
 		return true;
 	}

@@ -28,9 +28,9 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 {
 	public ItemStack[] storage = new ItemStack[15];
 	public int lastTab;
-	
+
 	private final float[] soupWeights = new float[]{2,3,2,2,1};
-	
+
 	private final float[] stewWeights = new float[]{2,3,2,2,1};
 
 	@Override
@@ -88,7 +88,7 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 		}
 	}
 
-	private void createSoup(EntityPlayer player) 
+	private void createSoup(EntityPlayer player)
 	{
 		if(validateSoup())
 		{
@@ -99,7 +99,7 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 			{
 				if(i == 1)
 					i++;
-				
+
 				ItemStack f = storage[i];
 				if (f != null)
 				{
@@ -121,7 +121,7 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 			if(getStackInSlot(3) != null) foodGroups[2] = ((IFood)(getStackInSlot(3).getItem())).getFoodID();
 			if(getStackInSlot(4) != null) foodGroups[3] = ((IFood)(getStackInSlot(4).getItem())).getFoodID();
 			if(getStackInSlot(5) != null) foodGroups[4] = ((IFood)(getStackInSlot(5).getItem())).getFoodID();
-			
+
 			Food.setFoodGroups(is, foodGroups);
 			setSoupIcon(is);
 
@@ -140,17 +140,17 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 		{
 			if(storage[0] == null || storage[6] != null) //Checks for main ingrediant and an empty output slot
 				return false;
-			
-			if(!validateIngreds(storage[0], storage[2], storage[3], storage[4])) //Are the ingrediants valid? 
+
+			if(!validateIngreds(storage[0], storage[2], storage[3], storage[4])) //Are the ingrediants valid?
 				return false;
-			
+
 			float weight = 0;
 			for(int i = 0; i < 5; i++)
 			{
 				ItemStack f = (storage[i]);
-				
+
 				if(i==1) i++; //skip unused slot
-				
+
 				if (f != null && f.getItem() instanceof IFood && (Food.getWeight(f) - Food.getDecay(f) >= soupWeights[i]))
 				{
 					weight += soupWeights[i];
@@ -162,26 +162,26 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 		}
 		return true;
 	}
-	
+
 	private void setSoupIcon(ItemStack is)
 	{
-		if(getStackInSlot(0).getItem() == TFCItems.cabbage 
-		|| getStackInSlot(0).getItem() == TFCItems.greenBellPepper 
+		if(getStackInSlot(0).getItem() == TFCItems.cabbage
+		|| getStackInSlot(0).getItem() == TFCItems.greenBellPepper
 		|| getStackInSlot(0).getItem() == TFCItems.greenbeans)
 			is.setItemDamage(1);
-		else if(((IFood) getStackInSlot(0).getItem()).getFoodGroup() == EnumFoodGroup.Protein 
+		else if(((IFood) getStackInSlot(0).getItem()).getFoodGroup() == EnumFoodGroup.Protein
 				      && getStackInSlot(0).getItem() != TFCItems.soybean)
 			is.setItemDamage(2);
-		else if(getStackInSlot(0).getItem() == TFCItems.tomato 
+		else if(getStackInSlot(0).getItem() == TFCItems.tomato
 			 || getStackInSlot(0).getItem() == TFCItems.redBellPepper)
 			is.setItemDamage(3);
 		else
 			is.setItemDamage(0);
 	}
 
-	private void createStew(EntityPlayer player) 
+	private void createStew(EntityPlayer player)
 	{
-		
+
 	}
 
 	public boolean validateStew() //TODO Add a check for milk
@@ -431,7 +431,7 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 		{
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
-		/*else if(storage[0] == null && storage[1] == null && storage[2] == null && storage[3] == null && storage[4] == null && storage[5] == null 
+		/*else if(storage[0] == null && storage[1] == null && storage[2] == null && storage[3] == null && storage[4] == null && storage[5] == null
 				&& storage[6] == null && storage[7] == null && storage[8] == null && storage[9] == null && storage[10] == null)
 		{
 			this.worldObj.setBlockToAir(xCoord, yCoord, zCoord);
@@ -451,7 +451,7 @@ public class TESoupKettle extends NetworkTileEntity implements IInventory
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) 
+	public boolean isItemValidForSlot(int i, ItemStack itemstack)
 	{
 		return false;
 	}

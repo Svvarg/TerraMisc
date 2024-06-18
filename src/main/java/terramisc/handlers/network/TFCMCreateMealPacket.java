@@ -27,7 +27,7 @@ public class TFCMCreateMealPacket extends AbstractPacket
 		this.y = te.yCoord;
 		this.z = te.zCoord;
 	}
-	
+
 	public TFCMCreateMealPacket(int f, TESoupKettle te)
 	{
 		this.flag = (byte)f;

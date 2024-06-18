@@ -20,7 +20,7 @@ public class ItemTallowDye extends ItemTerra
 	public static final String[] DYE_COLOR_NAMES = new String[] {"Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray", "Pink", "Lime", "Yellow", "LightBlue", "Magenta", "Orange"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
-	
+
 	public ItemTallowDye()
 	{
 		super();
@@ -28,7 +28,7 @@ public class ItemTallowDye extends ItemTerra
 		this.setMaxDamage(0);
 		this.setCreativeTab(TFCTabs.TFC_MATERIALS);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int par1)
@@ -36,7 +36,7 @@ public class ItemTallowDye extends ItemTerra
 		int j = MathHelper.clamp_int(par1, 0, 14);
 		return this.icons[j];
 	}
-	
+
 	/**
 	 * Returns the unlocalized name of this item. This version accepts an ItemStack so different stacks can have
 	 * different names based on their damage or NBT.
@@ -59,7 +59,7 @@ public class ItemTallowDye extends ItemTerra
 			this.icons[i] = par1IconRegister.registerIcon("tfcm:TallowDye" + DYE_COLOR_NAMES[i]);
 		}
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
 	@Override

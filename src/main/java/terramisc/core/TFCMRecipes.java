@@ -44,9 +44,9 @@ import terramisc.api.crafting.FruitPressManager;
 import terramisc.api.crafting.FruitPressRecipe;
 
 public class TFCMRecipes
-{	
+{
 	public static final int WILDCARD_VALUE = OreDictionary.WILDCARD_VALUE;
-	
+
 	private static AnvilManager anvilManager = AnvilManager.getInstance();
 	//private static BarrelManager barrelManager = BarrelManager.getInstance();
 	private static CraftingManagerTFC craftingManager = CraftingManagerTFC.getInstance();
@@ -69,7 +69,7 @@ public class TFCMRecipes
 	public static void initialise()
 	{
 		System.out.println("[" + TFCMDetails.ModName + "] Registering Recipes");
-		
+
 		registerRecipes();
 		registerBarrelRecipes();
 		registerFruitPressRecipes();
@@ -78,7 +78,7 @@ public class TFCMRecipes
 		registerKnappingRecipes();
 		registerQuernRecipes();
 		registerHeatingRecipes();
-		
+
 		System.out.println("[" + TFCMDetails.ModName + "] Done Registering Recipes");
 	}
 
@@ -86,20 +86,20 @@ public class TFCMRecipes
 	{
 		// check if the plans/recipes have already been initialized.
 		if (TFCMRecipes.areAnvilRecipesInitialised()) return;
-		
+
 		System.out.println("[" + TFCMDetails.ModName + "] Registering Anvil Recipes");
 
 		registerAnvilPlans();
 		registerAnvilRecipes();
-		
+
 		System.out.println("[" + TFCMDetails.ModName + "] Done Registering Anvil Recipes");
 	}
-	 
-	public static boolean areAnvilRecipesInitialised() 
-	{ 
-	        Map<String, PlanRecipe> map = anvilManager.getPlans(); 
-	        
-	        return map != null && ( map.containsKey(PlanNameCasing ) || 
+
+	public static boolean areAnvilRecipesInitialised()
+	{
+	        Map<String, PlanRecipe> map = anvilManager.getPlans();
+
+	        return map != null && ( map.containsKey(PlanNameCasing ) ||
 							        map.containsKey(PlanNameClockGear) ||
 							        map.containsKey(PlanNameCircuit) ||
 							        map.containsKey(PlanNameHalberd) ||
@@ -109,9 +109,9 @@ public class TFCMRecipes
 							        map.containsKey(PlanNameLink) ||
 							        map.containsKey(PlanNameBolt) ||
 							        map.containsKey(PlanNameArrow)
-	        						); 
-	} 
-	 
+	        						);
+	}
+
 	private static void registerAnvilPlans()
 	{
 		//Plans
@@ -125,17 +125,17 @@ public class TFCMRecipes
 		anvilManager.addPlan(PlanNameLink, new PlanRecipe(new RuleEnum[] {RuleEnum.PUNCHLAST, RuleEnum.ANY, RuleEnum.ANY}));
 		anvilManager.addPlan(PlanNameBolt, new PlanRecipe(new RuleEnum[] {RuleEnum.HITLAST, RuleEnum.PUNCHSECONDFROMLAST, RuleEnum.ANY}));
 		anvilManager.addPlan(PlanNameArrow, new PlanRecipe(new RuleEnum[] {RuleEnum.HITLAST, RuleEnum.HITSECONDFROMLAST, RuleEnum.PUNCHTHIRDFROMLAST}));
-				
+
 	}
-	
+
 	private static void registerAnvilRecipes()
-	{	
+	{
 		//Recipes
 		anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.brassIngot), null, PlanNameCasing , AnvilReq.COPPER, new ItemStack(TFCMItems.casingBrass, 1)).addRecipeSkill(Global.SKILL_GENERAL_SMITHING));
 		anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.wroughtIronIngot), null, PlanNameCasing , AnvilReq.WROUGHTIRON, new ItemStack(TFCMItems.casingIron, 1)).addRecipeSkill(Global.SKILL_GENERAL_SMITHING));
 		anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.roseGoldIngot), null, PlanNameCasing , AnvilReq.COPPER, new ItemStack(TFCMItems.casingRoseGold, 1)).addRecipeSkill(Global.SKILL_GENERAL_SMITHING));
 		anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.wroughtIronIngot), null, PlanNameClockGear, AnvilReq.WROUGHTIRON, new ItemStack(TFCMItems.gear, 2)).addRecipeSkill(Global.SKILL_GENERAL_SMITHING));
-		
+
 		if(TFCMOptions.enableCraftingLogicTiles = true)
 		{
 			anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), new ItemStack(Items.redstone), PlanNameCircuit, AnvilReq.COPPER, new ItemStack(TFCMItems.circuit, 1)).addRecipeSkill(Global.SKILL_GENERAL_SMITHING));
@@ -215,8 +215,8 @@ public class TFCMRecipes
 		anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCMItems.coil_RedSteel), null, PlanNameLink, AnvilReq.BLUESTEEL, new ItemStack(TFCMItems.link_RedSteel, 16)).addRecipeSkill(Global.SKILL_ARMORSMITH));
 		anvilManager.addRecipe(new AnvilRecipe(new ItemStack(TFCMItems.coil_Steel), null, PlanNameLink, AnvilReq.STEEL, new ItemStack(TFCMItems.link_Steel, 16)).addRecipeSkill(Global.SKILL_ARMORSMITH));
 	}
-	 
-		
+
+
 	private static void registerRecipes()
 	{
 		//Item ItemStacks
@@ -226,25 +226,25 @@ public class TFCMRecipes
 		ItemStack Spring = new ItemStack(TFCMItems.coil_WroughtIron, 1);
 		ItemStack CeramicBowl = new ItemStack(TFCItems.potteryBowl, 1, 1);
 		ItemStack TallowBowl = new ItemStack(TFCMItems.bowlTallow, 1, WILDCARD_VALUE);
-		
+
 		if(TFCMOptions.enableCraftingPiston = true)
 		{
 			removeRecipe(new ItemStack(Blocks.piston));
-			
+
 			GameRegistry.addRecipe(new ItemStack(Blocks.piston), new Object[]{"H","S","B", 'H',TFCItems.wroughtIronSheet, 'S', TFCItems.tuyereWroughtIron, 'B', TFCMItems.pistonBase});
 			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.sticky_piston), new ItemStack(Blocks.piston), new ItemStack(TFCMItems.caseinGlue));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(TFCMItems.pistonBase), new Object[]{"PRP","PPP", Character.valueOf('P'), "woodLumber", Character.valueOf('R'), Items.redstone}));
 		}
-		
+
 		if(TFCMOptions.enableCraftingLogicTiles = true)
 		{
 			removeRecipe(new ItemStack(Items.repeater));
 			removeRecipe(new ItemStack(Items.comparator));
-			
+
 			GameRegistry.addRecipe(new ItemStack(Items.repeater), new Object[]{"TCT", 'C', TFCMItems.circuit, 'T', Blocks.redstone_torch});
 			GameRegistry.addRecipe(new ItemStack(Items.comparator), new Object[]{" T ","TCT", 'C', TFCMItems.circuit, 'T', Blocks.redstone_torch});
 		}
-		
+
 		if(TFCMOptions.enableCraftingLongbow = true)
 		{
 			//Longbow
@@ -294,22 +294,22 @@ public class TFCMRecipes
 				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCMItems.bowLimb), new ItemStack(Recipes.knives[j], 1, 32767), "logWood"));
 			}
 		}
-		
+
 		if(TFCMOptions.enableCrucibleEmptying = true)
 		{
 			GameRegistry.addShapelessRecipe(new ItemStack(TFCBlocks.crucible), new ItemStack(TFCBlocks.crucible));
 		}
-		
+
 		if(TFCMOptions.enableCraftingCompassClock = true)
 		{
 			removeRecipe(new ItemStack(Items.clock));
 			removeRecipe(new ItemStack(Items.compass));
-			
+
 			GameRegistry.addRecipe(new ItemStack(Items.clock), new Object[]{"GPG","HCH","GSG", 'G', TFCMItems.gear, 'P', Blocks.glass_pane, 'H', TFCItems.stick, 'C', TFCMItems.casingBrass, 'S', Spring});
 			GameRegistry.addRecipe(new ItemStack(Items.clock), new Object[]{"GPG","HCH","GSG", 'G', TFCMItems.gear, 'P', Blocks.glass_pane, 'H', TFCItems.stick, 'C', TFCMItems.casingRoseGold, 'S', Spring});
-			GameRegistry.addRecipe(new ItemStack(Items.compass), new Object[]{"P","O","C", 'P', Blocks.glass_pane, 'O', smallMagnetite, 'C', TFCMItems.casingIron});	
+			GameRegistry.addRecipe(new ItemStack(Items.compass), new Object[]{"P","O","C", 'P', Blocks.glass_pane, 'O', smallMagnetite, 'C', TFCMItems.casingIron});
 		}
-		
+
 		//Shaped
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.sinewString), new Object[]{"F","F","F", 'F', TFCMItems.sinewFiber});
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.sinewBowString), new Object[]{"SSS", 'S', TFCMItems.sinewString});
@@ -331,7 +331,7 @@ public class TFCMRecipes
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(TFCMBlocks.blockStainedClay, 8, 13), new Object[]{"CCC", "CDC", "CCC", 'C', TFCMBlocks.blockStainedClay, 'D', "dyeLightBlue"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(TFCMBlocks.blockStainedClay, 8, 14), new Object[]{"CCC", "CDC", "CCC", 'C', TFCMBlocks.blockStainedClay, 'D', "dyeMagenta"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(TFCMBlocks.blockStainedClay, 8, 15), new Object[]{"CCC", "CDC", "CCC", 'C', TFCMBlocks.blockStainedClay, 'D', "dyeOrange"}));
-		
+
 			//Shapeless candle dyes
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCMItems.tallowDye, 1, 0), "dyeBlack", TallowBowl));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCMItems.tallowDye, 1, 1), "dyeRed", TallowBowl));
@@ -396,7 +396,7 @@ public class TFCMRecipes
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.poniard_RedSteel), new Object[]{"H","S", 'H', TFCMItems.poniard_RedSteel_Head, 'S', TFCItems.stick});
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.poniard_Steel), new Object[]{"H","S", 'H', TFCMItems.poniard_Steel_Head, 'S', TFCItems.stick});
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.poniard_WroughtIron), new Object[]{"H","S", 'H', TFCMItems.poniard_WroughtIron_Head, 'S', TFCItems.stick});
-		
+
 		//Armor
 			//Chain Helmets
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.BismuthBronzeChainHelmet), new Object[]{"XOX","X X","   ", 'X', new ItemStack(TFCMItems.chain_Sheet_BismuthBronze), 'O', TFCItems.leather});
@@ -449,10 +449,10 @@ public class TFCMRecipes
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.chain_Sheet_WroughtIron), new Object[]{"XX","XX", 'X', new ItemStack(TFCMItems.chain_Square_WroughtIron)});
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.chain_Sheet_RedSteel), new Object[]{"XX","XX", 'X', new ItemStack(TFCMItems.chain_Square_RedSteel)});
 		GameRegistry.addRecipe(new ItemStack(TFCMItems.chain_Sheet_Steel), new Object[]{"XX","XX", 'X', new ItemStack(TFCMItems.chain_Square_Steel)});
-		
+
 		//Ore Dictionary
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.ladder, 16), new Object[]{"P P","PSP","P P", Character.valueOf('P'), "woodLumber", Character.valueOf('R'), TFCItems.stick}));
-		
+
 		//Shapeless
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.bowlSuet), CeramicBowl, new ItemStack(TFCMItems.suet));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMBlocks.blockFruitPress), new ItemStack(TFCBlocks.hopper));
@@ -470,22 +470,22 @@ public class TFCMRecipes
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.brownDye), new ItemStack(TFCItems.powder, 1, 5), new ItemStack(TFCItems.coal, 1, WILDCARD_VALUE)); //Brown
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.brownDye), new ItemStack(TFCItems.powder, 1, 7), new ItemStack(TFCItems.coal, 1, WILDCARD_VALUE)); //Brown
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCItems.dye, 1, 0), new ItemStack(TFCMItems.brownDye), new ItemStack(TFCItems.coal, 1, WILDCARD_VALUE)); //Black
-		
+
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.halberd_Copper_Head), new ItemStack(TFCMItems.halberd_Mold, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.halberd_Bronze_Head), new ItemStack(TFCMItems.halberd_Mold, 1, 3));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.halberd_BismuthBronze_Head), new ItemStack(TFCMItems.halberd_Mold, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.halberd_BlackBronze_Head), new ItemStack(TFCMItems.halberd_Mold, 1, 5));
-		
+
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.warHammer_Copper_Head), new ItemStack(TFCMItems.warHammer_Mold, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.warHammer_Bronze_Head), new ItemStack(TFCMItems.warHammer_Mold, 1, 3));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.warHammer_BismuthBronze_Head), new ItemStack(TFCMItems.warHammer_Mold, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.warHammer_BlackBronze_Head), new ItemStack(TFCMItems.warHammer_Mold, 1, 5));
-		
+
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.poniard_Copper_Head), new ItemStack(TFCMItems.poniard_Mold, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.poniard_Bronze_Head), new ItemStack(TFCMItems.poniard_Mold, 1, 3));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.poniard_BismuthBronze_Head), new ItemStack(TFCMItems.poniard_Mold, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.poniard_BlackBronze_Head), new ItemStack(TFCMItems.poniard_Mold, 1, 5));
-		
+
 		//Food
 		GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.bottleLemonade, 4), new ItemStack(TFCItems.woodenBucketWater), new ItemStack(TFCMItems.bottleJuiceLemon), new ItemStack(TFCMItems.bottleJuiceLemon), new ItemStack(TFCMItems.bottleJuiceLemon), new ItemStack(TFCMItems.bottleJuiceLemon), (ItemFoodTFC.createTag(new ItemStack(TFCItems.sugar), 4F)));
 
@@ -495,38 +495,38 @@ public class TFCMRecipes
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadIgEx, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_IGEX_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel1 });
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadIgEx, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_IGEX_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel2 });
 		}
-		
+
 		for (int j = 0; j < Global.STONE_IGIN.length; j++)
 		{
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadIgIn, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_IGIN_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel1 });
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadIgIn, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_IGIN_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel2 });
 		}
-		
+
 		for (int j = 0; j < Global.STONE_MM.length; j++)
 		{
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadMM, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_MM_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel1 });
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadMM, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_MM_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel2 });
 		}
-		
+
 		for (int j = 0; j < Global.STONE_SED.length; j++)
 		{
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadSed, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_SED_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel1 });
 			GameRegistry.addRecipe(new ItemStack(TFCMBlocks.blockRoadSed, 8, j), new Object[] { "GSG", "SMS", "GSG", Character.valueOf('S'), new ItemStack(TFCItems.stoneBrick, 1, j + Global.STONE_SED_START), Character.valueOf('M'), new ItemStack(TFCItems.mortar, 1), Character.valueOf('G'), Gravel2 });
 		}
-		
+
 		//Knife Recipes
 		for(int j = 0; j < Recipes.knives.length; j++)
 		{
 			//moved bow limb recipe to the bow crafting section
 		}
-		
+
 		//Hammer Recipes
 		for(int j = 0; j < Recipes.hammers.length; j++)
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.sinewFiber, 3), new ItemStack(Recipes.hammers[j], 1, 32767), new ItemStack(TFCMItems.deerTendon));	
+			GameRegistry.addShapelessRecipe(new ItemStack(TFCMItems.sinewFiber, 3), new ItemStack(Recipes.hammers[j], 1, 32767), new ItemStack(TFCMItems.deerTendon));
 		}
 	}
-	
+
 	//From TFCraft/Recipes.java
 	@SuppressWarnings("unchecked")
 	public static void removeRecipe(ItemStack resultItem)
@@ -537,26 +537,26 @@ public class TFCMRecipes
 			if (recipes.get(i) != null)
 			{
 				ItemStack recipeResult = recipes.get(i).getRecipeOutput();
-			
+
 				if (ItemStack.areItemStacksEqual(resultItem, recipeResult))
 					recipes.remove(i--);
 			}
 		}
 	}
-	
+
 	//Barrel
 	private static void registerBarrelRecipes()
 	{
 		BarrelManager.getInstance().addRecipe(new BarrelRecipe(new ItemStack(TFCItems.powder, 1, 0), new FluidStack(TFCFluids.MILKCURDLED, 100), new ItemStack(TFCMItems.caseinGlue, 2), new FluidStack(TFCFluids.MILKCURDLED, 100), 1).setMinTechLevel(0));
 		BarrelManager.getInstance().addRecipe(new BarrelFermentationRecipe(new FluidStack(TFCMFluids.FRUITJUICE, 250), new FluidStack(TFCMFluids.FRUITWINE, 250), 72));
 		BarrelManager.getInstance().addRecipe(new BarrelVinegarRecipe(new FluidStack(TFCMFluids.FRUITWINE, 1000), (new FluidStack(TFCFluids.VINEGAR, 1000))));
-		
-		BarrelManager.getInstance().addRecipe(new BarrelAlcoholRecipe(ItemFoodTFC.createTag(new ItemStack(TFCMItems.soyPaste), 160), new FluidStack(TFCMFluids.WATERHOT, 10000), null, new FluidStack(TFCMFluids.SOYMILK, 10000)));	
+
+		BarrelManager.getInstance().addRecipe(new BarrelAlcoholRecipe(ItemFoodTFC.createTag(new ItemStack(TFCMItems.soyPaste), 160), new FluidStack(TFCMFluids.WATERHOT, 10000), null, new FluidStack(TFCMFluids.SOYMILK, 10000)));
 		BarrelManager.getInstance().addRecipe(new BarrelLiquidToLiquidRecipe(new FluidStack(TFCMFluids.SOYMILK, 9000), new FluidStack(TFCFluids.VINEGAR, 1000), new FluidStack(TFCFluids.MILKVINEGAR, 10000)).setSealedRecipe(false).setMinTechLevel(0).setRemovesLiquid(false));
-		
+
 		BarrelManager.getInstance().addRecipe(new BarrelRecipe(new ItemStack(TFCMItems.bowlSuet), new FluidStack(TFCMFluids.WATERHOT, 1000), new ItemStack(TFCMItems.bowlTallow), new FluidStack(TFCFluids.FRESHWATER, 1000), 2));
 	}
-	
+
 	//Fruit Press
 	private static void registerFruitPressRecipes()
 	{
@@ -574,56 +574,56 @@ public class TFCMRecipes
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.elderberry, TFCMFluids.FRUITJUICE, 8));
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.gooseberry, TFCMFluids.FRUITJUICE, 8));
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.cloudberry, TFCMFluids.FRUITJUICE, 8));
-		
+
 		//Apple Juice
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.redApple, TFCMFluids.JUICEAPPLE, 4));
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.greenApple, TFCMFluids.JUICEAPPLE, 4));
-		
+
 		//Orange Juice
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.orange, TFCMFluids.JUICEORANGE, 4));
-		
+
 		//Lemon Juice
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.lemon, TFCMFluids.JUICELEMON, 4));
-		
+
 		//Other
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.olive, TFCFluids.OLIVEOIL, 1));
 		FruitPressManager.addRecipe(new FruitPressRecipe(TFCItems.onion, TFCMFluids.JUICEONION, 2));
 	}
-	
+
 	//Kiln
 	private static void registerKilnRecipes()
 	{
 		KilnCraftingManager.getInstance().addRecipe(
 		new KilnRecipe(
 		new ItemStack(TFCMItems.halberd_Mold,1,0),
-		0, 
+		0,
 		new ItemStack(TFCMItems.halberd_Mold,1,1)));
-		
+
 		KilnCraftingManager.getInstance().addRecipe(
 		new KilnRecipe(
 		new ItemStack(TFCMItems.warHammer_Mold,1,0),
-		0, 
-		new ItemStack(TFCMItems.warHammer_Mold,1,1)));	
-		
+		0,
+		new ItemStack(TFCMItems.warHammer_Mold,1,1)));
+
 		KilnCraftingManager.getInstance().addRecipe(
 		new KilnRecipe(
 		new ItemStack(TFCMItems.poniard_Mold,1,0),
-		0, 
-		new ItemStack(TFCMItems.poniard_Mold,1,1)));	
-		
+		0,
+		new ItemStack(TFCMItems.poniard_Mold,1,1)));
+
 		KilnCraftingManager.getInstance().addRecipe(
 		new KilnRecipe(
 		new ItemStack(TFCMItems.arrow_Mold,1,0),
-		0, 
-		new ItemStack(TFCMItems.arrow_Mold,1,1)));	
-		
+		0,
+		new ItemStack(TFCMItems.arrow_Mold,1,1)));
+
 		KilnCraftingManager.getInstance().addRecipe(
 		new KilnRecipe(
 		new ItemStack(TFCMItems.bolt_Mold,1,0),
-		0, 
+		0,
 		new ItemStack(TFCMItems.bolt_Mold,1,1)));
 	}
-	
+
 	//Mold Pouring
 	public static ItemStack getItemStackTemp(ItemStack is)
 	{
@@ -632,92 +632,92 @@ public class TFCMRecipes
 		is.setTagCompound(Temp);
 		return is;
 	}
-			
-			
+
+
 	private static void registerToolMolds()
 	{
-		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 2), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 2),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.copperUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.halberd_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 3), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 3),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.halberd_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 4), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 4),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bismuthBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.halberd_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 5), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 5),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.blackBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.halberd_Mold, 1, 1)});
-		
-		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 2), 
+
+		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 2),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.copperUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.warHammer_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 3), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 3),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.warHammer_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 4), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 4),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bismuthBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.warHammer_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 5), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 5),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.blackBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.warHammer_Mold, 1, 1)});
-		
-		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 2), 
+
+		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 2),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.copperUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.poniard_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 3), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 3),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.poniard_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 4), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 4),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bismuthBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.poniard_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 5), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 5),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.blackBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.poniard_Mold, 1, 1)});
-		
-		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 2), 
+
+		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 2),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.copperUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.arrow_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 3), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 3),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.arrow_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 4), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 4),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bismuthBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.arrow_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 5), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 5),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.blackBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.arrow_Mold, 1, 1)});
-		
-		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 2), 
+
+		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 2),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.copperUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.bolt_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 3), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 3),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.bolt_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 4), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 4),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.bismuthBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.bolt_Mold, 1, 1)});
-		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 5), 
+		craftingManager.addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 5),
 				new Object[] {"12", Character.valueOf('1'), getItemStackTemp(new ItemStack(TFCItems.blackBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(TFCMItems.bolt_Mold, 1, 1)});
 	}
-	
+
 	private static void registerKnappingRecipes()
 	{
-		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 0), new Object[] { 
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.halberd_Mold, 1, 0), new Object[] {
 			" ##  ",
 			"#### ",
 			"#####",
 			"#### ",
 			" ##  ", Character.valueOf('#'), new ItemStack(TFCItems.flatClay, 1, 1)});
-		
-		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 0), new Object[] { 
+
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.warHammer_Mold, 1, 0), new Object[] {
 			"     ",
 			"#####",
 			"###  ",
 			"  #  ",
 			"     ", Character.valueOf('#'), new ItemStack(TFCItems.flatClay, 1, 1)});
-		
-		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 0), new Object[] { 
+
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.poniard_Mold, 1, 0), new Object[] {
 			"     ",
 			"  ## ",
 			" ### ",
 			" ##  ",
 			"#    ", Character.valueOf('#'), new ItemStack(TFCItems.flatClay, 1, 1)});
-		
+
 		if(TFCMOptions.enableCraftingCrossbow == true)
 		{
-			CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 0), new Object[] { 
+			CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.bolt_Mold, 1, 0), new Object[] {
 				"     ",
 				"     ",
 				"     ",
 				"  #  ",
 				"  #  ", Character.valueOf('#'), new ItemStack(TFCItems.flatClay, 1, 1)});
 		}
-		
+
 		if(TFCMOptions.enableCraftingLongbow == true)
 		{
-			CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 0), new Object[] { 
+			CraftingManagerTFC.getInstance().addRecipe(new ItemStack(TFCMItems.arrow_Mold, 1, 0), new Object[] {
 				"     ",
 				" ### ",
 				"  ## ",
@@ -725,7 +725,7 @@ public class TFCMRecipes
 				"     ", Character.valueOf('#'), new ItemStack(TFCItems.flatClay, 1, 1)});
 		}
 	}
-	
+
 	private static void registerQuernRecipes()
 	{
 		QuernManager.getInstance().addRecipe(new QuernRecipe(new ItemStack(TFCItems.wroughtIronIngot), new ItemStack(TFCMItems.ironDust, 8)));
@@ -733,10 +733,10 @@ public class TFCMRecipes
 		QuernManager.getInstance().addRecipe(new QuernRecipe(new ItemStack(TFCItems.oreChunk, 1, 59), new ItemStack(TFCMItems.ironDust, 1)));
 		QuernManager.getInstance().addRecipe(new QuernRecipe(new ItemStack(TFCItems.oreChunk, 1, 10), new ItemStack(TFCMItems.ironDust, 2)));
 		QuernManager.getInstance().addRecipe(new QuernRecipe(new ItemStack(TFCItems.oreChunk, 1, 45), new ItemStack(TFCMItems.ironDust, 3)));
-		
+
 		QuernManager.getInstance().addRecipe(new QuernRecipe(new ItemStack(TFCItems.soybean, 1), new ItemStack(TFCMItems.soyPaste, 1)));
 	}
-	
+
 	@SuppressWarnings("unused")
 	public static void registerHeatingRecipes()
 	{
@@ -761,10 +761,10 @@ public class TFCMRecipes
 		HeatRaw sterlingSilverRaw = new HeatRaw(0.35, 900);//sh = 0.72F; boil = 2212; melt = 893;
 		HeatRaw tinRaw = new HeatRaw(0.14, 230);
 		HeatRaw zincRaw = new HeatRaw(0.21, 420);//sh = 0.66F; boil = 907; melt = 420;
-		
+
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.bottleFruitJuice), 0.98D, 150.0D, (new ItemStack(TFCMItems.bottleSugar))));
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCItems.woodenBucketWater), 0.98D, 150.0D, (new ItemStack(TFCMItems.bucketHotWater))));
-		
+
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.coil_BismuthBronze, 1), bismuthBronzeRaw, new ItemStack(TFCItems.bismuthBronzeUnshaped, 1)));
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.coil_BlackBronze, 1), blackBronzeRaw, new ItemStack(TFCItems.blackBronzeUnshaped, 1)));
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.coil_BlackSteel, 1), blackSteelRaw, new ItemStack(TFCItems.blackSteelUnshaped, 1)));
@@ -774,8 +774,8 @@ public class TFCMRecipes
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.coil_WroughtIron, 1), ironRaw, new ItemStack(TFCItems.wroughtIronUnshaped, 1)));
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.coil_RedSteel, 1), redSteelRaw, new ItemStack(TFCItems.redSteelUnshaped, 1)));
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.coil_Steel, 1), steelRaw, new ItemStack(TFCItems.steelUnshaped, 1)));
-	
+
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.pumpkin,1),1, 1200, null));
 		heatmanager.addIndex(new HeatIndex(new ItemStack(TFCMItems.bearRaw,1),1, 1200, null));
-	}	
+	}
 }

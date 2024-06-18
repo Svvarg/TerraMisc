@@ -28,13 +28,13 @@ public class GuiBrickOven extends GuiContainerTFC
 	private int guiTab;
 
 	private TEFireEntity fireTE;
-	
+
 	public GuiBrickOven(InventoryPlayer inventoryplayer, TEBrickOven te, World world, int i, int j, int k, int tab)
 	{
 		super(new ContainerBrickOven(inventoryplayer, te, world, i, j, k, tab), 176, 85);
 		brickOvenTE = te;
 		guiTab = tab;
-		
+
 		if (world.getTileEntity(i, j - 1, k) instanceof TEFireEntity)
 			fireTE = (TEFireEntity) world.getTileEntity(i, j - 1, k);
 	}
@@ -59,7 +59,7 @@ public class GuiBrickOven extends GuiContainerTFC
 
 		PlayerInventory.drawInventory(this, width, height, this.getShiftedYSize());
 	}
-	
+
 	@Override
 	protected void drawForeground(int guiLeft, int guiTop)
 	{

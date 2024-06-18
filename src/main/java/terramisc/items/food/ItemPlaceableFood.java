@@ -18,11 +18,11 @@ public class ItemPlaceableFood extends ItemFoodTFC
 {
 	@SuppressWarnings("unused")
 	private EnumFoodGroup foodgroup;
-	
+
 	private boolean mustBeRaw;
 	private float blockWeight;
 	private Block placeableBlock;
-	
+
 	public ItemPlaceableFood(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um, float weight, Block block, Boolean raw)
 	{
 		super(fg, um, um, um, um, um);
@@ -39,14 +39,14 @@ public class ItemPlaceableFood extends ItemFoodTFC
 		tasteBitter = bi;
 		tasteUmami = um;
 		foodID = FoodRegistry.getInstance().registerFood(fg, this);
-		
+
 		mustBeRaw = raw;
 		blockWeight = weight;
 		placeableBlock = block;
 	}
 
 	/**
-	 * 
+	 *
 	 * @param fg FoodGroup
 	 * @param sw Sweet
 	 * @param so Sour
@@ -69,7 +69,7 @@ public class ItemPlaceableFood extends ItemFoodTFC
 		this(fg, sw, so, sa, bi, um, edible, weight, block, raw);
 		canBeUsedRaw = usable;
 	}
-	
+
 	/**
 	 * Checks to see if a food item has been cooked, dried, infused, pickled, salted or smoked.
 	 */
@@ -77,25 +77,25 @@ public class ItemPlaceableFood extends ItemFoodTFC
 	{
 		if(Food.isCooked(is))
 			return false;
-		
+
 		if(Food.isDried(is))
 			return false;
-		
+
 		if(Food.isInfused(is))
 			return false;
-		
+
 		if(Food.isPickled(is))
 			return false;
-		
+
 		if(Food.isSalted(is))
 			return false;
-		
+
 		if(Food.isSmoked(is))
 			return false;
-		
+
 		return true;
 	}
-	
+
 	/**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
      * True if something happen and false if it don't. This is for ITEMS, not BLOCKS
@@ -142,7 +142,7 @@ public class ItemPlaceableFood extends ItemFoodTFC
  	                ++x;
  	            }
  	        }
- 	        
+
         	if(mustBeRaw) //prevents modified pumpkins from being placed. (Cooked, Dried, etc)
         	{
         		if(isFoodRaw(is) == false)
@@ -164,24 +164,24 @@ public class ItemPlaceableFood extends ItemFoodTFC
  	        {
  	           int i1 = this.getMetadata(is.getItemDamage());
  	           int metadata = this.placeableBlock.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, i1);
- 	           
+
  	          TEFoodBlock te = null;
- 	           
+
  	           if(placeBlockAt(is, player, world, x, y, z, side, hitX, hitY, hitZ, metadata))
  	           {
  	        	  te = (TEFoodBlock)world.getTileEntity(x, y, z);
-	        	   
+
  	        	  if(te != null)
  	        	  {
  	        		  ItemStack stack = transferFoodNBT(is);
- 	        		  
+
  	        		  te.storage[0] = stack;
  	        	  }
- 	        	   
+
 	              world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), this.placeableBlock.stepSound.func_150496_b(), (this.placeableBlock.stepSound.getVolume() + 1.0F) / 2.0F, this.placeableBlock.stepSound.getPitch() * 0.8F);
 	              is.stackSize = is.stackSize-1;
  	           }
- 	            
+
  	            return true;
  	        }
  	        else
@@ -190,7 +190,7 @@ public class ItemPlaceableFood extends ItemFoodTFC
         else
         	return false;
     }
-    
+
     /**
      * Called to actually place the block, after the location is determined
      * and all permission checks have been made.
@@ -215,7 +215,7 @@ public class ItemPlaceableFood extends ItemFoodTFC
 
        return true;
     }
-    
+
     /**
      * Creates new ItemStack and transfers food NBT data.
      * @param is The ItemStack from which NBT data will be copied.
@@ -224,31 +224,31 @@ public class ItemPlaceableFood extends ItemFoodTFC
     {
 		ItemStack stack = new ItemStack(is.getItem());
 		stack = ItemFoodTFC.createTag(stack, Food.getWeight(is), Food.getDecay(is));
-		
+
 		Food.setSweetMod(stack, Food.getSweetMod(is));
 		Food.setSourMod(stack, Food.getSourMod(is));
 		Food.setSaltyMod(stack, Food.getSaltyMod(is));
 		Food.setBitterMod(stack, Food.getBitterMod(is));
 		Food.setSavoryMod(stack, Food.getSavoryMod(is));
-		
+
 		if(Food.isCooked(is))
 			Food.setCooked(stack, Food.getCooked(is));
-		
+
 		if(Food.isBrined(is))
 			Food.setBrined(stack, true);
-		
+
 		if(Food.isSalted(is))
 			Food.setSalted(stack, true);
-		
+
 		if(Food.isSmoked(is))
 			Food.setSmokeCounter(stack, Food.getSmokeCounter(is));
-		
+
 		if(Food.isDried(is))
 			Food.setDried(stack, Food.getDried(is));
-		
+
 		if(Food.isInfused(is))
 			Food.setInfusion(stack, Food.getInfusion(is));
-		
+
 		return stack;
     }
 }

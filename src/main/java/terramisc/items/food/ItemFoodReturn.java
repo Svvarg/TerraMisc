@@ -22,31 +22,31 @@ public class ItemFoodReturn extends ItemFoodTFC
 	private Item returnFood;
 	private float returnWeight;
 	private float returnChance;
-	
-	public ItemFoodReturn(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um) 
+
+	public ItemFoodReturn(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um)
 	{
 		super(fg, sw, so, sa, bi, um);
 	}
 
-	public ItemFoodReturn(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um, boolean edible) 
+	public ItemFoodReturn(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um, boolean edible)
 	{
 		super(fg, sw, so, sa, bi, um, edible);
 	}
-	
-	public ItemFoodReturn(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um, boolean edible, boolean usable) 
+
+	public ItemFoodReturn(EnumFoodGroup fg, int sw, int so, int sa, int bi, int um, boolean edible, boolean usable)
 	{
 		super(fg, sw, so, sa, bi, um, edible, usable);
 	}
-	
+
 	public Item setReturnFood(Item item, Float w, Float c)
 	{
 		returnFood = item;
 		returnWeight = w;
 		returnChance = c;
-		
+
 		return this;
 	}
-	
+
 	@Override
 	public ItemStack onEaten(ItemStack is, World world, EntityPlayer player)
 	{
@@ -83,7 +83,7 @@ public class ItemFoodReturn extends ItemFoodTFC
 
 		world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 		TFC_Core.setPlayerFoodStats(player, foodstats);
-		
+
 		//Start of new code
 		if(Food.isCooked(is) == false)
 		{
@@ -91,11 +91,11 @@ public class ItemFoodReturn extends ItemFoodTFC
 			{
 				Random r = new Random();
 				ItemStack food = ItemFoodTFC.createTag(new ItemStack(returnFood), CropIndex.getWeight(returnWeight, r));
-				
+
                 player.dropPlayerItemWithRandomChoice(food, false);
 			}
 		}
-		
+
 		return is;
 	}
 }

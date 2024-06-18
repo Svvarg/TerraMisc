@@ -24,7 +24,7 @@ public class BlockPumpkinLanternOff extends BlockPumpkinTFCM
 	{
 		return 1;
 	}
-	
+
 	/**
 	 * Lights Jack-O'-Lantern when player right-clicks with a torch, firestarter, or flint&steel in hand.
 	 */
@@ -36,31 +36,31 @@ public class BlockPumpkinLanternOff extends BlockPumpkinTFCM
 			int meta = world.getBlockMetadata(x, y, z);
 			ItemStack is = player.inventory.getCurrentItem();
 			Item item = is != null ? is.getItem() : null;
-			
+
 			if(item == Item.getItemFromBlock(TFCBlocks.torch))
 			{
 				world.setBlock(x, y, z, TFCMBlocks.blockPumpkinLantern, meta, 3);
-				
+
 				return true;
 			}
 			else if(item instanceof ItemFirestarter || item instanceof ItemFlintAndSteel)
 			{
 				ItemStack equippedItem = player.getCurrentEquippedItem();
-				
+
 				if(item instanceof ItemFlintAndSteel)
 				{
 					Random rand = new Random();
 					world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "fire.ignite", 1.0F, rand.nextFloat() * 0.4F + 0.8F);
 				}
-				
+
 				equippedItem.damageItem(1, player);
-				
+
 				world.setBlock(x, y, z, TFCMBlocks.blockPumpkinLantern, meta, 3);
-				
+
 				return true;
 			}
 		}
-		
+
 		return true;
 	}
 }

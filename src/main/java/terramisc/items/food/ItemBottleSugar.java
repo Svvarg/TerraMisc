@@ -19,19 +19,19 @@ public class ItemBottleSugar extends ItemWeightSmallHeavy
 	{
 		this.setMaxStackSize(64);
 	}
-	
+
 	@Override
 	public boolean canStack()
 	{
 		return true;
 	}
-	
+
 	public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player)
 	{
 		if (!player.capabilities.isCreativeMode)
 		{
 			--is.stackSize;
-			
+
 			if (!player.capabilities.isCreativeMode && (!player.inventory.addItemStackToInventory(new ItemStack(TFCItems.glassBottle))))
 			{
 				if (is.stackSize == 0)
@@ -43,44 +43,44 @@ public class ItemBottleSugar extends ItemWeightSmallHeavy
 				{
 					player.dropPlayerItemWithRandomChoice(new ItemStack(TFCItems.glassBottle), false);
 					player.dropPlayerItemWithRandomChoice(ItemFoodTFC.createTag(new ItemStack(TFCItems.sugar), 1F), false);
-				}	
+				}
 			}
 			else
 			{
 				player.dropPlayerItemWithRandomChoice(ItemFoodTFC.createTag(new ItemStack(TFCItems.sugar), 1F), false);
 			}
 		}
-		
+
 		player.addStat(TFCMAchievements.achSugar, 1);
 		return is;
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag) 
+	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
 	{
 		if(((ISize)is.getItem()).getSize(is)!= null && ((ISize)is.getItem()).getWeight(is) != null && ((ISize)is.getItem()).getReach(is)!= null)
-			arraylist.add("\u2696" + TFC_Core.translate("gui.Weight." + ((ISize)is.getItem()).getWeight(is).getName()) + " \u21F2" + 
+			arraylist.add("\u2696" + TFC_Core.translate("gui.Weight." + ((ISize)is.getItem()).getWeight(is).getName()) + " \u21F2" +
 					TFC_Core.translate("gui.Size." + ((ISize)is.getItem()).getSize(is).getName().replace(" ", "")));
-		
+
 		arraylist.add("Right click to remove sugar from bottle.");
 	}
-	
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) 
+
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack)
     {
         return true;
     }
-    
-    public boolean hasContainerItem() 
+
+    public boolean hasContainerItem()
     {
     	return true;
     }
-    
-    public ItemStack getContainerItem(ItemStack itemStack) 
+
+    public ItemStack getContainerItem(ItemStack itemStack)
     {
     	itemStack = new ItemStack(TFCItems.glassBottle);
-    	
+
     	return itemStack;
-    	
+
     }
 }

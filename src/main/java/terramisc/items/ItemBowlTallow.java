@@ -10,7 +10,7 @@ import terramisc.items.weights.ItemWeightSmallHeavy;
 public class ItemBowlTallow extends ItemWeightSmallHeavy
 {
 	private IIcon[] icons = new IIcon[3];
-	
+
 	public ItemBowlTallow()
 	{
 		super();
@@ -18,13 +18,13 @@ public class ItemBowlTallow extends ItemWeightSmallHeavy
 		this.hasSubtypes = true;
 		this.metaNames = new String[]{"0", "1", "2"};
 	}
-	
+
 	@Override
 	public IIcon getIconFromDamage(int i)
 	{
 		return icons[i];
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister registerer)
     {
@@ -32,37 +32,37 @@ public class ItemBowlTallow extends ItemWeightSmallHeavy
 		icons[1] = registerer.registerIcon("tfcm:" + getUnlocalizedName().replace("item.", "") + metaNames[1]);
 		icons[2] = registerer.registerIcon("tfcm:" + getUnlocalizedName().replace("item.", "") + metaNames[2]);
     }
-	
+
 	@Override
-	public boolean canStack() 
+	public boolean canStack()
 	{
 		return false;
 	}
-	
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) 
+
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack)
     {
         return false;
     }
-    
-    public boolean hasContainerItem() 
+
+    public boolean hasContainerItem()
     {
     	return true;
     }
-    
-    public ItemStack getContainerItem(ItemStack itemStack) 
+
+    public ItemStack getContainerItem(ItemStack itemStack)
     {
     	if(itemStack.getItemDamage() < 2)
     	{
     		itemStack.attemptDamageItem(1, itemRand);
-        	
+
         	return itemStack;
     	}
     	else
     	{
     		itemStack = new ItemStack(TFCItems.potteryBowl, 1, 1);
-    		
+
     		return itemStack;
     	}
-    	
+
     }
 }
