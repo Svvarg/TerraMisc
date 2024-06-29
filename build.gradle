@@ -119,14 +119,14 @@ tasks.withType(JavaCompile) {
 // This task creates a .jar file containing the source code of this mod.
 task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
-    classifier = "src" // appendix
+    archiveClassifier = "src" // appendix
 }
 
 // This task creates a .jar file containing a deobfuscated version of this mod,
 // for other developers to use in a development environment.
 task devJar(type: Jar) { // deobfJar
     from sourceSets.main.output
-    classifier = "dev" // deobf
+    archiveClassifier = "dev" // deobf
 }
 
 // Creates the listed artifacts on building the mod.
